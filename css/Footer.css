@@ -8,7 +8,7 @@ footer{
     height: 50vh;
     width: 100vw;
     margin-top: auto;
-    background-color: black; 
+    background-color: rgb(112, 86, 86); 
 }
 
 .conteiner{
@@ -16,7 +16,7 @@ footer{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 90px;
     width: 100%;
     height: 100%;
 }
@@ -113,4 +113,24 @@ a {
 
 .WhatsApp:hover span{
     color: #46dd8a;
+}
+
+/* Area comentarios */
+
+:root{
+    --amarelo: #ffcc00;
+    --cinza: #ccc;
+}
+
+.estrelas input[type=radio]{
+    display: none;
+}
+
+.estrelas label i.opcao.fa:before{
+    content: '\f005';
+    color: var(--amarelo);
+}
+
+.estrelas input[type=radio]:checked~label i.fa:before{
+    color: var(--cinza);
 }

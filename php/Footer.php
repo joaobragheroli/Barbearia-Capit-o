@@ -39,8 +39,31 @@
 
         <!-- Caixa de Comentarios -->
         <div class="item">
-        <h2>Avaliação</h2>
-        </div>
+            <h2>Avaliação</h2>
+                <form action="#" method="post">
+                    <div class="estrelas">
+
+                        <input type="radio" name="estrela" id="vazio" value="" checked>
+    
+                        <label for="estrela_um"><i class="opcao fa"></i></label>
+                        <input type="radio" name="estrela" id="estrela_um" id="vazio" value="1">
+    
+                        <label for="estrela_dois"><i class="opcao fa"></i></label>
+                        <input type="radio" name="estrela" id="estrela_dois" id="vazio" value="2">
+    
+                        <label for="estrela_tres"><i class="opcao fa"></i></label>
+                        <input type="radio" name="estrela" id="estrela_tres" id="vazio" value="3">
+    
+                        <label for="estrela_quatro"><i class="opcao fa"></i></label>
+                        <input type="radio" name="estrela" id="estrela_quatro" id="vazio" value="4">
+    
+                        <label for="estrela_cinco"><i class="opcao fa"></i></label>
+                        <input type="radio" name="estrela" id="estrela_cinco" id="vazio" value="5"><br><br>
+    
+                        <input type="button" value="Cadastrar"><br><br>
+                    </div>
+                </form>
+            </div>
         </div>
         
     </footer>

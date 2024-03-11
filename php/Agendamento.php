@@ -14,9 +14,9 @@
         ?>
     </header>
 
-    <main>
+    <main class = "corpo-agendamento">
         <?php
-            
+        
         ?>
     </main>
 
