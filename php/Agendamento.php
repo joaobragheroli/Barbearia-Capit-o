@@ -15,9 +15,33 @@
     </header>
 
     <main class = "corpo-agendamento">
-        <?php
-        
-        ?>
+    <div>
+            <ul class="agendamento">
+                <li>
+                    <h2>Cabelo</h2>
+                    <img src="../img/Cabelo.png">
+                    <p class="agendamento-descricao">Em tesoura ou máquina. Como o cliente preferir</p>
+                    <br>
+                    <p class="product-price">$ 00,00</p>
+                </li>
+                <li>
+                    <h2>Barba</h2>
+                    <img src="../img/barba.png">
+                    <p class="agendamento-descricao">Corte e desenho profissional de barba</p>
+                    <br>
+                    <p class="product-price">$ 00,00</p>
+                </li>
+                <a href="../php/Agendamento.php">
+                    <li>
+                        <h2>Barba e Cabelo</h2>
+                        <img src="../img/Cabelo e Barba.png">
+                        <p class="agendamento-descricao">Pacote completo de cabelo e barba</p>
+                        <br>
+                        <p class="product-price">$ 00,00</p>
+                    </li>   
+                </a>
+            </ul>
+        </div>
     </main>
 
     <footer>
