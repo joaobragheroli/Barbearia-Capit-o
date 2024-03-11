@@ -19,6 +19,11 @@
                     <a href="../html/Cortes.html">Cortes</a>
                 </nav>
             </div>
+
+            <div class="botao-login">
+                <button><a href="#">Entrar</a></button>
+            </div>
+
         </div>
     </header>  
 </body>
