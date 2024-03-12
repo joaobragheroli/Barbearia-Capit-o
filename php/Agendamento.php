@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>Document</title>
 </head>
 <body>
     <header>
         <?php
-            // include './Header.php';
+            include './Header.php';
         ?>
     </header>
 
@@ -31,13 +32,13 @@
                     <br>
                     <p class="product-price">$ 00,00</p>
                 </li>
-                <a href="../php/Agendamento.php">
+                <a href="marcarhora.php">
                     <li>
-                        <h2>Barba e Cabelo</h2>
-                        <img src="../img/Cabelo e Barba.png">
-                        <p class="agendamento-descricao">Pacote completo de cabelo e barba</p>
-                        <br>
-                        <p class="product-price">$ 00,00</p>
+                            <h2>Barba e Cabelo</h2>
+                            <img src="../img/Cabelo e Barba.png">
+                            <p class="agendamento-descricao">Pacote completo de cabelo e barba</p>
+                            <br>
+                            <p class="product-price">$ 00,00</p>
                     </li>   
                 </a>
             </ul>

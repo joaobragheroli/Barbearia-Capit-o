@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="../css/Footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <footer>
         <div class="conteiner">
@@ -28,7 +29,7 @@
 
                         <a href="#" class="btn WhatsApp">
                             <div class="icon">
-                                <i class="fab fa-facebook"></i>
+                            <i class="ph ph-whatsapp-logo"></i>
                             </div>
                             <span>WhatsApp</span>
                         </a>
