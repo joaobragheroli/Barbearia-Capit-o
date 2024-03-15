@@ -1,10 +1,5 @@
-<head>
-    <!-- <link rel="stylesheet" href="../css/Footer.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
-<footer>
-        <div class="conteiner">
+
+<div class="conteiner-footer">
             <!-- icons -->
             <div class="item">
                 <div class="page">
@@ -66,5 +61,4 @@
                 </form>
             </div>
         </div>
-        
-    </footer>
+   
