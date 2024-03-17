@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,6 +26,7 @@
     <main class = "corpo-agendamento">
     <div>
             <ul class="agendamento">
+            <a href="marcarhora.php">
                 <li>
                     <h2>Cabelo</h2>
                     <img src="../img/Cabelo.png">
@@ -27,6 +34,8 @@
                     <br>
                     <p class="product-price">$ 00,00</p>
                 </li>
+                </a>
+                <a href="marcarhora.php">
                 <li>
                     <h2>Barba</h2>
                     <img src="../img/barba.png">
@@ -34,6 +43,7 @@
                     <br>
                     <p class="product-price">$ 00,00</p>
                 </li>
+                </a>
                 <a href="marcarhora.php">
                     <li>
                             <h2>Barba e Cabelo</h2>
