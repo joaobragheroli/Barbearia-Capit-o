@@ -270,6 +270,18 @@ a {
 }
 
 
+#comentarios {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 25%;
+}
+
+#avaliacaoTotal {
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+}
 
 /*Efeito do link*/
 
