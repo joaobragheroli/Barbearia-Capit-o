@@ -66,9 +66,10 @@
                     <label for="estrela_cinco"><i class="opcao fa"></i></label>
                     <input type="radio" name="estrela" id="estrela_cinco" id="vazio" value="5"><br><br>
     
-                    <textarea name="mensagem" id="" cols="20" rows="4">Digite o seu Comentario</textarea>
+                    <textarea name="mensagem" id="" cols="20" rows="4" placeholder="Deixe seu comentario"></textarea>
     
-                    <input type="button" value="Enviar"><br><br>
+                    <input id="btn-enviar" type="button" value="Enviar"><br><br>
+
                 </div>
             </form>
         </div>
