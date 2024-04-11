@@ -6,9 +6,11 @@
             </div>
             <div class="item">
                 <nav>
-                    <i class="ph ph-house"></i><a href="../php/Home.php">Home</a>
-                    <i class="ph ph-package"></i><a href="../php/Produtos.php">Produtos</a>
+                    <a href="../php/Home.php">Home</a>
+                    <a href="../php/Produtos.php">Produtos</a>
                     <a href="../php/Servicos.php">Serviços</a>
+                    <a href="../php/escolherCorte.php">Agendamento</a>
+                   
                 </nav>
             </div>
 
