@@ -67,7 +67,6 @@
                     <input type="radio" name="estrela" id="estrela_cinco" id="vazio" value="5"><br><br>
     
                     <textarea name="mensagem" id="" cols="20" rows="4" placeholder="Deixe seu comentario"></textarea>
-    
                     <input id="btn-enviar" type="button" value="Enviar"><br><br>
 
                 </div>

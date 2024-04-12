@@ -212,6 +212,7 @@ a {
 
 /* Area comentarios */
 
+
 :root{
     --amarelo: #ffcc00;
     --cinza: #ccc;
@@ -411,7 +412,7 @@ nav a:hover::after{
     width: 70%;
 }
 
-textarea {
+/* textarea {
     padding: 1px;
     background-color: red;
     width: 100%;
@@ -419,7 +420,7 @@ textarea {
     outline: none;
     border-radius: 1px solid white;
     color: black;
-}
+} 
 
 textarea::placeholder {
     color: white;
@@ -438,4 +439,4 @@ textarea::placeholder {
     border-radius: 3px;
     font-weight: bold;
     background-color: blue;
-}
+} */
