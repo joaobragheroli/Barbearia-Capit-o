@@ -412,7 +412,9 @@ nav a:hover::after{
     width: 70%;
 }
 
-/* textarea {
+/* Coisa do Luander */
+
+textarea {
     padding: 1px;
     background-color: red;
     width: 100%;
@@ -439,4 +441,4 @@ textarea::placeholder {
     border-radius: 3px;
     font-weight: bold;
     background-color: blue;
-} */
+}
