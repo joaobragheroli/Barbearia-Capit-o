@@ -8,7 +8,7 @@
                 <nav>
                     <a href="../php/Home.php">Home</a>
                     <a href="../php/Produtos.php">Produtos</a>
-                    <a href="../php/Servicos.html">Serviços</a>
+                    <a href="../php/Servicos.php">Serviços</a>
                     <a href="../php/escolherCorte.php">Agendamento</a>
                    
                 </nav>
