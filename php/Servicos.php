@@ -4,23 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Ver as tags que estão coledindo '~' -->
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/SErvicos.css">
+    <title>Serviços</title>
 </head>
 
 <body style="background-color: rgb(77, 64, 64);">
     <header>
         <?php
-        include './Header.php';
+        include './footerHearder/Header.php';
         ?>
     </header>
 
     <!-- Carrosel -->
-    <!-- style="width: 50%; display " ver se funciona o displat:"flex" no conteiner  -->
     <div class="conteiner">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -60,7 +61,7 @@
 
     <footer>
         <?php
-            include './Footer.php';
+            include './footerHearder/Footer.php';
         ?>
     </footer>
 </body>

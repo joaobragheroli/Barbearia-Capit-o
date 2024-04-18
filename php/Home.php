@@ -12,7 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Home.css">
     <script defer src="../script/script.js"></script>
     <title>Document</title>
 </head>
@@ -20,7 +20,7 @@ session_start();
 <body>
     <header>
         <?php
-        include './Header.php';
+        include './footerHearder/Header.php';
         ?>
     </header>
     <main class="corpo-home">
@@ -44,7 +44,7 @@ session_start();
     </main>
     <footer>
         <?php
-        include './Footer.php';
+        include './footerHearder/Footer.php';
         ?>
     </footer>
 </body>
