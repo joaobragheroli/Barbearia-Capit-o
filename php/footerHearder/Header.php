@@ -15,7 +15,7 @@
             </div>
 
                 <a href="../Home/Home.php">
-                    <butto id="button-login">Entrar</button>
+                    <butto id="button-login"><a href="login.php">Entrar</a></button>
                 </a>
 
         </div>

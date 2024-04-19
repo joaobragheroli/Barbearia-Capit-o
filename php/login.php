@@ -1,15 +1,15 @@
 <DOCTYPE html>
     <html lang="pt-br">
         <head>
-            <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../css/Home.css">
             <title>Login</title>
         </head>
         <body>
-            <section>
+            <section id="section-login">
                 <div class="form-box">
                     <div class="form-value">
                         <form action="">
-                            <h2>Login</h2>
+                            <h2 class="h2-login">Login</h2>
                             <div class="inputbox">
                                 <ion-icon name="mail-outline"></ion-icon>
                                 <input type="email" required>
