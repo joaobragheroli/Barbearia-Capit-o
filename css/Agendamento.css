@@ -11,99 +11,12 @@ body {
     background-color: beige;
 }
 
-/* header */
-
-header{
-    background-color: black;
-    height: 20vh;
-}
-
-.conteiner-header .item{
-    padding-bottom: 35px;
-}
-
-.conteiner-header button{
-    display: none;
-    background-color: white;
-    padding: 10px 15px;
-}
-
-.botao-login button a{
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.conteiner-header {
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-    height: 100%;
-}
-
-.conteiner-header i {
-    color: black;
-    font-size: 20px;
-    padding-right: 14px;
-}
-
-#button-login  {
-    background-color: black;
-    border: 2px solid white;
-    font-size: 20px;
-    color: white;
-    border-radius: 15px;
-    padding: 5px;
-}
-
-/*Efeito do link*/
-
-nav {
-    text-align: center;
-    margin-top: 50px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-a {
-    font-family: 100px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0px 50px 10px 0;
-    font-family: 35px;
-    font-size: 20px;
-    position: relative;
-}
-
-nav a::after{
-    content: " ";
-    width: 0%;
-    height: 4px;
-    background-color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.6s ease-in-out;
-}
-
-nav a:hover::after{
-    width: 70%;
-}
-
-/* footer */
+/* Footer */
 
 footer{
     height: 50vh;
     margin-top: auto;
-    background-color: rgb(0, 0, 0); 
+    background-color: black; 
 }
 
 .conteiner-footer{
@@ -111,7 +24,7 @@ footer{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 90px;
     height: 100%;
 }
 
@@ -120,8 +33,94 @@ h2 {
     padding: 10px;
 }
 
-.conteiner-header img{
-    border-radius: 15px;
+/* icons */
+
+.page {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img{
+    width: 150px;
+    border-radius: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.box .btn{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 0 5px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+}
+
+.box .btn:hover{
+    width: 200px;
+}
+
+.box .btn .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    color: black;
+    transition: all 0.3s ease-out;
+}
+
+.instagran:hover .icon{
+    background: #e1306c;
+}
+
+.facebook:hover .icon{
+    background: #4267b2;
+}
+
+.WhatsApp:hover .icon{
+    background: #46dd8a;
+}
+
+.box .btn .icon i {
+    font-size: 20px;
+    line-height: 60px;
+    transition: all 0.3 ease-out;
+}
+
+.box .btn:hover .icon i {
+    color: fff;
+
+}
+
+.box .btn span{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+    transition: all 0.5 ease-out;
+}
+
+.instagran:hover span{
+    color: #e1306c;
+}
+
+.facebook:hover span{
+    color: #4267b2;
+}
+
+.WhatsApp:hover span{
+    color: #46dd8a;
 }
 
 /* Area comentarios */
@@ -228,94 +227,95 @@ textarea::placeholder {
     background-color: blue;
 }
 
-/* icons */
+/* header */
 
-.page {
-    display: flex;
-    gap: 30px;
-    flex-direction: column;
-    align-items: center;
+.conteiner-header img{
+    border-radius: 15px;
 }
 
-.logo img{
-    width: 150px;
-    border-radius: 50px;
+header{
+    background-color: black;
+    height: 20vh;
+}
+
+.conteiner-header .item{
+    padding-bottom: 35px;
+}
+
+.conteiner-header button{
+    display: none;
+    background-color: white;
+    padding: 10px 15px;
+}
+
+.botao-login button a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.conteiner-header {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
+}
+
+.conteiner-header i {
+    color: black;
+    font-size: 20px;
+    padding-right: 14px;
+}
+
+#button-login  {
+    background-color: black;
+    border: 2px solid white;
+    font-size: 20px;
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+/*Efeito do link*/
+
+nav {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
+    font-family: 100px;
+}
+
+nav a {
+    color: white;
     text-decoration: none;
-}
-
-.box .btn{
-    display: inline-block;
-    height: 60px;
-    width: 60px;
-    margin: 0 5px;
-    overflow: hidden;
-    background-color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-out;
-}
-
-.box .btn:hover{
-    width: 200px;
-}
-
-.box .btn .icon {
-    display: inline-block;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    border-radius: 50px;
-    box-sizing: border-box;
-    line-height: 60px;
-    color: black;
-    transition: all 0.3s ease-out;
-}
-
-.instagran:hover .icon{
-    background: #e1306c;
-}
-
-.facebook:hover .icon{
-    background: #4267b2;
-}
-
-.WhatsApp:hover .icon{
-    background: #46dd8a;
-}
-
-.box .btn .icon i {
+    padding: 0px 50px 10px 0;
+    font-family: 35px;
     font-size: 20px;
-    line-height: 60px;
-    transition: all 0.3 ease-out;
+    position: relative;
 }
 
-.box .btn:hover .icon i {
-    color: fff;
-
+nav a::after{
+    content: " ";
+    width: 0%;
+    height: 4px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.6s ease-in-out;
 }
 
-.box .btn span{
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 60px;
-    margin-left: 10px;
-    transition: all 0.5 ease-out;
-}
-
-.instagran:hover span{
-    color: #e1306c;
-}
-
-.facebook:hover span{
-    color: #4267b2;
-}
-
-.WhatsApp:hover span{
-    color: #46dd8a;
+nav a:hover::after{
+    width: 70%;
 }
 
 /* Corpo Agendamento */

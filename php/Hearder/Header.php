@@ -14,8 +14,8 @@
                 </nav>
             </div>
 
-                <a href="../Home/Home.php">
-                    <butto id="button-login"><a href="login.php">Entrar</a></button>
+                <a href="../php/Home.php">
+                    <butto id="button-login">Entrar</button>
                 </a>
 
         </div>

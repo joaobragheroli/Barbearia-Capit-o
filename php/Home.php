@@ -8,19 +8,22 @@ session_start();
 <html lang="pt-br">
 
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="../script/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/Home.css">
-    <script defer src="../script/script.js"></script>
-    <title>Document</title>
+
+    <title>Home</title>
 </head>
 
 <body>
     <header>
         <?php
-        include './footerHearder/Header.php';
+        include './Hearder/Header.php';
         ?>
     </header>
     <main class="corpo-home">
@@ -44,7 +47,7 @@ session_start();
     </main>
     <footer>
         <?php
-        include './footerHearder/Footer.php';
+        include './Footer/Footer.php';
         ?>
     </footer>
 </body>

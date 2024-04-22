@@ -1,3 +1,8 @@
 # Barbearia-Capit-o
 Projeto TCC - 3ºano
-joao
+
+Produzido Por:
+João Otávio.B
+Nilton.L
+Raquel.A
+Guilherme.F
