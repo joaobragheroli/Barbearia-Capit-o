@@ -27,7 +27,9 @@
                             <label for="">Senha</label>
                         </div>
                         <button>Entrar</button>
+                        <div class="register">
                         <p>Você não tem uma conta?<a href="cadastro.php">Cadastrar</a></p>
+                        </div>
                     </form>
                 </div>
             </div>
