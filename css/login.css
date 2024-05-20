@@ -6,14 +6,15 @@
 
 #section-login{
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     min-height: 100vh;
     width: 100%;   
 
-    background: url('background: green')no-repeat;
+    background-image: url('../img/img-login..png');
     background-position: center;
-    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .form-box{
@@ -21,7 +22,7 @@
     width: 400px;
     height: 450px;
     background-color: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
+    border: 2px solid rgba(229, 217, 217, 0.5);
     border-radius: 20px;
     backdrop-filter: blur(15px);
 
