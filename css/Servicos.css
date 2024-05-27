@@ -11,15 +11,18 @@ body {
     background-color: beige;
 }
 
+
 /* Footer */
 
 footer{
+    all: unset;
     height: 50vh;
     margin-top: auto;
     background-color: black; 
 }
 
 .conteiner-footer{
+    all: unset;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,7 +38,7 @@ h2 {
 
 /* icons */
 
-.page {
+ .page {
     display: flex;
     gap: 30px;
     flex-direction: column;
@@ -53,16 +56,16 @@ a {
 
 .box .btn{
     display: inline-block;
-    height: 60px;
+    height: 60px; 
     width: 60px;
     margin: 0 5px;
-    overflow: hidden;
+     overflow: hidden; 
     background-color: #fff;
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
-}
+} 
 
 .box .btn:hover{
     width: 200px;
@@ -72,12 +75,17 @@ a {
     display: inline-block;
     height: 60px;
     width: 60px;
-    text-align: center;
+    /* text-align: center; */
     border-radius: 50px;
     box-sizing: border-box;
     line-height: 60px;
     color: black;
     transition: all 0.3s ease-out;
+}
+
+.box .btn .icon {
+    padding-right: 28px;
+    padding-bottom: 2px;
 }
 
 .instagran:hover .icon{
@@ -90,7 +98,7 @@ a {
 
 .WhatsApp:hover .icon{
     background: #46dd8a;
-}
+}  
 
 .box .btn .icon i {
     font-size: 20px;
@@ -121,7 +129,7 @@ a {
 
 .WhatsApp:hover span{
     color: #46dd8a;
-}
+} 
 
 /* Area comentarios */
 
@@ -184,13 +192,12 @@ a {
     padding-right: 14px;
 }
 
-
+/* Problema centralizar */
 #comentarios {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 25%;
-}
+} 
 
 #avaliacaoTotal {
     display: flex;
@@ -215,7 +222,6 @@ textarea::placeholder {
 #btn-enviar{
     color: white;
     width: 100%;
-    margin-top: 10px;
     padding: 10px;
     font-size: 17px;
     outline: none;

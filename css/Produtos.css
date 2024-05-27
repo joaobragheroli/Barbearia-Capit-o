@@ -70,8 +70,8 @@ a {
 
 .box .btn .icon {
     display: inline-block;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     text-align: center;
     border-radius: 50px;
     box-sizing: border-box;
@@ -184,12 +184,11 @@ a {
     padding-right: 14px;
 }
 
-
+/* Problema centralizar */
 #comentarios {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 25%;
 }
 
 #avaliacaoTotal {
@@ -215,7 +214,6 @@ textarea::placeholder {
 #btn-enviar{
     color: white;
     width: 100%;
-    margin-top: 10px;
     padding: 10px;
     font-size: 17px;
     outline: none;

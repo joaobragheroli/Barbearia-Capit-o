@@ -28,7 +28,7 @@ session_start();
     </header>
     <main class="corpo-home">
         <section class="hidden">
-            <h1>Bla Bla Bla</h1>
+            <h1>Bla3 Bla3 Bla3</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, voluptatum quibusdam repellendus iure,
                 amet, velit necessitatibus harum veritatis illo sint quod officiis neque. Asperiores nihil quidem
                 voluptates sint veritatis nisi!</p>

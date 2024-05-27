@@ -29,7 +29,7 @@ footer{
 }
 
 h2 {
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px;
 }
 
@@ -184,12 +184,11 @@ a {
     padding-right: 14px;
 }
 
-
+/* Problema centralizar */
 #comentarios {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 25%;
 }
 
 #avaliacaoTotal {
@@ -215,7 +214,6 @@ textarea::placeholder {
 #btn-enviar{
     color: white;
     width: 100%;
-    margin-top: 10px;
     padding: 10px;
     font-size: 17px;
     outline: none;
