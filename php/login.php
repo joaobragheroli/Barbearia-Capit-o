@@ -11,6 +11,9 @@
     </head>
 
     <body>
+        <div class="img">
+            <img src="../img/Cabelo.png">
+        </div>
         <section id="section-login">
             <div class="form-box">
                 <div class="form-value">
