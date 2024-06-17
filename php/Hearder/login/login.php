@@ -6,15 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
-        <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../login/css/login.css">
         <title>Login</title>
     </head>
 
     <body>
-        <div class="img">
-            <img src="../img/Cabelo.png">
-        </div>
         <section id="section-login">
+            <div class="img">
+                <img src="../login/img/img.jpg" alt="" height="500px">
+            </div>
+
             <div class="form-box">
                 <div class="form-value">
                     <form action="">
