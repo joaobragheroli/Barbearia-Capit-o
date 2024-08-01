@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!--tags que estão coledindo '~'-->
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/Servicos.css">
+    <!-- link SWIPER -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!--link Icone-->
+    <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon"> 
+    <!-- link script -->
+    <script defer src="../script/script.js"></script>
+    <!--link CSS-->
+    <link rel="stylesheet" href="../css/Servicos.css"> 
 
     <title>Serviços</title>
 </head>
@@ -63,6 +69,72 @@
                 </button>
             </div>
         </div>
+
+        <!-- Carrosel Card -->
+        <div class="conteiner swiper">
+        <div class="slider-wrapper">
+            <div class="card-list swiper-wrapper">
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+                    <h6>VAMO COME PICANHA</h6>
+                    <h1>R$ 10000</h1>
+                    <button class="explica-button">sobre</button>
+                </div> 
+
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+                    <h6>VAMO COME PICANHA</h6>
+                    <h1>R$ 10000</h1>
+                    <button class="explica-button">sobre</button>
+                </div> 
+
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+                    
+                    
+                    <button class="explica-button">sobre</button>
+                </div> 
+
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+                  
+                    <button class="explica-button">sobre</button>
+                </div> 
+
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+                    
+                    <button class="explica-button">sobre</button>
+                </div> 
+
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+                    <h6>VAMO COME PICANHA</h6>
+                    <h1>R$ 10000</h1>
+                    <button class="explica-button">sobre</button>
+                </div> 
+
+                <div class="card-item swiper-slide">
+                    <img src="lula.png" alt="" class="user-image">
+            
+                    <button class="explica-button">sobre</button>
+                </div> 
+                
+                
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+
     </main>
     <footer>
         <?php

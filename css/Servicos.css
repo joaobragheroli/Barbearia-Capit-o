@@ -329,3 +329,58 @@ nav a:hover::after{
     height: 100;
     margin: 50px;
 }
+
+/* Era para dar espaço das bordas 'Problema' */
+.slider-wrapper{
+    overflow: hidden;
+    max-width: 1600px;
+    margin: 0, 70px, 55px;
+
+}
+
+
+.card-list .card-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: aliceblue;
+    width: 200px;
+    height: 270px;
+    padding: 35px;
+    border-radius: 8px;
+    backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid black;
+}
+
+.card-list .card-item .user-image {
+    width: 100px;
+    height: 500px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid antiquewhite;
+    padding: 4px;
+}
+
+.card-list .card-item .explica-button {
+    font-size: 1.2rem;
+    padding: 5px;
+    color: black;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fff;
+    border: 1px transparent;
+}
+
+.card-list .card-item .explica-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+/* .slider-wrapper {
+   padding-bottom: 600px //// -> para colocar uma coisa sobre a outra 
+} */
