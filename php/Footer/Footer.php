@@ -1,5 +1,3 @@
-
-
 <div class="conteiner-footer">
     <!-- icons -->
     <div class="item">
@@ -40,7 +38,7 @@
 
         <?php
         // Imprimir a mensagem de erro ou sucesso salvo na sessão
-        if (isset ($_SESSION['msg'])) {
+        if (isset($_SESSION['msg'])) {
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         }

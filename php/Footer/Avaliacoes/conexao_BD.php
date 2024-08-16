@@ -18,5 +18,4 @@ try {
     echo "Erro: Conexão com banco de dados não realizado com sucesso. Erro gerado " . $err->getMessage();
 }
     // Fim da conexão com o banco de dados utilizando PDO
-
 ?>

@@ -1,20 +1,20 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: 'poppins' ,sans-serif;
+    font-family: 'poppins', sans-serif;
 }
 
-body{
+body {
     overflow: hidden;
-    
+
 }
 
-#section-cadastro{
+#section-cadastro {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    width: 100%;  
+    width: 100%;
     gap: 600px;
     background-image: url(../img/login.jpeg);
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body{
     background-size: 100%;
 }
 
-.form-box{
+.form-box {
     position: relative;
     width: 400px;
     height: 450px;
@@ -35,20 +35,20 @@ body{
     align-items: center;
 }
 
-h2{
+h2 {
     font-size: 2em;
     color: white;
     text-align: center;
 }
 
-.inputbox{
+.inputbox {
     position: relative;
     margin: 30px 0;
-    width: 310;   
+    width: 310;
     border-bottom: 2px solid white;
 }
 
-.inputbox label{
+.inputbox label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -59,12 +59,12 @@ h2{
     transition: .5s;
 }
 
-input:focus ~ label,
-input:focus ~ :valid {
+input:focus~label,
+input:focus~ :valid {
     top: -5px;
 }
 
-.inputbox input{
+.inputbox input {
     width: 100%;
     height: 50px;
     background: transparent;
@@ -75,7 +75,7 @@ input:focus ~ :valid {
     color: white;
 }
 
-.inputbox ion-icon{
+.inputbox ion-icon {
     position: absolute;
     right: 8px;
     color: white;
@@ -83,7 +83,7 @@ input:focus ~ :valid {
     top: 20px;
 }
 
-.forget{
+.forget {
     margin: -15px 0 15px;
     font-size: .9em;
     color: white;
@@ -91,7 +91,7 @@ input:focus ~ :valid {
     justify-content: center;
 }
 
-button{
+button {
     width: 100%;
     height: 40px;
     border-radius: 40px;
@@ -103,19 +103,19 @@ button{
     font-weight: 600;
 }
 
-.register{
+.register {
     font-size: .9em;
     color: white;
     text-align: center;
     margin: 25px 0 10px;
 }
 
-.register p a{
+.register p a {
     text-decoration: none;
     color: white;
     font-weight: 600;
 }
 
-.register p a:hover{
+.register p a:hover {
     text-decoration: underline;
 }

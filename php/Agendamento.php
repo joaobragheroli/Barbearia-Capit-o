@@ -6,6 +6,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@ session_start();
 
     <title>Cortes</title>
 </head>
+
 <body>
     <header>
         <?php
@@ -24,35 +26,35 @@ session_start();
         ?>
     </header>
 
-    <main class = "corpo-agendamento">
-    <div>
+    <main class="corpo-agendamento">
+        <div>
             <ul class="agendamento">
-            <a href="Agendamento.php">
-                <li>
-                    <h2>Cabelo</h2>
-                    <img src="../img/Cabelo.png">
-                    <p class="agendamento-descricao">Em tesoura ou máquina. Como o cliente preferir</p>
-                    <br>
-                    <p class="product-price">$ 00,00</p>
-                </li>
+                <a href="Agendamento.php">
+                    <li>
+                        <h2>Cabelo</h2>
+                        <img src="../img/Cabelo.png">
+                        <p class="agendamento-descricao">Em tesoura ou máquina. Como o cliente preferir</p>
+                        <br>
+                        <p class="product-price">$ 00,00</p>
+                    </li>
                 </a>
                 <a href="Agendamento.php">
                     <li>
-                            <h2>Barba e Cabelo</h2>
-                            <img src="../img/Cabelo e Barba.png">
-                            <p class="agendamento-descricao">Pacote completo de cabelo e barba</p>
-                            <br>
-                            <p class="product-price">$ 00,00</p>
-                    </li>   
+                        <h2>Barba e Cabelo</h2>
+                        <img src="../img/Cabelo e Barba.png">
+                        <p class="agendamento-descricao">Pacote completo de cabelo e barba</p>
+                        <br>
+                        <p class="product-price">$ 00,00</p>
+                    </li>
                 </a>
                 <a href="Agendamento.php">
-                <li>
-                    <h2>Barba</h2>
-                    <img src="../img/barba.png">
-                    <p class="agendamento-descricao">Corte e desenho profissional de barba</p>
-                    <br>
-                    <p class="product-price">$ 00,00</p>
-                </li>
+                    <li>
+                        <h2>Barba</h2>
+                        <img src="../img/barba.png">
+                        <p class="agendamento-descricao">Corte e desenho profissional de barba</p>
+                        <br>
+                        <p class="product-price">$ 00,00</p>
+                    </li>
                 </a>
             </ul>
         </div>
@@ -64,4 +66,5 @@ session_start();
         ?>
     </footer>
 </body>
+
 </html>

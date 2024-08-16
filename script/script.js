@@ -1,13 +1,13 @@
 // Faz chegar a frase no "Home" 
 
 const myObserver = new IntersectionObserver((entries) => {
-    entries.forEach( (entry) => {
-        if(entry.isIntersecting){
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
             entry.target.classList.add('show')
         } else {
             entry.target.classList.remove("show")
         }
-    })  
+    })
 })
 
 const elements = document.querySelectorAll('.hidden')
@@ -15,23 +15,22 @@ const elements = document.querySelectorAll('.hidden')
 elements.forEach((element) => myObserver.observe(element))
 
 // Faz mudar o Carrosel Card "Serviço"
-
 const swiper = new Swiper('.slider-wrapper', {
     loop: true,
     grabCursor: true,
-    spaceBetween: 20,
-  
+    spaceBetween: 1,
+
     // If we need pagination
     pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      dynamicBullets: true
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
     },
-  
+
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
 
     // Responsavel breakPoint
@@ -40,11 +39,11 @@ const swiper = new Swiper('.slider-wrapper', {
             slidesPerView: 1
         },
         620: {
-            slidesPerView: 2
+            slidesPerView: 3
         },
         1024: {
-            slidesPerView: 6
+            slidesPerView: 4
         }
     }
 
-  });
+});
