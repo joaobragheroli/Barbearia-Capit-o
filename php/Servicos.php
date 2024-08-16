@@ -30,152 +30,164 @@
         ?>
     </header>
 
-    <main class="corpo-servicos">
-        <!-- Carrosel -->
-        <div class="conteiner-servicos">
-            <div id="carouselExampleIndicators" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <menu>
+        <div class="corpo-carrosel">
+            <!-- Carrosel -->
+            <div class="conteiner-servicos">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner" style="height: 30em;">
+                        <div class="carousel-item h-100 active " style="background: url(../img/Cabelo\ e\ Barba.png) center/contain no-repeat;">
+
+                        </div>
+                        <div class="carousel-item h-100" style="background: url(../img/barba.png) center/contain no-repeat;">
+
+                        </div>
+                        <div class="carousel-item h-100" style="background: url(../img/Cabelo.png) center/contain no-repeat;">
+
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-
-                <div class="carousel-inner" style="height: 30em;">
-                    <div class="carousel-item h-100 active " style="background: url(../img/Cabelo\ e\ Barba.png) center/contain no-repeat;">
-
-                    </div>
-                    <div class="carousel-item h-100" style="background: url(../img/barba.png) center/contain no-repeat;">
-
-                    </div>
-                    <div class="carousel-item h-100" style="background: url(../img/Cabelo.png) center/contain no-repeat;">
-
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
-        </div>
 
-        <!-- Carrosel Card -->
-        <div class="conteiner swiper">
-            <div class="slider-wrapper">
-                <div class="card-list swiper-wrapper">
-                    <div class="card-item swiper-slide">
-                        <a href="primeira img">
+            <!-- Carrosel Card -->
+            <div class="conteiner swiper">
+                <div class="slider-wrapper">
+                    <div class="card-list swiper-wrapper">
+                        <div class="card-item swiper-slide">
+                            <a href="primeira img">
+                                <img src="../img/barba.png" alt="" class="user-image">
+                                <h6>VAMO COME PICANHA</h6>
+                                <h1>R$ 10000</h1>
+                                <button class="explica-button">sobre</button>
+                            </a>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/cabelo e barba.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/Cabelo.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/cabelo e barba.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
+                        <div class="card-item swiper-slide">
                             <img src="../img/barba.png" alt="" class="user-image">
                             <h6>VAMO COME PICANHA</h6>
                             <h1>R$ 10000</h1>
                             <button class="explica-button">sobre</button>
-                        </a>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/Cabelo.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/barba.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/Cabelo.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/Cabelo.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/cabelo e barba.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
 
-                    <div class="card-item swiper-slide">
-                        <img src="../img/Cabelo.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/Cabelo.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/cabelo e barba.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
+                        <div class="card-item swiper-slide">
+                            <img src="../img/Cabelo.png" alt="" class="user-image">
+                            <h6>VAMO COME PICANHA</h6>
+                            <h1>R$ 10000</h1>
+                            <button class="explica-button">sobre</button>
+                        </div>
                     </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
-                    <div class="card-item swiper-slide">
-                        <img src="../img/Cabelo.png" alt="" class="user-image">
-                        <h6>VAMO COME PICANHA</h6>
-                        <h1>R$ 10000</h1>
-                        <button class="explica-button">sobre</button>
-                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
             </div>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script src="script.js"></script>
         </div>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="script.js"></script>
 
         <!-- Pagina de Serviços oferecidos -->
+        <div class="conteinerTD">
 
-        <div class="conteinerS">
-            <div class="conteinerimg"><img src="../img/img.jpg" alt="" class="ImgServico"></div>
 
-            <div class="Soferecidos">
-                <div class="tipo">
-                    <h1 id="">coisa1</h1>
-                    <h1>coisa1</h1>
-                    <h1>coisa1</h1>
-                </div>
+            <div class="ServicoEx">
+                <div class="conteinerimg"><img src="../img/img.jpg" alt="" class="ImgServico"></div>
 
-                <div class="tipo">
-                    <h1>coisa2</h1>
-                    <h1>coisa2</h1>
-                    <h1>coisa2</h1>
-                </div>
+                <div class="Soferecidos">
+                    <div class="tipo">
+                        <h1 id="">coisa1</h1>
+                        <h1>coisa1</h1>
+                        <h1>coisa1</h1>
+                    </div>
 
-                <div class="tipo">
-                    <h1>coisa3</h1>
-                    <h1>coisa3</h1>
-                    <h1>coisa3</h1>
-                </div>
+                    <div class="tipo">
+                        <h1>coisa2</h1>
+                        <h1>coisa2</h1>
+                        <h1>coisa2</h1>
+                    </div>
 
-                <div class="tipo">
-                    <h1>coisa4</h1>
-                    <h1>coisa4</h1>
-                    <h1>coisa4</h1>
+                    <div class="tipo">
+                        <h1>coisa3</h1>
+                        <h1>coisa3</h1>
+                        <h1>coisa3</h1>
+                    </div>
+
+                    <div class="tipo">
+                        <h1>coisa4</h1>
+                        <h1>coisa4</h1>
+                        <h1>coisa4</h1>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Cards com os produtos Explicando -->
+        <div class="conteinerCard">
+            <div class="itemC"></div>
+            <div class="itemC"></div>
+            <div class="itemC"></div>
+            <div class="itemC"></div>
+        </div>
+    </menu>
 
-    </main>
     <footer>
         <?php
         include './Footer/Footer.php';
