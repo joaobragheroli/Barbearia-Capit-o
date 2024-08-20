@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/Produtos.css">
     <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
     <title>Loja barbeiro</title>
 </head>
+
 <body>
-    <div class="header">
-        <p class="logo">Capitão Barbeiro</p>
-        <div class="cart"><i class="fa-brands fa-square-whatsapp"></i><p id="count">0</p></div>
-    </div>
+
+    <header>
+        <?php
+        include './Hearder/Header.php';
+        ?>
+    </header>
+
     <div class="container">
         <div id="root"></div>
         <div class="sidebar">
-            <div class="head"><p>Carrinho</p></div>
+            <div class="head">
+                <p>Carrinho</p>
+                <div class="cart"><i class="fa-brands fa-square-whatsapp"></i><p id="count">0</p>
+                </div>
+            </div>
+
             <div id="cartItem">Produtos</div>
             <div class="foot">
                 <h3>Total</h3>
@@ -26,4 +37,5 @@
     </div>
     <script src="../script/produtos.js"></script>
 </body>
+
 </html>

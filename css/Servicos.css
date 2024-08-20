@@ -387,7 +387,7 @@ h6 {
 /* Pagina de Serviços oferecidos */
 .conteinerTD {
     display: flex;
-    width: 100%;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     margin-top: 90px;
@@ -429,19 +429,37 @@ h6 {
     gap: 5px;
 }
 
-.conteinerCard {
+
+/* Cards Explicativo */
+.conteinerCorte {
     flex-direction: row;
-    gap: 14px;
+    gap: 55px;
     display: flex;
-    height: 100vh;
+    height: 100%;  /* Problema do Card resolver quando tiver todos os Serviços /* Ficar junto */
     align-items: center;
     justify-content: center;
     margin-top: 90px;
+    margin-bottom: 90px;
+}
+.conteinerSegunda {
+    display: flex;
+    gap: 55px;
+    margin-left: 110px;
+    justify-content: flex-start;
     margin-bottom: 15px;
 }
 
 .itemC {
-    width: 100px;
-    height: 200px;
+    width: 250px;
+    height: 350px;
     background-color: aqua;
+}
+
+.nomesCard{
+ margin-left: 110px;
+ margin-top: 30px;
+ font-size: 50px;
+ font-family:Verdana, Geneva, Tahoma, sans-serif;
+ border-bottom: 4px solid black;
+ width: 200px;
 }

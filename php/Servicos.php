@@ -69,12 +69,11 @@
                 <div class="slider-wrapper">
                     <div class="card-list swiper-wrapper">
                         <div class="card-item swiper-slide">
-                            <a href="primeira img">
-                                <img src="../img/barba.png" alt="" class="user-image">
+                            <a href="#primeira">
+                                <img src="../img/barba.png" alt="" class="user-image"></a>
                                 <h6>VAMO COME PICANHA</h6>
                                 <h1>R$ 10000</h1>
-                                <button class="explica-button">sobre</button>
-                            </a>
+                                <button class="explica-button">sobre</button> 
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/cabelo e barba.png" alt="" class="user-image">
@@ -153,7 +152,7 @@
 
                 <div class="Soferecidos">
                     <div class="tipo">
-                        <h1 id="">coisa1</h1>
+                        <h1 id="primeira">coisa1</h1>
                         <h1>coisa1</h1>
                         <h1>coisa1</h1>
                     </div>
@@ -180,9 +179,16 @@
         </div>
 
         <!-- Cards com os produtos Explicando -->
-        <div class="conteinerCard">
+        <h1 class="nomesCard">Cortes</h1>
+        <div class="conteinerCorte">
             <div class="itemC"></div>
             <div class="itemC"></div>
+            <div class="itemC"></div>
+            <div class="itemC"></div>
+            <div class="itemC"></div>
+        </div>
+
+        <div class="conteinerSegunda ">
             <div class="itemC"></div>
             <div class="itemC"></div>
         </div>

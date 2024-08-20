@@ -18,7 +18,7 @@ elements.forEach((element) => myObserver.observe(element))
 const swiper = new Swiper('.slider-wrapper', {
     loop: true,
     grabCursor: true,
-    spaceBetween: 1,
+    spaceBetween: 3,
 
     // If we need pagination
     pagination: {
