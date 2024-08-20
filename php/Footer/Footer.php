@@ -21,7 +21,7 @@
                     <span>Facebook</span>
                 </a>
 
-                <a href="#" class="btn WhatsApp">
+                <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank" class="btn WhatsApp">
                     <div class="icon">
                         <i class="ph ph-whatsapp-logo"></i>
                     </div>
