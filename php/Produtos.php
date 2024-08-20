@@ -19,7 +19,7 @@
         ?>
     </header>
 
-    <div class="container">
+    <div class="container scroll">
         <div id="root"></div>
         <div class="sidebar">
             <div class="head">
@@ -28,7 +28,7 @@
                 <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank">
                     <i class="fa-brands fa-square-whatsapp"></i>
                 </a>
-                <p id="count">0</p>
+                <p id="count" >0</p>
                 </div>
             </div>
 

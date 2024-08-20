@@ -1,3 +1,4 @@
+
 // Faz chegar a frase no "Home" 
 
 const myObserver = new IntersectionObserver((entries) => {

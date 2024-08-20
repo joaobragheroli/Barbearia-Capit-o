@@ -85,6 +85,7 @@ body{
   color: white;
   display: flex;
   align-items: center;
+
 }
 .foot{
   display: flex;
@@ -151,6 +152,7 @@ button:hover{
   border-bottom: 1px solid #aaa;
   border-radius: 3px;
   margin: 10px 10px;
+  
 }
 .row-img{
   width: 50px;
@@ -187,7 +189,10 @@ button:hover{
 
 
 
+.scroll{
+  
 
+}
 .scroll-section{
   max-height: 400px; 
   overflow-y: auto;

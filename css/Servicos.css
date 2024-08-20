@@ -433,6 +433,7 @@ h6 {
 /* Cards Explicativo */
 .conteinerCorte {
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 55px;
     display: flex;
     height: 100%;  /* Problema do Card resolver quando tiver todos os Serviços /* Ficar junto */
