@@ -8,7 +8,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: beige;
+    background-color: black;
 }
 
 /* Footer */
@@ -320,7 +320,7 @@ nav a:hover::after {
 
 .corpo-home {
     height: 100;
-    margin: 50px;
+    margin: 0;
 }
 
 section {
@@ -343,4 +343,19 @@ section {
     filter: blur(0px);
     transform: translateX(0%);
     transition: all 2s;
+}
+
+.bemVindo{
+    background-image: url('../img/fundo2.home.webp');
+    background-repeat: no-repeat;
+    margin: 0;
+    background-size: cover;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.elementor-heading-title{
+    color: #ffffff;
+    font-size: 500%;
 }

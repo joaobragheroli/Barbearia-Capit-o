@@ -27,13 +27,11 @@ session_start();
         ?>
     </header>
     <main class="corpo-home">
+        <div class="bemVindo">
         <section class="hidden">
-            <h1>Bla3 Bla3 Bla3</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, voluptatum quibusdam repellendus iure,
-                amet, velit necessitatibus harum veritatis illo sint quod officiis neque. Asperiores nihil quidem
-                voluptates sint veritatis nisi!</p>
-        </section>
-
+                <h2 class="elementor-heading-title elementor-size-default">BEM-VINDOS À CAPITÃO BARBEIRO</h2>
+            </section>
+        </div>
         <section class="hidden">
             <h1>Coisas</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis unde velit ab magnam nisi corporis, error
@@ -50,6 +48,7 @@ session_start();
         include './Footer/Footer.php';
         ?>
     </footer>
+
 </body>
 
 </html>
