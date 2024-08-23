@@ -15,12 +15,15 @@
 
     <header>
         <?php
-        include './Hearder/Header.php';
+        // include './Hearder/Header.php';
         ?>
     </header>
 
     <div class="container scroll">
-        <div id="root"></div>
+        <div id="root">
+
+        </div>
+
         <div class="sidebar">
             <div class="head">
                 <p>Carrinho</p>
