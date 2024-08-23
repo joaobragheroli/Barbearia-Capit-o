@@ -21,7 +21,7 @@ session_start();
 </head>
 
 <body>
-    <header>
+    <header class="menu-desktop">
         <?php
         include './Hearder/Header.php';
         ?>
