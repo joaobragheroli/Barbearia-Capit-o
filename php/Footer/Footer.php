@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/Home.css">
 <div class="conteiner-footer">
     <!-- icons -->
     <div class="item">

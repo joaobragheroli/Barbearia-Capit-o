@@ -8,7 +8,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: beige;
+    background-color: black;
 }
 
 /* Footer */
@@ -265,13 +265,17 @@ header {
     height: 100%;
 }
 
+.menu-mobile{
+    display: none;
+}
+
 .conteiner-header i {
     color: black;
     font-size: 20px;
     padding-right: 14px;
 }
 
-#button-login {
+.button-login {
     background-color: black;
     border: 2px solid white;
     font-size: 20px;
@@ -320,7 +324,7 @@ nav a:hover::after {
 
 .corpo-home {
     height: 100;
-    margin: 50px;
+    margin: 0;
 }
 
 section {
@@ -343,4 +347,49 @@ section {
     filter: blur(0px);
     transform: translateX(0%);
     transition: all 2s;
+}
+
+@media screen and (max-width: 920px){
+    /* campos obrigatorios */
+
+    /* cabecalho */
+    .menu, .button-login{
+        display: none;
+     }
+
+     .menu-mobile{
+        display: inline-block;
+        background-color: black;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 99999;
+        width: 70%;
+     }
+     .menu-mobile nav ul{
+        text-align: right;
+     }
+
+     .menu-mobile nav ul li a{
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        padding: 30px 6%;
+        display: block;
+     }
+
+     .menu-mobile nav ul li a:hover{
+        background-color: #fff;
+        color: black;
+     }
+
+     .menu-mobile .btn-fechar i{
+        color: #fff;
+        font-size: 50px;
+     }
+
+     .menu-mobile .btn-fechar{
+        padding: 20px 5%;
+     }
 }
