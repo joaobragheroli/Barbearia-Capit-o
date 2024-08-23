@@ -26,7 +26,7 @@
 <body>
     <header>
         <?php
-        include './Hearder/Header.php';
+        // include './Hearder/Header.php';
         ?>
     </header>
 
@@ -199,7 +199,7 @@
 
     <footer>
         <?php
-        include './Footer/Footer.php';
+        // include './Footer/Footer.php';
         ?>
     </footer>
 
