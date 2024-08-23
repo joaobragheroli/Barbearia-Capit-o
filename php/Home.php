@@ -23,7 +23,7 @@ session_start();
 <body>
     <header>
         <?php
-        include './Hearder/Header.php';
+        // include './Hearder/Header.php';
         ?>
     </header>
     <main class="corpo-home">
@@ -47,7 +47,7 @@ session_start();
     </main>
     <footer>
         <?php
-        include './Footer/Footer.php';
+        // include './Footer/Footer.php';
         ?>
     </footer>
 </body>

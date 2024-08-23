@@ -22,7 +22,7 @@ session_start();
 <body>
     <header>
         <?php
-        include './Hearder/Header.php';
+        // include './Hearder/Header.php';
         ?>
     </header>
 
@@ -62,7 +62,7 @@ session_start();
 
     <footer>
         <?php
-        include './Footer/Footer.php';
+        // include './Footer/Footer.php';
         ?>
     </footer>
 </body>
