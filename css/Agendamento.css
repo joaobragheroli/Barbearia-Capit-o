@@ -321,16 +321,17 @@ nav a:hover::after {
 .corpo-agendamento {
     height: 100vh;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .agendamento {
-    width: 1000px;
+    width: 960px;
     margin: 0 auto;
     padding: 30px;
 }
+
 
 .agendamento li {
     color: #000000;
@@ -375,16 +376,14 @@ h2 {
     font-weight: bold;
 }
 
-
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 920px) {
 
     .corpo-agendamento {
         height: 100%;
-        gap: 20px;
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: center;
+        flex-direction: column;   
     }
 
     .agendamento {
@@ -398,14 +397,31 @@ h2 {
     }
 
     .agendamento li {
-        width: 100%;
         color: #000000;
         display: inline-block;
         text-align: center;
+        width: 350px;
         vertical-align: top;
+        margin: 0 1.5%;
+        padding: 30px 20px;
         box-sizing: border-box;
         border: 2px solid #000000;
         border-radius: 10px;
-        margin-bottom: 7%;
+        margin-top: 10%;
+    }
+
+    footer {
+        height: 100%;
+        margin-top: auto;
+        background-color: black;
+    }
+
+    .conteiner-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 90px;
+        height: 100%;
     }
 }

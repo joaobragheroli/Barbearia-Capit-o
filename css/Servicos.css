@@ -436,12 +436,14 @@ h6 {
     flex-wrap: wrap;
     gap: 55px;
     display: flex;
-    height: 100%;  /* Problema do Card resolver quando tiver todos os Serviços /* Ficar junto */
+    height: 100%;
+    /* Problema do Card resolver quando tiver todos os Serviços /* Ficar junto */
     align-items: center;
     justify-content: center;
     margin-top: 90px;
     margin-bottom: 90px;
 }
+
 .conteinerSegunda {
     display: flex;
     gap: 55px;
@@ -456,11 +458,61 @@ h6 {
     background-color: aqua;
 }
 
-.nomesCard{
- margin-left: 110px;
- margin-top: 30px;
- font-size: 50px;
- font-family:Verdana, Geneva, Tahoma, sans-serif;
- border-bottom: 4px solid black;
- width: 200px;
+.nomesCard {
+    margin-left: 110px;
+    margin-top: 30px;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-bottom: 4px solid black;
+    width: 200px;
+}
+
+@media screen and (max-width: 576px) {
+
+    .conteinerTD {
+        display: flex;
+        /* height: 100vh; */
+        align-items: center;
+        justify-content: center;
+        margin-top: 90px;
+    }
+
+    .ServicoEx {
+        display: flex;
+        width: 400px;
+        height: 600px;
+        flex-direction: column;
+        align-items: center;
+        border: 5px solid black;
+        background-color: #c5003e;
+    }
+
+    .ImgServico {
+        border-radius: 100%;
+        height: 200px;
+    }
+
+    .conteinerimg {
+        width: 50%;
+        height: 100%;
+        border-bottom: 1px solid black;
+        height: 100%;
+        border-right: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Soferecidos {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: 50%;
+        border-top: 1px solid black;
+        border-left: none;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
 }

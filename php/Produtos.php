@@ -28,10 +28,10 @@
             <div class="head">
                 <p>Carrinho</p>
                 <div class="cart">
-                <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank">
-                    <i class="fa-brands fa-square-whatsapp"></i>
-                </a>
-                <p id="count" >0</p>
+                    <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank">
+                        <i class="fa-brands fa-square-whatsapp"></i>
+                    </a>
+                    <p id="count">0</p>
                 </div>
             </div>
 

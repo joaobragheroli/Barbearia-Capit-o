@@ -27,7 +27,7 @@ session_start();
     </header>
 
     <main class="corpo-agendamento">
-        <div>
+        <div class="AgendamentoResponsi"> <!-- Talvez use -->
             <ul class="agendamento">
                 <a href="Agendamento.php">
                     <li>
@@ -62,7 +62,7 @@ session_start();
 
     <footer>
         <?php
-        // include './Footer/Footer.php';
+        include './Footer/Footer.php';
         ?>
     </footer>
 </body>

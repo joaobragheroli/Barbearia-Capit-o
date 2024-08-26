@@ -45,7 +45,7 @@ session_start();
     </main>
     <footer>
         <?php
-        // include './Footer/Footer.php';
+        include './Footer/Footer.php';
         ?>
     </footer>
 
