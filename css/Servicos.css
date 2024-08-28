@@ -467,7 +467,22 @@ h6 {
     width: 200px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 920px) {
+
+    footer {
+        height: 100%;
+        margin-top: auto;
+        background-color: black;
+    }
+    .conteiner-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 90px;
+        height: 100%;
+        margin-top: 20px;
+    }
 
     .conteinerTD {
         display: flex;
@@ -515,19 +530,5 @@ h6 {
         gap: 5px;
     }
 
-    footer {
-        height: 100%;
-        margin-top: auto;
-        background-color: black;
-    }
 
-    .conteiner-footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 90px;
-        height: 100%;
-        margin-top: 20px;
-    }
 }
