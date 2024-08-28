@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/Home.css">
+<!-- <link rel="stylesheet" href="../css/Home.css"> --> <!-- não sei pq linkaram o css Home -->
 <div class="conteiner-footer">
     <!-- icons -->
     <div class="item">
