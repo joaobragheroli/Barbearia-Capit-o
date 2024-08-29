@@ -45,8 +45,9 @@
             cursor: pointer;
             transition: background-color 0.3s ease; */
         }
+
         .card:before{
-             position: absolute;
+            position: absolute;
             top: 0;
             left:0;
             width: 100%;
@@ -62,18 +63,49 @@
 
         .card:after{
             display: flex;
-            content: 'Nike';
+            height: 100%;
+            content: 'Barbearia Capita';
             top: 30%;
             left: -20%;
-            font-size: 12em;
+            font-size: 4em;
             font-weight: 800;
             font-style: italic;
             color: rgba(255,255,255,0.04);
             align-items: center;
             justify-content: center;
-            
+            display: inline-block; 
+            transform: rotate(-45deg);
+        }
+        .card img{
+            top: 50%;
+            width: 100%;
+            height: 220px;
+            transition: 0.5s;
+            z-index: 10000;
         }
 
+        .card:hover img{
+            top: 0%;
+        }
+
+        .card img{
+            top: 50%;
+            left: 50%;
+            transform: translate(-2%, -2%) rotate(-25deg);
+            width: 170px;
+            display: flex;
+        }
+        .card h1{
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            transition: 1s;
+            z-index: 10;
+        }
+        .card h1:hover{
+            
+        }
 
         .card.selected {
             background-color: #28a745;
@@ -89,7 +121,7 @@
             padding: 4px;
         }
 
-        .card h1 {
+        .card h1  {
             padding-top: 30px;
         }
 
