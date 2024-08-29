@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* overflow-y: hidden; */
 }
 
 .headerProdutos {
@@ -56,6 +57,7 @@ body {
   color: white;
 }
 
+
 .container {
   display: flex;
   margin-top: 70px;
@@ -80,6 +82,7 @@ body {
   margin-left: 20px;
   padding: 15px;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .head {
@@ -171,8 +174,9 @@ button:hover {
   border-bottom: 1px solid #aaa;
   border-radius: 3px;
   margin: 10px 10px;
-
 }
+
+
 
 .row-img {
   width: 50px;
@@ -194,9 +198,6 @@ button:hover {
   cursor: pointer;
   color: #333;
 }
-
-
-
 
 
 
