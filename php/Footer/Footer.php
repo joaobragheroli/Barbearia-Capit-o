@@ -8,6 +8,7 @@
             </div>
 
             <div class="box">
+                <!-- Tentei criar outras div para retirar o efeito do boodstrap (icons,separarBood) -->
                 <div class="icons">
                     <div class="separarBood">
                         <a href="https://www.instagram.com/capitaobarbeiro/" class="btn instagran">

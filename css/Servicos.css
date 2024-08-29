@@ -56,6 +56,7 @@ a {
     text-decoration: none;
 }
 
+/* Puxei as div criadas */
 .box .icons .separarBood .btn {
     display: inline-block;
     height: 60px;
@@ -84,6 +85,7 @@ a {
     color: black !important;
     transition: all 0.3s ease-out !important;
 }
+/* Puxei as div criadas */
 
 .instagran:hover .icon {
     background: #e1306c;
