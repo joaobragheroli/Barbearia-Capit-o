@@ -29,7 +29,7 @@ session_start();
     <main class="corpo-agendamento">
         <div class="AgendamentoResponsi"> <!-- Talvez use -->
             <ul class="agendamento">
-                <a href="Agendamento.php">
+                <a href="../melhorSERVICO.php">
                     <li>
                         <h2>Cabelo</h2>
                         <img src="../img/Cabelo.png">
@@ -38,7 +38,7 @@ session_start();
                         <p class="product-price">$ 00,00</p>
                     </li>
                 </a>
-                <a href="Agendamento.php">
+                <a href="../melhorSERVICO.php">
                     <li>
                         <h2>Barba e Cabelo</h2>
                         <img src="../img/Cabelo e Barba.png">
@@ -47,7 +47,7 @@ session_start();
                         <p class="product-price">$ 00,00</p>
                     </li>
                 </a>
-                <a href="Agendamento.php">
+                <a href="../melhorSERVICO.php">
                     <li>
                         <h2>Barba</h2>
                         <img src="../img/barba.png">

@@ -8,26 +8,29 @@
             </div>
 
             <div class="box">
-                <a href="https://www.instagram.com/capitaobarbeiro/" class="btn instagran">
-                    <div class="icon">
-                        <i class="fab fa-instagram"></i>
+                <div class="icons">
+                    <div class="separarBood">
+                        <a href="https://www.instagram.com/capitaobarbeiro/" class="btn instagran">
+                            <div class="icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <span>Instagran</span>
+                        </a>
+                        <a href="#" class="btn facebook">
+                            <div class="icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank"
+                            class="btn WhatsApp">
+                            <div class="icon">
+                                <i class="ph ph-whatsapp-logo"></i>
+                            </div>
+                            <span>WhatsApp</span>
+                        </a>
                     </div>
-                    <span>Instagran</span>
-                </a>
-
-                <a href="#" class="btn facebook">
-                    <div class="icon">
-                        <i class="fab fa-facebook"></i>
-                    </div>
-                    <span>Facebook</span>
-                </a>
-
-                <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank" class="btn WhatsApp">
-                    <div class="icon">
-                        <i class="ph ph-whatsapp-logo"></i>
-                    </div>
-                    <span>WhatsApp</span>
-                </a>
+                </div>
             </div>
         </div>
     </div>
