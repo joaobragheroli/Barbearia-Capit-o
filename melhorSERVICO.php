@@ -63,10 +63,12 @@
         .card:after{
             display: flex;
             content: 'Nike';
+            top: 30%;
+            left: -20%;
             font-size: 12em;
             font-weight: 800;
             font-style: italic;
-            color: rgba(255,255,255,0,0.04);
+            color: rgba(255,255,255,0.04);
             align-items: center;
             justify-content: center;
             
