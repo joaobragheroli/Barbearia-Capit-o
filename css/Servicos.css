@@ -57,7 +57,7 @@ a {
 }
 
 /* Puxei as div criadas */
-.box .icons .separarBood .btn {
+.box .btn {
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -74,16 +74,16 @@ a {
     width: 200px;
 }
 
-.box .icons .separarBood .btn .icon {
-    display: inline-block !important;
-    height: 60px !important;
-    width: 60px !important;
-    text-align: center !important;
-    border-radius: 50px !important;
-    box-sizing: border-box !important;
-    line-height: 60px !important;
-    color: black !important;
-    transition: all 0.3s ease-out !important;
+.box .btn .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    color: black;
+    transition: all 0.3s ease-out;
 }
 /* Puxei as div criadas */
 
