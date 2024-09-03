@@ -15,32 +15,42 @@
 
     <header>
         <?php
-        // include './Hearder/Header.php';
+        include './Hearder/Header.php';
         ?>
     </header>
 
     <div class="container scroll">
+
         <div id="root">
 
         </div>
 
-        <div class="sidebar">
-            <div class="head">
-                <p>Carrinho</p>
-                <div class="cart">
-                    <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank">
-                        <i class="fa-brands fa-square-whatsapp"></i>
-                    </a>
-                    <p id="count">0</p>
+            <div class="sidebar">
+            
+                <div class="head">
+                    <p>Carrinho</p>
+                    <div class="cart">
+                            <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank">
+                                <i class="fa-brands fa-square-whatsapp"></i>
+                            </a>
+                            <p id="count">0</p>
+                    </div>
                 </div>
+
+                <div class="cartitemscroll">
+                    
+                </div>
+                <div id="cartItem">Produtos</div>
+
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">R$ 0.00</h2>
+                </div>
+
+            
+
             </div>
 
-            <div id="cartItem">Produtos</div>
-            <div class="foot">
-                <h3>Total</h3>
-                <h2 id="total">R$ 0.00</h2>
-            </div>
-        </div>
     </div>
     <script src="../script/produtos.js"></script>
 </body>

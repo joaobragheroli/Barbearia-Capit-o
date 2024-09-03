@@ -31,14 +31,80 @@
 
         .card {
             border: 1px solid #ccc;
-            border-radius: 8px;
+            width: 320px;
+            height: 450px;
+            background: #232323;
+            border-radius: 20px;
+            overflow: hidden;
+            /* border-radius: 8px;
             padding: 20px;
             width: 200px;
             height: 300px;
             text-align: center;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease; */
+        }
+
+        .card:before{
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background: #9bdc28;
+            clip-path: circle(150px at 80% 20%);
+            transition: 0.5s ease-in-out;
+        } 
+
+        .card:hover:before{
+            clip-path: circle(300px at 80% -20%);
+        }
+
+        .card:after{
+            display: flex;
+            height: 100%;
+            content: 'Barbearia Capita';
+            top: 30%;
+            left: -20%;
+            font-size: 4em;
+            font-weight: 800;
+            font-style: italic;
+            color: rgba(255,255,255,0.04);
+            align-items: center;
+            justify-content: center;
+            display: inline-block; 
+            transform: rotate(-45deg);
+        }
+        .card img{
+            top: 50%;
+            width: 100%;
+            height: 220px;
+            transition: 0.5s;
+            z-index: 10000;
+        }
+
+        .card:hover img{
+            top: 0%;
+        }
+
+        .card img{
+            top: 50%;
+            left: 50%;
+            transform: translate(-2%, -2%) rotate(-25deg);
+            width: 170px;
+            display: flex;
+        }
+        .card h1{
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            transition: 1s;
+            z-index: 10;
+        }
+        .card h1:hover{
+            
         }
 
         .card.selected {
@@ -55,7 +121,7 @@
             padding: 4px;
         }
 
-        .card h1 {
+        .card h1  {
             padding-top: 30px;
         }
 
@@ -110,6 +176,7 @@
                 <img src="./img/barba.png" alt="">
                 <h1>Card 1</h1>
                 <h2>Valor</h2>
+                <h2>Vtempo</h2>
             </div>
             <div class="card" onclick="toggleCard(this)">
                 <img src="./img/barba.png" alt="">

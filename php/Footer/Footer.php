@@ -9,8 +9,6 @@
 
             <div class="box">
                 <!-- Tentei criar outras div para retirar o efeito do boodstrap (icons,separarBood) -->
-                <div class="icons">
-                    <div class="separarBood">
                         <a href="https://www.instagram.com/capitaobarbeiro/" class="btn instagran">
                             <div class="icon">
                                 <i class="fab fa-instagram"></i>
@@ -29,9 +27,7 @@
                                 <i class="ph ph-whatsapp-logo"></i>
                             </div>
                             <span>WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
+                        </a>   
             </div>
         </div>
     </div>
