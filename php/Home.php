@@ -29,7 +29,7 @@ session_start();
     <main class="corpo-home">
         <div class="bemVindo">
         <section class="hidden">
-                <h2 class="elementor-heading-title elementor-size-default">BEM-VINDOS À CAPITÃO BARBEIRO</h2>
+                <h2>BEM-VINDOS À CAPITÃO BARBEIRO</h2>
             </section>
         </div>
         <section class="hidden">

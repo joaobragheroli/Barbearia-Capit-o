@@ -156,7 +156,7 @@
                         <h1>coisa1</h1>
                         <h1>coisa1</h1>
                     </div>
-
+                    
                     <div class="tipo">
                         <h1>coisa2</h1>
                         <h1>coisa2</h1>
