@@ -71,63 +71,63 @@
                         <div class="card-item swiper-slide">
                             <a href="#primeira">
                                 <img src="../img/barba.png" alt="" class="user-image"></a>
-                                <h6>VAMO COME PICANHA</h6>
-                                <h1>R$ 10000</h1>
+                                <h6>CORTE</h6>
+                                <h1>R$ 35,00</h1>
                                 <button class="explica-button">sobre</button> 
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>BARBA</h6>
+                            <h1>R$ 30,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/Cabelo.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>CORTE + BARBA</h6>
+                            <h1>R$ 60,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>CORTE + SOBRANCELHA</h6>
+                            <h1>R$ 40,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/barba.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>CORTE+BARBA+SOBRANCELHA</h6>
+                            <h1>R$ 70,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/Cabelo.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>PÉZINHO</h6>
+                            <h1>R$ 15,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>HIDRATAÇÃO</h6>
+                            <h1>R$ 30,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
 
                         <div class="card-item swiper-slide">
                             <img src="../img/Cabelo.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>PLATINADO</h6>
+                            <h1>R$ 100,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/cabelo e barba.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>LUZES(consultar o barbeiro)</h6>
+                            <h1>R$ 60,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                         <div class="card-item swiper-slide">
                             <img src="../img/Cabelo.png" alt="" class="user-image">
-                            <h6>VAMO COME PICANHA</h6>
-                            <h1>R$ 10000</h1>
+                            <h6>PROGRESSIVA</h6>
+                            <h1>R$ 60,00</h1>
                             <button class="explica-button">sobre</button>
                         </div>
                     </div>
