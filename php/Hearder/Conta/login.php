@@ -1,16 +1,42 @@
 <?php
 
-require __DIR__ . '/PastaFirebase/vendor/autoload.php';
-use Kreait\Firebase\Factory;
+include ('conexao.php');
 
-$factory = (new Factory())->withDatabaseUri('https://tcc-etec-d18fc-default-rtdb.asia-southeast1.firebasedatabase.app/');
+if (isset($_POST['email']) || isset($_POST['senha'])) {
 
+    if (strlen($_POST['email']) == 0) {
+        echo "Preencha seu e-mail";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
+    } else {
 
-$database = $factory->createDatabase();
-$contatos = $database->getReference('Login')->getSnapshot();
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
 
-// Se você está lidando com vários contatos, você pode querer pegar o primeiro ou fazer um loop
-$firstContato = $contatos->getValue()[0]; // Ajuste conforme necessário
+        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if ($quantidade == 1) {
+
+            $usuario = $sql_query->fetch_assoc();
+
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("Location: Home.php");
+
+        } else {
+            echo "Falha ao logar! E-mail ou senha incorretos";
+        }
+
+    }
+}
 
 ?>
 
@@ -27,13 +53,7 @@ $firstContato = $contatos->getValue()[0]; // Ajuste conforme necessário
     </head>
 
     <body>
-        <?php foreach ($contatos->getValue() as $contato): ?>
-            <p>
-                Email: <?php echo $contato['email'] ?> <br />
-                Senha: <?php echo $contato['senha'] ?>
-            </p>
-        <?php endforeach; ?>
-        
+
         <section id="section-login">
             <div class="img">
                 <img src="./img/img.jpg" alt="" height="500px">

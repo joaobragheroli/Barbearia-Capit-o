@@ -26,7 +26,7 @@
 <body>
     <header>
         <?php
-        // include './Hearder/Header.php';
+        include './Hearder/Header.php';
         ?>
     </header>
 

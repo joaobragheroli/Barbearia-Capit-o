@@ -247,12 +247,6 @@ header {
     padding: 10px 15px;
 }
 
-.botao-login button a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
 
 .conteiner-header {
     padding-top: 20px;
@@ -262,7 +256,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: 70px;
     height: 100%;
 }
 

@@ -268,7 +268,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: 70px;
     height: 100%;
 }
 
@@ -278,7 +278,7 @@ header {
     padding-right: 14px;
 }
 
-#button-login {
+.button-login {
     background-color: black;
     border: 2px solid white;
     font-size: 20px;

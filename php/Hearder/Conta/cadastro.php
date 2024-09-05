@@ -1,3 +1,26 @@
+<?php
+
+// require __DIR__ . '/PastaFirebase/vendor/autoload.php';
+// use Kreait\Firebase\Factory;
+// $msg = '';
+// if(isset($_POST['id'])) {
+    // $factory = (new Factory())->withDatabaseUri('https://tcc-etec-d18fc-default-rtdb.asia-southeast1.firebasedatabase.app/');
+    // $database = $factory->createDatabase();
+    // $novoContato = [
+        // 'id'       => $_POST['id'],
+        // 'email'    => $_POST['email'],
+        // 'senha'    => $_POST['senha']
+    // ];
+// 
+    // $database->getReference('contatos/' . $_POST['senha'])->set($novoContato);
+// 
+    // $msg = 'Contato adicionado com sucesso';
+// }
+// 
+// 
+
+?>
+
 <DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -19,23 +42,29 @@
 
                 <div class="form-box">
                     <div class="form-value">
-                        <form action="">
+
+                        <form action="post">
                             <h2 class="h2-cadastro">Cadastrar</h2>
+
                             <div class="inputbox">
                                 <ion-icon name="mail-outline"></ion-icon>
                                 <input type="email" required>
                                 <label for="">Email</label>
                             </div>
+
                             <div class="inputbox">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
                                 <input type="password" required>
                                 <label for="">Senha</label>
                             </div>
-                            <button>Cadastrar-se</button>
+
+                            <button type="submit">Cadastrar-se</button>
+
                             <div class="register">
                             <p>Já tem uma conta! <a href="login.php"> Login</a></p>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </section>
