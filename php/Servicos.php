@@ -41,14 +41,14 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
 
-                    <div class="carousel-inner" style="height: 30em;">
-                        <div class="carousel-item h-100 active " style="background: url(../img/Cabelo\ e\ Barba.png) center/contain no-repeat;">
+                    <div class="carousel-inner" style="height: 35em;" style="width:50px;">
+                        <div class="carousel-item h-100 active " style="background: url(../img/serviços.png) center/contain no-repeat;">
 
                         </div>
-                        <div class="carousel-item h-100" style="background: url(../img/barba.png) center/contain no-repeat;">
+                        <div class="carousel-item h-100" style="background: url(../img/serviço2.png) center/contain no-repeat;">
 
                         </div>
-                        <div class="carousel-item h-100" style="background: url(../img/Cabelo.png) center/contain no-repeat;">
+                        <div class="carousel-item h-100" style="background: url(../img/branco.png) center/contain no-repeat;">
 
                         </div>
                     </div>
