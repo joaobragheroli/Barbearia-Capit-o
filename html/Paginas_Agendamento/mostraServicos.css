@@ -223,7 +223,7 @@ body {
     position: relative; /* Ou use absolute, dependendo da estrutura do layout */
     z-index: 1; /* Define um valor menor para garantir que .FundoImg fique atrás */
     margin-top: 0px;
-    background-image: url(../../img/tinta1.jpeg);
+    background-image: url(../../img/tinta2.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
