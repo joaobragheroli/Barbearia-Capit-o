@@ -8,7 +8,7 @@ const product = [
     {
         id: 1,
         image: '../img/produtos/produto02.jpeg',
-        title: 'Pomada em Pó efeito matte (Fox formen)',
+        title: 'Pomada em Pó efeito matte',
         price: 90,
     },
     {
@@ -31,44 +31,44 @@ const product = [
     },
     {
         id: 5,
-        image: '../img/produtos/produto15.jpg',
-        title: 'Pasta Premium Fox Formen (Pequena) ',
+        image: '../img/produtos/produto05.jpeg',
+        title: 'Pasta Premium (Pequena) ',
         price: 20,
     },
     {
         id: 6,
         image: '../img/produtos/produto05.jpeg',
-        title: 'Pasta Premium Fox Formen (Grande)',
+        title: 'Pasta Premium (Grande)',
         price: 30,
     },
     {
         id: 7,
         image: '../img/produtos/produto08.jpeg',
-        title: 'Balm Para Barba (Fox Formen)',
+        title: 'Balm Para Barba',
         price: 35,
     },
     {
         id: 8,
         image: '../img/produtos/produto11.jpeg',
-        title: 'Pomada efeito matte (Fox Formen)',
+        title: 'Pomada efeito matte',
         price: 35,
     },
     {
         id: 9,
-        image: '../img/produtos/produto13.jpeg',
-        title: 'Cera hair modeladora caramelo (Fox Formen)',
+        image: '../img/produtos/produto10.jpeg',
+        title: 'Cera hair modeladora caramelo',
         price: 35,
     },
     {
         id: 10,
         image: '../img/produtos/produto12.jpeg',
-        title: 'Pomada em Po (Fox Formen)',
+        title: 'Pomada em Po ',
         price: 35,
     },
     {
         id: 11,
-        image: '../img/produtos/produto14.jpg',
-        title: 'Pasta Black Premium (Fox Formen)',
+        image: '../img/produtos/produto12.jpeg',
+        title: 'Pasta Black Premium',
         price: 100,
     },
 ];
@@ -123,7 +123,7 @@ function displaycart() {
                     </div>
                     <p style='font-size:12px;'>${title}</p>
                     <h2 style='font-size: 15px;'>$ ${price}.00</h2>
-                    <i class='fa-solid fa-trash' onclick='delElement(${j++})'></i>
+                    <i class="fa-solid fa-trash" onclick='delElement(${j++})'></i>
                 </div>`
             );
         }).join('');

@@ -1,0 +1,75 @@
+<DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../../css/Style/login.css">
+        <title>Login</title>
+    </head>
+
+    <body>
+
+        <section id="section-login">
+            <div class="img">
+                <img src="../../img/img.jpg" alt="" height="500px">
+            </div>
+
+            <div class="form-box">
+                <div class="form-value">
+                    <form action="">
+                        <h2 class="h2-login">Login</h2>
+                        <div class="inputbox">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="email" name="email" id="email" onchange="onChangeEmail()" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="erros" id="email-obrigatorio">Email é obrigatório</div>
+                        <div class="erros" id="email-invalido">Email inválido</div>
+
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" name="password" id="password" onchange="onChangePassword()" required>
+                            <label for="password">Senha</label>
+                        </div>
+                        <div class="erros" id="senha-Obrigatoria">Senha é obrigatório</div>
+
+                        <button type="button" id="login-button" disabled="true" onclick="login()">Entrar</button>
+                        <button type="button" id="recuperar-senha" disabled="true" onclick="recoverPassword()">Recuperar
+                            Senha</button>
+
+                        <div class="register" id="btn-cadastro">
+                            <p>Você não tem uma conta?<a href="cadastro.html"> Cadastre-se</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="../../script/login_cadastro/login.js"></script>
+
+    <!-- links do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyChx2h9-1qFLPAaJvfYXayqSXojBX-BOWg",
+            authDomain: "tcc-capita-5c9ec.firebaseapp.com",
+            projectId: "tcc-capita-5c9ec",
+            storageBucket: "tcc-capita-5c9ec.appspot.com",
+            messagingSenderId: "939051844006",
+            appId: "1:939051844006:web:696e50e93e43424edccf67"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    </html>

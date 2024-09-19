@@ -1,0 +1,355 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #cdf4ff;
+  position: relative;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: black solid 3px;
+}
+
+footer {
+  height: 50px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: black solid 3px;
+  background-color: rgb(255, 255, 255);
+}
+
+.nomePrincipal {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 4em;
+}
+
+.menu {
+  margin-left: auto;
+  padding-right: 30px;
+  font-size: 2em;
+}
+
+.modalgeral {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 100%;
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  background-color: #a9e0ee;
+  transition: 500ms;
+  transform: translateX(100%);
+}
+
+.aberto {
+  transform: translateX(0%);
+}
+
+.fechado {
+  transform: translateX(100%);
+}
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 45px;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+}
+
+main {
+  margin: auto;
+}
+
+.joguinnho {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  border-radius: 10%;
+}
+
+.sabiduria a {
+  display: flex;
+  gap: 1rem;
+  font-size: 40px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.sabiduria {
+  margin: auto;
+}
+
+.modalfechar {
+  margin: auto;
+  width: 200px;
+  height: 50px;
+}
+
+.tan {
+  width: 100%;
+  height: 100%;
+  color: aliceblue;
+  background-color: black;
+  font-size: 1em;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 1em;
+  background-color: rgb(255, 255, 255);
+  border: 0;
+}
+
+.menujogo {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  align-items: center;
+  gap: 5em;
+}
+
+.menujogo a {
+  color: black;
+  text-decoration: none;
+  font-size: 2em;
+}
+
+.ansi {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
+}
+
+.imgansi {
+  height: 700px;
+  width: 500px;
+}
+
+.textansi {
+  font-size: small;
+}
+
+h4 {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.games {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#palavra-secreta {
+  display: flex;
+  flex-direction: row;
+  margin-top: 90px;
+  font-size: 1em;
+}
+
+.letras {
+  width: 16px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#teclado {
+  margin-top: 70px;
+}
+
+.teclas button {
+  width: 35px;
+  height: 35px;
+  margin: 2px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  box-shadow: 0px 2px 8px;
+  border-radius: 5px;
+  border: 1px solid dimgray;
+  font-weight: 600;
+}
+
+.teclas button:disabled {
+  cursor: not-allowed;
+}
+
+.teclas button:hover {
+  transform: scale(1.2);
+}
+
+#frase-chave {
+  font-size: 2em;
+}
+
+#quadradinhos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 0;
+  margin: 50px;
+  gap: 50px;
+}
+
+#imagem {
+  background-image: url(../img/quadrado0.jpg);
+  height: 75px;
+  width: 75px;
+}
+
+#imagem2 {
+  background: url(../img/quadrado0.jpg);
+  height: 75px;
+  width: 75px;
+}
+
+#imagem3 {
+  background: url(../img/quadrado0.jpg);
+  height: 75px;
+  width: 75px;
+}
+
+#imagem4 {
+  background: url(../img/quadrado0.jpg);
+  height: 75px;
+  width: 75px;
+}
+
+#imagem5 {
+  background: url(../img/quadrado0.jpg);
+  height: 75px;
+  width: 75px;
+}
+
+#imagem6 {
+  background: url(../img/quadrado0.jpg);
+  height: 75px;
+  width: 75px;
+}
+
+.carregarimagem {
+  background: url(../img/quadrado1.png);
+  height: 75px;
+  width: 75px;
+}
+.setas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer {
+  font-size: 2em;
+  padding-right: 100px;
+  padding-top: 50px;
+  text-align: end;
+}
+
+.modal-footer button {
+  background-color: black;
+  color: #a9e0ee;
+}
+
+.modalfade {
+  width: 700px;
+  height: 100px;
+}
+
+
+
+/* media screen */
+
+@media screen and ( max-width: 375px) {
+    
+    
+    main h3{
+        font-size: 30px;
+    }
+    main p{
+        font-size: 20px;
+    }
+    .joguinho img{
+        width: 400px;
+        margin: auto;
+    }
+    footer h4{
+        font-size: 20px;
+    }
+    .ph-first-aid {
+        height: 80px;
+        width: 80px;
+    }
+    main .ansi .imgansi{
+        height: 250px;
+        width: 350px;
+    }
+   
+    main .ansi .imgansi img{
+        height: 300px;
+        width: 350px;
+       
+    }
+    main .ansi {
+        display: inline;
+       
+    }
+    main .ansi .textansi p{
+        font-size: 18px;
+
+    }
+    main .ansi .textansi h4{
+        font-size: 19px;
+    }
+    main .ansi .textansi li{
+        font-size: 18px;
+    }
+    main .ansi .textansi{
+        width:300px ;
+        height: 800px;
+    }
+
+    .ph-game-controller{
+        height: 800px;
+        width: 800px;
+    }
+    .nomePessoa{
+        width: 300px;
+        margin: auto;
+        font-size: 25px;
+    }
+    
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mostraServicos.css">
+    <script defer src="../../script/script.js"></script>
+    <title>Página de Seleção de Cards</title>
+</head>
+
+<body>
+    <div class="cards_Geral">
+
+        <!-- Botão Centralizado -->
+        <div class="conteinerButton">
+            <p class="TituloExplic">Faça o seu Agendamento</p>
+        </div>
+    </div>
+
+    <div class="FundoImg">
+        <button class="mid-button">Agendar</button>
+    </div>
+
+
+    <!-- Cards com os serviços -->
+    <div class="container">
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="barba.png" alt="Barba">
+            </div>
+            <div class="contentBx">
+                <h2>Barba</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="Cabelo e Barba.png" alt="Cabelo e Barba">
+            </div>
+            <div class="contentBx">
+                <h2>Cabelo e Barba</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="Cabelo.png" alt="Cabelo">
+            </div>
+            <div class="contentBx">
+                <h2>Cabelo</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="Cabelo e Barba.png" alt="Cabelo e Barba">
+            </div>
+            <div class="contentBx">
+                <h2>Cabelo e Barba</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="Cabelo.png" alt="Cabelo">
+            </div>
+            <div class="contentBx">
+                <h2>Cabelo</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="Cabelo e Barba.png" alt="Cabelo e Barba">
+            </div>
+            <div class="contentBx">
+                <h2>Cabelo e Barba</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+            <div class="imgBx">
+                <img src="Cabelo.png" alt="Cabelo">
+            </div>
+            <div class="contentBx">
+                <h2>Cabelo</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 20:00</h3>
+                </div>
+                <a href="#">Agendar</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        // Função para alternar a seleção do card
+        function toggleCard(card) {
+            card.classList.toggle('selected');
+        }
+    </script>
+</body>
+
+</html>

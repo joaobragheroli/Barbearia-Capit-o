@@ -1,20 +1,3 @@
-
-// Faz chegar a frase no "Home" 
-
-const myObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show')
-        } else {
-            entry.target.classList.remove("show")
-        }
-    })
-})
-
-const elements = document.querySelectorAll('.hidden')
-
-elements.forEach((element) => myObserver.observe(element))
-
 // Faz mudar o Carrosel Card "Serviço"
 const swiper = new Swiper('.slider-wrapper', {
     loop: true,
@@ -48,3 +31,39 @@ const swiper = new Swiper('.slider-wrapper', {
     }
 
 });
+
+
+// Faz chegar a frase no "Home-IMG" e outros elementos
+const myObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove("show");
+        }
+    });
+});
+
+// Seleciona todos os elementos com a classe 'hidden' e o elemento 'sectionIMG'
+const hiddenElements = document.querySelectorAll('.hidden');
+
+
+// Observa todos os elementos com a classe 'hidden'
+hiddenElements.forEach((element) => myObserver.observe(element));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
