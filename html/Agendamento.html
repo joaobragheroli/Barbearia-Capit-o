@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/Agendamento.css">
+    <script src="../script/menu.js" defer></script>
 
     <title>Cortes</title>
 </head>
@@ -34,36 +35,64 @@
                 <butto class="button-login">Entrar</button>
             </a>
         </div>
+
+
+        <!-- header responsivo -->
+        <div class="headerResp">
+            <div class="modalResp">
+                <button id="mostrarModal">
+                    <i class="ph ph-list-plus"></i>
+                </button>
+            </div>    
+        </div>
+        
+
+        <div class="modalgeral">
+            <div class="sabiduria">
+                <a href="index.html"><p class="paginasResponsi">Home</p></a>
+                <a href="depressao.html"><p class="paginasResponsi">Produtos</p></a>
+                <a href="tdah.html"><p class="paginasResponsi">Serviços</p></a>
+                <a href="tdah.html"><p class="paginasResponsi">Agendamento</p></a>
+            </div>
+            <div class="modalfechar">
+                <a href="">
+                    <button class="tan" id="fecharModal">Fechar</button>
+                </a>
+            </div>
+        </div>
+
     </header>
+
+
 
     <main class="corpo-agendamento">
         <div class="AgendamentoResponsi"> <!-- Talvez use -->
             <ul class="agendamento">
                 <a href="./Paginas_Agendamento/mostraServicos.html">
                     <li>
-                        <h2>Cabelo</h2>
-                        <img src="../img/Cabelo.png">
-                        <p class="agendamento-descricao">Em tesoura ou máquina. Como o cliente preferir</p>
+                        <h2>Lucas Ferreira</h2>
+                        <img src="../img/anonimo.jpg" class="funcionario">
+                        <p class="agendamento-descricao">Prefiro atender com o Lucas</p>
                         <br>
-                        <p class="product-price">$ 00,00</p>
+
                     </li>
                 </a>
                 <a href="./Paginas_Agendamento/mostraServicos.html">
                     <li>
-                        <h2>Barba e Cabelo</h2>
-                        <img src="../img/Cabelo e Barba.png">
-                        <p class="agendamento-descricao">Pacote completo de cabelo e barba</p>
+                        <h2>Kennedy</h2>
+                        <img src="../img/anonimo.jpg" class="funcionario">
+                        <p class="agendamento-descricao">Prefiro atender com o Kennedy</p>
                         <br>
-                        <p class="product-price">$ 00,00</p>
+
                     </li>
                 </a>
                 <a href="./Paginas_Agendamento/mostraServicos.html">
                     <li>
-                        <h2>Barba</h2>
-                        <img src="../img/barba.png">
-                        <p class="agendamento-descricao">Corte e desenho profissional de barba</p>
+                        <h2>Sem Preferencia</h2>
+                        <img src="../img/img.jpg">
+                        <p class="agendamento-descricao">Sem preferencia de corte</p>
                         <br>
-                        <p class="product-price">$ 00,00</p>
+
                     </li>
                 </a>
             </ul>
@@ -78,37 +107,37 @@
                     <div class="logo">
                         <img src="../img/img.jpg" alt="Barbearia">
                     </div>
-        
+
                     <div class="box">
                         <!-- Tentei criar outras div para retirar o efeito do boodstrap (icons,separarBood) -->
-                                <a href="https://www.instagram.com/capitaobarbeiro/" class="btn instagran">
-                                    <div class="icon">
-                                        <i class="fab fa-instagram"></i>
-                                    </div>
-                                    <span>Instagran</span>
-                                </a>
-                                <a href="#" class="btn facebook">
-                                    <div class="icon">
-                                        <i class="fab fa-facebook"></i>
-                                    </div>
-                                    <span>Facebook</span>
-                                </a>
-                                <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank"
-                                    class="btn WhatsApp">
-                                    <div class="icon">
-                                        <i class="ph ph-whatsapp-logo"></i>
-                                    </div>
-                                    <span>WhatsApp</span>
-                                </a>   
+                        <a href="https://www.instagram.com/capitaobarbeiro/" class="btn instagran">
+                            <div class="icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <span>Instagran</span>
+                        </a>
+                        <a href="#" class="btn facebook">
+                            <div class="icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank"
+                            class="btn WhatsApp">
+                            <div class="icon">
+                                <i class="ph ph-whatsapp-logo"></i>
+                            </div>
+                            <span>WhatsApp</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        
-        
+
+
             <!-- Caixa de Comentarios -->
             <div id="comentarios">
                 <h2>Avaliação</h2>
-        
+
                 <?php
                 // Imprimir a mensagem de erro ou sucesso salvo na sessão
                 if (isset($_SESSION['msg'])) {
@@ -116,30 +145,31 @@
                     unset($_SESSION['msg']);
                 }
                 ?>
-        
+
                 <form action="#" method="post" id="avaliacaoTotal">
                     <div class="estrelas">
-        
+
                         <input type="radio" name="estrela" id="vazio" value="" checked>
-        
+
                         <label for="estrela_um"><i class="opcao fa"></i></label>
                         <input type="radio" name="estrela" id="estrela_um" id="vazio" value="1">
-        
+
                         <label for="estrela_dois"><i class="opcao fa"></i></label>
                         <input type="radio" name="estrela" id="estrela_dois" id="vazio" value="2">
-        
+
                         <label for="estrela_tres"><i class="opcao fa"></i></label>
                         <input type="radio" name="estrela" id="estrela_tres" id="vazio" value="3">
-        
+
                         <label for="estrela_quatro"><i class="opcao fa"></i></label>
                         <input type="radio" name="estrela" id="estrela_quatro" id="vazio" value="4">
-        
+
                         <label for="estrela_cinco"><i class="opcao fa"></i></label>
                         <input type="radio" name="estrela" id="estrela_cinco" id="vazio" value="5"><br><br>
-        
-                        <textarea name="mensagem" id="" cols="20" rows="4" placeholder="Deixe seu comentario"></textarea>
+
+                        <textarea name="mensagem" id="" cols="20" rows="4"
+                            placeholder="Deixe seu comentario"></textarea>
                         <input id="btn-enviar" type="button" value="Enviar"><br><br>
-        
+
                     </div>
                 </form>
             </div>

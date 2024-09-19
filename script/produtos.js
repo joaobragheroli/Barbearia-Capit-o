@@ -124,6 +124,7 @@ function displaycart() {
                     <p style='font-size:12px;'>${title}</p>
                     <h2 style='font-size: 15px;'>$ ${price}.00</h2>
                     <i class="fa-solid fa-trash" onclick='delElement(${j++})'></i>
+                    <i class="fa-solid fa-trash"></i>
                 </div>`
             );
         }).join('');
