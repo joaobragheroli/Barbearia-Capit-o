@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #007bff;
 }
+
 .cards_Geral {
     display: flex;
     align-items: center;
@@ -12,6 +13,7 @@ body {
     gap: 50px;
     background-color: #d6bbbb;
 }
+
 /* Estilos para os cards */
 .container {
     display: flex;
@@ -20,6 +22,7 @@ body {
     padding: 20px;
     justify-content: center;
 }
+
 .container .card {
     position: relative;
     width: 320px;
@@ -32,9 +35,11 @@ body {
     align-items: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
 .container .card:hover {
     transform: scale(1.05);
 }
+
 .container .card:before {
     content: '';
     position: absolute;
@@ -46,9 +51,11 @@ body {
     clip-path: circle(150px at 80% 20%);
     transition: clip-path 0.5s ease-in-out;
 }
+
 .container .card:hover:before {
     clip-path: circle(300px at 80% -20%);
 }
+
 .container .card:after {
     content: 'Barbearia';
     position: absolute;
@@ -60,6 +67,7 @@ body {
     color: rgba(255, 255, 255, 0.04);
     transform: translate(-8%, 30%) rotate(-55deg);
 }
+
 .container .card .imgBx {
     width: 100%;
     height: 220px;
@@ -68,14 +76,17 @@ body {
     justify-content: center;
     transition: transform 0.5s ease;
 }
+
 .container .card:hover .imgBx {
     transform: translateY(-10%);
 }
+
 .container .card .imgBx img {
     max-width: 100%;
     height: auto;
     transition: transform 0.5s ease;
 }
+
 .container .card .contentBx {
     position: absolute;
     bottom: 0;
@@ -87,14 +98,17 @@ body {
     padding: 10px;
     transition: height 1s ease;
 }
+
 .container .card:hover .contentBx {
     height: 210px;
 }
+
 .container .card .contentBx h2 {
     font-weight: 600;
     letter-spacing: 1px;
     margin: 0;
 }
+
 .container .card .contentBx .size,
 .container .card .contentBx .color {
     display: flex;
@@ -105,16 +119,19 @@ body {
     opacity: 0;
     visibility: hidden;
 }
+
 .container .card:hover .contentBx .size {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.5s;
 }
+
 .container .card:hover .contentBx .color {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.6s;
 }
+
 .container .card .contentBx .size h3,
 .container .card .contentBx .color h3 {
     color: #fff;
@@ -124,6 +141,7 @@ body {
     letter-spacing: 2px;
     margin-right: 10px;
 }
+
 .container .card .contentBx .size span {
     width: 26px;
     height: 26px;
@@ -138,9 +156,11 @@ body {
     cursor: pointer;
     transition: background 0.5s ease;
 }
+
 .container .card .contentBx .size span:hover {
     background: #9bdc28;
 }
+
 .container .card .contentBx .color span {
     width: 20px;
     height: 20px;
@@ -149,15 +169,19 @@ body {
     margin: 0 5px;
     cursor: pointer;
 }
+
 .container .card .contentBx .color span:nth-child(2) {
     background: #9bdc28;
 }
+
 .container .card .contentBx .color span:nth-child(3) {
     background: #03a9f4;
 }
+
 .container .card .contentBx .color span:nth-child(4) {
     background: #e91e63;
 }
+
 .container .card .contentBx a {
     display: inline-block;
     padding: 10px 20px;
@@ -171,11 +195,13 @@ body {
     transform: translateX(50px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 .container .card:hover .contentBx a {
     opacity: 1;
     transform: translateX(0);
     transition-delay: 0.75s;
 }
+
 /* Estilo do botão */
 .conteinerButton {
     display: flex;
@@ -187,6 +213,7 @@ body {
     height: 30vh;
     background-color: rgb(0, 0, 0);
 }
+
 .mid-button {
     height: 90px;
     width: 300px;
@@ -200,14 +227,17 @@ body {
     font-size: 24px;
     transition: background-color 0.3s ease;
 }
+
 .mid-button:hover {
     background-color: #0056b3;
 }
+
 .TituloExplic {
     font-size: 100px;
     color: white;
     margin: 0;
 }
+
 /* Estilo para o card verde após agendamento */
 .card.selected {
     background-color: rgb(255, 255, 255) !important;
@@ -215,13 +245,17 @@ body {
 
 /* Faz aparecer o efeito de tinta */
 .cards_Geral {
-    position: relative; /* Garante que o z-index será aplicado corretamente */
-    z-index: 2; /* Define um valor maior para garantir que .cards_Geral esteja acima */
+    position: relative;
+    /* Garante que o z-index será aplicado corretamente */
+    z-index: 2;
+    /* Define um valor maior para garantir que .cards_Geral esteja acima */
 }
 
 .FundoImg {
-    position: relative; /* Ou use absolute, dependendo da estrutura do layout */
-    z-index: 1; /* Define um valor menor para garantir que .FundoImg fique atrás */
+    position: relative;
+    /* Ou use absolute, dependendo da estrutura do layout */
+    z-index: 1;
+    /* Define um valor menor para garantir que .FundoImg fique atrás */
     margin-top: 0px;
     background-image: url(../../img/tinta1.jpeg);
     background-size: 100%;
@@ -232,19 +266,25 @@ body {
     display: flex;
     align-items: start;
     justify-content: center;
-    opacity: 0; /* Inicialmente invisível */
-    animation: slideDown 3s ease-out forwards; /* Animação de deslizamento para baixo */
-    filter: none; /* Remove qualquer filtro aplicado */
+    opacity: 0;
+    /* Inicialmente invisível */
+    animation: slideDown 3s ease-out forwards;
+    /* Animação de deslizamento para baixo */
+    filter: none;
+    /* Remove qualquer filtro aplicado */
 }
 
 /* Defina a animação para deslizar de cima para baixo */
 @keyframes slideDown {
     0% {
-        transform: translateY(-100%); /* Começa fora da tela, acima */
+        transform: translateY(-100%);
+        /* Começa fora da tela, acima */
         opacity: 0;
     }
+
     100% {
-        transform: translateY(0); /* Fim da animação na posição original */
+        transform: translateY(0);
+        /* Fim da animação na posição original */
         opacity: 1;
     }
 }

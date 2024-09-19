@@ -9,7 +9,6 @@ body {
     display: flex;
     flex-direction: column;
     background-color: beige;
-
 }
 
 
@@ -20,7 +19,6 @@ footer {
     height: 50vh;
     margin-top: auto;
     background-color: black;
-
 }
 
 .conteiner-footer {
@@ -254,12 +252,6 @@ header {
     padding: 10px 15px;
 }
 
-.botao-login button a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
 
 .conteiner-header {
     padding-top: 20px;
@@ -271,6 +263,10 @@ header {
     align-items: center;
     gap: 70px;
     height: 100%;
+}
+
+.menu-mobile {
+    display: none;
 }
 
 .conteiner-header i {
