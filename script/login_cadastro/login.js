@@ -14,19 +14,19 @@ function login() {
             window.location.href = "../..//html/Home.html";
         })
         .catch(error => {
-            // alert(getErrorMessage(error));
-            alert(error.code);
+            alert(getErrorMessage(error));
+            // alert(error.code);
         });
 }
 
 function getErrorMessage(error) {
     console.log('Código de erro:', error.code);
     if (error.code === "auth/invalid-credential") {
-        return "Usuário não encontrado !!!";
+        return "Usuário não encontrado ou Senha inválida !!!";
     }
-    if (error.code === "auth/invalid-credential") {
-        return "Senha inválida";
-    }
+    // if (error.code === "auth/invalid-credential") {
+    //     return "";
+    // }
     return error.message;
 }
 

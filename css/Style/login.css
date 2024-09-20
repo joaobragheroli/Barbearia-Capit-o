@@ -92,7 +92,7 @@ input:focus~ :valid {
     justify-content: center;
 }
 
-button {
+.login-butto {
     width: 100%;
     height: 40px;
     border-radius: 40px;
@@ -102,6 +102,19 @@ button {
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
+}
+
+.recuperar-senha {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda, se necessário */
+    color: #ffffff; /* Altera a cor do texto */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.recuperar{
+    display: flex;
+    justify-content: center;
 }
 
 .register {

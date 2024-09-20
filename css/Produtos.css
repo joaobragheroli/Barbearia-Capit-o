@@ -207,9 +207,6 @@ button:hover {
 }
 
 
-
-
-
 .scroll-section {
   max-height: 400px;
   overflow-y: auto;
@@ -317,7 +314,7 @@ nav a:hover::after {
 }
 
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 920px) {
   #root {
     width: 100%;
     display: flex;
@@ -388,6 +385,7 @@ nav a:hover::after {
 
 #mostrarModal{
     background-color: #000000;
+    width: 1;
 }
 
 .ph-list-plus{
