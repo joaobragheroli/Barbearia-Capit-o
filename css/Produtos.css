@@ -316,14 +316,6 @@ nav a:hover::after {
  display: none;
 }
 
-.paginasResponsi{
-  display: none;
-}
-
-
-.tan{
-  display: none;
-}
 
 @media screen and (max-width: 576px) {
   #root {

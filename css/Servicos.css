@@ -527,14 +527,11 @@ li {
    display: none;
 }
 
-.paginasResponsi{
-    display: none;
-  }
 
 
-.tan{
-    display: none;
-}
+
+
+
 
 @media screen and (max-width: 920px) {
     body {
