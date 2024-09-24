@@ -16,3 +16,11 @@ const hiddenElements = document.querySelectorAll('.hidden');
 
 // Observa todos os elementos com a classe 'hidden'
 hiddenElements.forEach((element) => myObserver.observe(element));
+
+
+// Função para atualizar as iniciais no header
+function updateUserInitials(firstName, lastName) {
+    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+    document.getElementById('initials').textContent = initials;
+    document.getElementById('user-initials').style.display = 'block';
+}
