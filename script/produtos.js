@@ -69,7 +69,7 @@ const product = [
         id: 11,
         image: '../img/produtos/produto13.jpg',
         title: 'Pasta Black Premium (Fox Formen)',
-        price: 100,
+        price: 35,
     },
 ];
 
