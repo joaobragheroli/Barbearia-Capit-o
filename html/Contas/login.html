@@ -23,28 +23,29 @@
                         <h2 class="h2-login">Login</h2>
                         <div class="inputbox">
                             <ion-icon name="mail-outline"></ion-icon>
-                            <input type="email" name="email" id="email" onchange="onChangeEmail()" required>
+                            <input type="email" name="email" id="email" placeholder=" " onchange="onChangeEmail()" required>
                             <label for="email">Email</label>
-                        </div>
+                        </div>                        
                         <div class="erros" id="email-obrigatorio">Email é obrigatório</div>
                         <div class="erros" id="email-invalido">Email inválido</div>
 
                         <div class="inputbox">
                             <ion-icon name="lock-closed-outline"></ion-icon>
-                            <input type="password" name="password" id="password" onchange="onChangePassword()" required>
+                            <input type="password" name="password" placeholder=" " id="password" onchange="onChangePassword()" required>
                             <label for="password">Senha</label>
                         </div>
                         <div class="erros" id="senha-Obrigatoria">Senha é obrigatório </div>
                         <br>
 
-                        <button type="button" id="login-button"  class="login-butto"  disabled="true" onclick="login()">Entrar</button>
-                
+                        <button type="button" id="login-button" class="login-butto" disabled="true"
+                            onclick="login()">Entrar</button>
+
 
                         <div class="register" id="btn-cadastro">
                             <p>Você não tem uma conta?<a href="cadastro.html"> Cadastre-se</a></p>
                         </div>
 
-                        
+
                         <div class="recuperar">
                             <button type="button" id="recuperar-senha" class="recuperar-senha" disabled="true"
                                 onclick="recoverPassword()">Recuperar Senha</button>

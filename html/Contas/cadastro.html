@@ -25,7 +25,7 @@
 
                             <div class="inputbox">
                                 <ion-icon name="mail-outline"></ion-icon>
-                                <input type="email" id="email" onchange="onChangeEmail()">
+                                <input type="email" id="email" placeholder=" " onchange="onChangeEmail()" required>
                                 <label for="email">Email</label>
                             </div>
                             <div class="erros" id="email-required-error" style="display: none;">Email é obrigatório
@@ -34,7 +34,8 @@
 
                             <div class="inputbox">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input type="password" id="password" onchange="onChangePassword()">
+                                <input type="password" id="password" placeholder=" " onchange="onChangePassword()"
+                                    required>
                                 <label for="password">Senha</label>
                             </div>
                             <div class="erros" id="password-required-error" style="display: none;">Senha é obrigatória
@@ -43,7 +44,8 @@
                                 menos 6 caracteres</div>
 
                             <div class="inputbox">
-                                <input type="password" id="confirmPassword" onchange="onChangeConfirmPassword()">
+                                <input type="password" id="confirmPassword" placeholder=" "
+                                    onchange="onChangeConfirmPassword()" required>
                                 <label for="confirmPassword">Confirmar Senha</label>
                             </div>
                             <div class="erros" id="confirm-password-doesnt-match-error" style="display: none;">Senha e
@@ -66,7 +68,6 @@
 
         <!-- Scripts customizados -->
         <script src="../../script/login_cadastro/cadastro.js"></script>
-        <script src="../../script/login_cadastro/validarEmail.js"></script>
 
         <!-- Links do Firebase -->
         <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>

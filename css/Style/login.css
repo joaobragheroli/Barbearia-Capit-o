@@ -45,7 +45,7 @@ h2 {
 .inputbox {
     position: relative;
     margin: 30px 0;
-    width: 310;
+    width: 310px; /* Adicionei 'px' para a largura */
     border-bottom: 2px solid white;
 }
 
@@ -60,9 +60,11 @@ h2 {
     transition: .5s;
 }
 
-input:focus~label,
-input:focus~ :valid {
-    top: -5px;
+.inputbox input:focus ~ label,
+.inputbox input:not(:placeholder-shown) ~ label,
+.inputbox input:valid ~ label {
+    top: -5px; /* Move o label para cima */
+    font-size: 0.8rem; /* Ajusta o tamanho do texto, se necessário */
 }
 
 .inputbox input {
