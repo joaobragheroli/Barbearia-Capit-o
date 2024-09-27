@@ -8,7 +8,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(233, 233, 226);
+    background-color: white;
     gap: 1rem;
 }
 
@@ -206,7 +206,7 @@ a {
 
 textarea {
     padding: 1px;
-    background-color: red;
+    background-color:rgb(159, 148, 148);
     width: 100%;
     font-size: 15px;
     outline: none;
@@ -396,7 +396,7 @@ h6 {
     flex-direction: row;
     border-radius: 10px;
     border: 5px solid black;
-    background-color: #978188;
+    background-color: #d8d8d8;
 }
 
 .ImgServico {
@@ -503,12 +503,35 @@ li {
     margin-bottom: 15px;
 }
 
-.itemC {
-    width: 250px;
-    height: 350px;
-    background-color: aqua;
+
+.itemA, .itemB, .itemC, .itemD, .itemE, .itemF, .itemG, .itemH, .itemI {
+    width: 250px; /* Largura dos itens */
+    height: 350px; /* Altura dos itens */
+    background-color: rgb(219, 221, 221);
 }
 
+.itemA {
+    background-image: url(..img/corte1.jpg);
+}
+.itemB {
+    background-image: url(..img/corte2.jpg);
+}
+.itemC {
+    background-image: url(..img/corte3.jpg);
+}
+.itemD {
+    background-image: url(..img/corte6.jpg);
+}
+.itemE {
+    background-image: url(..img/corte5.jpg);
+}
+.itemF {
+    background-image: url(..img/pezinho.jpg);
+
+}
+.itemG {
+    background-image: url(..img/corte5.jpg);
+}
 .nomesCard {
     margin-left: 110px;
     margin-top: 30px;

@@ -200,8 +200,7 @@ a {
 
 textarea {
     padding: 1px;
-    background-color: red;
-    width: 100%;
+    background-color: rgb(159, 148, 148);
     font-size: 15px;
     outline: none;
     border-radius: 1px solid white;
