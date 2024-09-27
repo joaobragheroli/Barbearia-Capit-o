@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -67,13 +68,13 @@ a {
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:hover {
+}
+
+.wrapper .button:hover {
     width: 200px;
-  }
-  
-  .wrapper .button .icon {
+}
+
+.wrapper .button .icon {
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -83,55 +84,55 @@ a {
     box-sizing: border-box;
     line-height: 60px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:nth-child(1):hover .icon {
+}
+
+.wrapper .button:nth-child(1):hover .icon {
     background: #4267B2;
-  }
-  
-  .wrapper .button:nth-child(2):hover .icon {
+}
+
+.wrapper .button:nth-child(2):hover .icon {
     background: #E1306C;
-  }
-  
-  .wrapper .button:nth-child(3):hover .icon {
+}
+
+.wrapper .button:nth-child(3):hover .icon {
     background: #46dd8a;
-  }
-  
-  .wrapper .button .icon i {
+}
+
+.wrapper .button .icon i {
     font-size: 25px;
     line-height: 60px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:hover .icon i {
+}
+
+.wrapper .button:hover .icon i {
     color: #fff;
-  }
-  
-  .wrapper .button span {
+}
+
+.wrapper .button span {
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
     margin-left: 10px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:nth-child(1) span {
+}
+
+.wrapper .button:nth-child(1) span {
     color: #4267B2;
-  }
-  
-  .wrapper .button:nth-child(2) span {
+}
+
+.wrapper .button:nth-child(2) span {
     color: #E1306C;
-  }
-  
-  .wrapper .button:nth-child(3) span {
+}
+
+.wrapper .button:nth-child(3) span {
     color: #46dd8a;
-  }
-  
-  
+}
+
+
 
 /* Area comentarios */
 
-
+/* 
 :root {
     --amarelo: #ffcc00;
     --cinza: #ccc;
@@ -188,7 +189,54 @@ a {
     color: black;
     font-size: 20px;
     padding-right: 14px;
-}
+} */
+
+.star-rating {
+    display: flex; /* Use flexbox para alinhar as estrelas horizontalmente */
+    align-items: flex-end; /* Alinha as estrelas na parte inferior */
+  }
+  
+  .star {
+    font-size: 40px; /* Tamanho das estrelas */
+    color: lightgray; /* Cor padrão das estrelas */
+    cursor: pointer; /* Indica que é clicável */
+    transition: color 0.3s; /* Transição suave para a cor */
+    position: relative; /* Necessário para o posicionamento do tracinho */
+    margin: 0 5px; /* Espaçamento entre as estrelas */
+  }
+  
+  .star::before {
+    content: ''; /* Cria um elemento vazio */
+    position: absolute; /* Posiciona em relação à estrela */
+    top: -8px; /* Distância acima da estrela */
+    left: 50%; /* Alinha ao centro */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    width: 10px; /* Largura do tracinho */
+    height: 2px; /* Altura do tracinho */
+    background-color: #ccc; /* Cor do tracinho */
+    transition: height 0.3s; /* Suave alteração na altura */
+  }
+  
+  .star:hover,
+  .star:hover ~ .star {
+    color: gold; /* Cor das estrelas ao passar o mouse */
+  }
+  
+  .star.selected {
+    color: gold; /* Cor das estrelas selecionadas */
+  }
+  
+  .star.selected::before {
+    height: 4px; /* Aumenta a altura do tracinho quando a estrela está selecionada */
+  }
+  
+  .average-rating {
+    margin-bottom: 10px; /* Espaçamento abaixo da média */
+    font-size: 1.5em; /* Tamanho da fonte da média */
+    color: #333; /* Cor do texto da média */
+  }
+  
+
 
 /* Problema centralizar deve estar em outro lugar*/
 #comentarios {
@@ -376,22 +424,23 @@ section {
 .primeira-section p {
     text-align: left;
 }
-#Entrada{
+
+#Entrada {
     font-size: 10vh;
 }
 
-#Entrada2{
+#Entrada2 {
     font-size: 10vh;
     color: #000000;
 }
 
-#text1{
+#text1 {
     font-size: 3vh;
     margin-left: 7%;
     width: 100%;
 }
 
-#text2{
+#text2 {
     font-size: 30px;
     width: 100%;
     padding-left: 15%;
@@ -399,49 +448,55 @@ section {
     color: #000000;
 }
 
-#text3{
+#text3 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
 }
-#text4{
+
+#text4 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
 }
-#text5{
+
+#text5 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
 }
-#text6{
+
+#text6 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
 }
-#text7{
+
+#text7 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
 }
-#text8{
+
+#text8 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
 }
-#text9{
+
+#text9 {
     font-size: 30px;
     width: 100%;
     padding-left: 10%;
@@ -450,12 +505,12 @@ section {
 }
 
 /* header Responsivo */
-.funcionario{
+.funcionario {
     padding: 19%;
 }
 
-.headerResp{
-   display: none;
+.headerResp {
+    display: none;
 }
 
 
@@ -550,109 +605,109 @@ section {
         display: none;
     }
 
-     /* header resposivo */
-.headerResp{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    /* header resposivo */
+    .headerResp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    #mostrarModal {
+        background-color: #000000;
+    }
+
+    .ph-list-plus {
+        color: aliceblue;
+    }
+
+    .nomePrincipal {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 4em;
+    }
+
+    .modalResp {
+        margin-left: auto;
+        padding-right: 30px;
+        font-size: 2em;
+    }
+
+    .modalgeral {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 100%;
+        position: fixed;
+        right: 0%;
+        top: 0%;
+        background-color: #000000;
+        transition: 500ms;
+        transform: translateX(100%);
+    }
+
+    .aberto {
+        transform: translateX(0%);
+    }
+
+    .fechado {
+        transform: translateX(100%);
+    }
+
+    .sabiduria a {
+        display: flex;
+        gap: 1rem;
+        font-size: 40px;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+
+    .sabiduria {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50%;
+    }
+
+    .modalfechar {
+        margin: auto;
+        width: 200px;
+        height: 50px;
+    }
+
+    .tan {
+        width: 100%;
+        height: 100%;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        font-size: 1em;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 1em;
+        background-color: rgb(255, 255, 255);
+        border: 0;
+    }
+
+    .paginasResponsi {
+        color: #ccc;
+        padding-bottom: 15%;
+
+    }
+
+    .conteiner-header {
+        display: none;
+    }
+
+
 }
 
-#mostrarModal{
-    background-color: #000000;
-}
-
-.ph-list-plus{
-    color: aliceblue;
-}
-
-.nomePrincipal {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 4em;
-  }
-  
-  .modalResp{
-    margin-left: auto;
-    padding-right: 30px;
-    font-size: 2em;
-  }
-  
-  .modalgeral {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 100%;
-    position: fixed;
-    right: 0%;
-    top: 0%;
-    background-color: #000000;
-    transition: 500ms;
-    transform: translateX(100%);
-  }
-  
-  .aberto {
-    transform: translateX(0%);
-  }
-  
-  .fechado {
-    transform: translateX(100%);
-  }
-  
-  .sabiduria a {
-    display: flex;
-    gap: 1rem;
-    font-size: 40px;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-  }
-  
-  .sabiduria {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50%;
-  }
-  
-  .modalfechar {
-    margin: auto;
-    width: 200px;
-    height: 50px;
-  }
-  
-  .tan {
-    width: 100%;
-    height: 100%;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    font-size: 1em;
-  }
-  
-  button {
-    width: 50px;
-    height: 50px;
-    font-size: 1em;
-    background-color: rgb(255, 255, 255);
-    border: 0;
-  }
-
-  .paginasResponsi{
-    color: #ccc;
-    padding-bottom: 15%;
-
-  }
-
-  .conteiner-header{
-    display: none;
-  }
-    
-
-}
 .imagem-sombreada {
-    width: 500px; 
+    width: 500px;
     height: auto;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); 
-  }
-
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
