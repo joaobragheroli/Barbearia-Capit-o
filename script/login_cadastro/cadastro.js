@@ -30,14 +30,19 @@ function register(event) {
     const email = form.email().value;
     const password = form.password().value;
 
+    // Desabilita o botão de registro para evitar múltiplos cliques
+    form.registerButton().disabled = true;
+
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(() => {
             alert("Cadastro realizado com sucesso!");
-            // Aqui você pode redirecionar para a página desejada
-            // window.location.href = "../html/Home.html";
+            // Habilita o botão de registro após o sucesso
+            form.registerButton().disabled = false;
         })
         .catch(error => {
             alert(getErrorMessage(error));
+            // Habilita o botão de registro após o erro
+            form.registerButton().disabled = false;
         });
 }
 
@@ -101,3 +106,6 @@ const form = {
     passwordRequiredError: () => document.getElementById('password-required-error'),
     registerButton: () => document.getElementById('register-button')
 };
+
+// Listener de submissão de formulário
+document.getElementById('register-form').addEventListener('submit', register);
