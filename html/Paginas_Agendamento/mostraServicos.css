@@ -47,7 +47,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(FireBrick 50px, FireBrick 100px, white 100px, white 150px, MediumBlue 150px);
+    background: rgb(255,0,0);
+    background: linear-gradient(325deg, rgba(255,0,0,1) 48%, rgba(255,255,255,1) 48%, rgba(255,255,255,1) 66%, rgba(12,0,255,1) 66%);
     clip-path: circle(150px at 80% 20%);
     transition: clip-path 0.5s ease-in-out;
 }
@@ -297,4 +298,63 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.container .card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background-color: #232323;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+   
+}
+
+.container .card .imgBx {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    position: relative; 
+    z-index: 2; 
+}
+
+.container .card .imgBx img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.container .card:hover .imgBx {
+    transform: translateY(-10%); 
+}
+
+.container .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(325deg, rgba(255,0,0,1) 48%, rgba(255,255,255,1) 48%, rgba(255,255,255,1) 66%, rgba(12,0,255,1) 66%);
+    clip-path: circle(150px at 80% 20%);
+    transition: clip-path 0.5s ease-in-out;
+    z-index: 1; 
+}
+
+.container .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
 }
