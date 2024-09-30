@@ -1,37 +1,62 @@
+// Função chamada quando o e-mail é alterado
 function onChangeEmail() {
     toggleButtonsDisable();
     toggleEmailErrors();
 }
 
+// Função chamada quando a senha é alterada
 function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
 }
 
+// Função para realizar o login no Firebase
 function login() {
-    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value)
+    const email = form.email().value;
+    const password = form.password().value;
+
+    // Tenta fazer o login
+    firebase.auth().signInWithEmailAndPassword(email, password)
         .then(response => {
-            window.location.href = "../..//html/Home.html";
+            // Login bem-sucedido
+            window.location.href = "../..//html/Home.html"; // Redireciona após login bem-sucedido
         })
         .catch(error => {
-            alert(getErrorMessage(error));
-            // alert(error.code);
+            // Tratar os diferentes erros
+            handleLoginError(error);
         });
 }
 
-function getErrorMessage(error) {
-    console.log('Código de erro:', error.code);
-    if (error.code === "auth/invalid-credential") {
-        return "Usuário não encontrado ou Senha inválida !!!";
+// Função que trata erros de login
+function handleLoginError(error) {
+    console.log('Código de erro:', error.code); // Exibe o código de erro no console
+
+    // Limpa todas as mensagens de erro antes de exibir uma nova
+    clearErrorMessages();
+
+    switch (error.code) {
+        case "auth/wrong-password":
+            alert("Senha inválida! Verifique sua senha.");
+            form.senhaObrigatoria().style.display = "block"; // Exibe mensagem de senha obrigatória
+            break;
+        case "auth/user-not-found":
+            alert("Usuário não encontrado! Verifique o e-mail.");
+            form.emailInvalido().style.display = "block"; // Exibe mensagem de e-mail inválido
+            break;
+        case "auth/invalid-email":
+            alert("E-mail inválido! Verifique o formato do e-mail.");
+            form.emailInvalido().style.display = "block"; // Exibe mensagem de e-mail inválido
+            break;
+        default:
+            alert("Erro desconhecido. Tente novamente."); // Mensagem genérica para outros erros
+            break;
     }
-    // if (error.code === "auth/invalid-credential") {
-    //     return "";
-    // }
-    return error.message;
 }
 
+// Função para recuperação de senha
 function recoverPassword() {
-    firebase.auth().sendPasswordResetEmail(form.email().value)
+    const email = form.email().value;
+    firebase.auth().sendPasswordResetEmail(email)
         .then(() => {
             alert('Email enviado com sucesso');
         })
@@ -40,34 +65,35 @@ function recoverPassword() {
         });
 }
 
+// Verifica se os campos de e-mail são válidos
 function isEmailFields() {
     const email = form.email().value;
     return email && validateEmail(email);
 }
 
+// Exibe ou oculta erros de e-mail
 function toggleEmailErrors() {
     const email = form.email().value;
-
     form.emailObrigatorio().style.display = email ? "none" : "block";
     form.emailInvalido().style.display = validateEmail(email) ? "none" : "block";
 }
 
+// Exibe ou oculta erros de senha
 function togglePasswordErrors() {
     const password = form.password().value;
-
     form.senhaObrigatoria().style.display = password ? "none" : "block";
 }
 
+// Habilita ou desabilita os botões com base na validade dos campos
 function toggleButtonsDisable() {
     const emailValid = isEmailFields();
-    console.log('Email válido:', emailValid);
     form.recuperarSenha().disabled = !emailValid;
 
     const passwordValid = isPasswordFields();
-    console.log('Senha válida:', passwordValid);
     form.btnEntrar().disabled = !emailValid || !passwordValid;
 }
 
+// Verifica se o campo de senha é válido
 function isPasswordFields() {
     const password = form.password().value;
     return password ? true : false;
@@ -80,6 +106,14 @@ function validateEmail(email) {
     return emailPattern.test(email);
 }
 
+// Limpa todas as mensagens de erro
+function clearErrorMessages() {
+    form.emailObrigatorio().style.display = "none"; // Limpa mensagem de e-mail obrigatório
+    form.emailInvalido().style.display = "none";    // Limpa mensagem de e-mail inválido
+    form.senhaObrigatoria().style.display = "none";  // Limpa mensagem de senha obrigatória
+}
+
+// Objeto que contém referências aos elementos do formulário
 const form = {
     email: () => document.getElementById("email"),
     emailObrigatorio: () => document.getElementById("email-obrigatorio"),
@@ -88,4 +122,4 @@ const form = {
     senhaObrigatoria: () => document.getElementById("senha-Obrigatoria"),
     recuperarSenha: () => document.getElementById('recuperar-senha'),
     btnEntrar: () => document.getElementById("login-button")
-}
+};
