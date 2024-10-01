@@ -341,7 +341,7 @@ section {
 
 
 .segunda-section {
-    height: 100vh;
+    height: 100vw;
     flex-direction: column;
 }
 
