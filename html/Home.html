@@ -124,27 +124,34 @@
                 serviços incluem:</p>
 
             <p id="text3">
-                <strong> Cortes de Cabelo:</strong> Desde o clássico ao moderno, nossos barbeiros são mestres em criar looks que
+                <strong> Cortes de Cabelo:</strong> Desde o clássico ao moderno, nossos barbeiros são mestres em criar
+                looks que
                 destacam sua personalidade.
                 </br>
-               <strong>Cuidados com a Barba:</strong> Aprecie a arte da barbearia com nossas técnicas especializadas em aparagem,
+                <strong>Cuidados com a Barba:</strong> Aprecie a arte da barbearia com nossas técnicas especializadas em
+                aparagem,
                 modelagem e tratamento de barba.
                 </br>
-                 <strong>Experiência de Barbear Tradicional:</strong> Sinta o prazer de um barbear à moda antiga, com todo o cuidado e
+                <strong>Experiência de Barbear Tradicional:</strong> Sinta o prazer de um barbear à moda antiga, com
+                todo o cuidado e
                 conforto que você merece.
                 </br>
-                <strong>Por Que Escolher a Barbearia Capitão?</strong> 
+                <strong>Por Que Escolher a Barbearia Capitão?</strong>
                 </br>
-                <strong> Excelência e Profissionalismo:</strong> Nossa equipe é formada por profissionais apaixonados e altamente
+                <strong> Excelência e Profissionalismo:</strong> Nossa equipe é formada por profissionais apaixonados e
+                altamente
                 qualificados, dedicados a oferecer o melhor atendimento e resultados.
                 </br>
-                <strong>Ambiente Aconchegante:</strong> Criamos um espaço que mistura tradição e modernidade, onde cada visita é uma
+                <strong>Ambiente Aconchegante:</strong> Criamos um espaço que mistura tradição e modernidade, onde cada
+                visita é uma
                 experiência relaxante e agradável.
                 </br>
-                <strong>Atendimento Personalizado:</strong> Valorizamos a individualidade de cada cliente e oferecemos um atendimento
+                <strong>Atendimento Personalizado:</strong> Valorizamos a individualidade de cada cliente e oferecemos
+                um atendimento
                 feito
                 </br>
-                sob medida para suas preferências e necessidades.</p>
+                sob medida para suas preferências e necessidades.
+            </p>
         </section>
         <section class="hidden terceira-section">
             <img src="../img/ambiente.png" class="imagem-sombreada" width="500px" height="400px" alt="">
@@ -184,25 +191,130 @@
             </div>
 
 
-         
+
             <div class="average-rating">
-                Média de Avaliações: 
+                <!-- Média de Avaliações: -->
                 <span id="average-rating-value">0</span>/5
-              </div>
-              
-              <div class="star-rating">
+            </div>
+            <div class="star-rating">
                 <span class="star" data-value="5">&#9733;</span>
                 <span class="star" data-value="4">&#9733;</span>
                 <span class="star" data-value="3">&#9733;</span>
                 <span class="star" data-value="2">&#9733;</span>
                 <span class="star" data-value="1">&#9733;</span>
-              </div>
-              <p>Avaliação: <span id="rating-value">0</span>/5</p>
-              
-
+            </div>
+            <p>Avaliação: <span id="rating-value">0</span>/5</p>
+            <button id="submit-rating">Enviar Avaliação</button>
 
         </div>
     </footer>
+
+    <!-- links do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyChx2h9-1qFLPAaJvfYXayqSXojBX-BOWg",
+            authDomain: "tcc-capita-5c9ec.firebaseapp.com",
+            projectId: "tcc-capita-5c9ec",
+            storageBucket: "tcc-capita-5c9ec.appspot.com",
+            messagingSenderId: "939051844006",
+            appId: "1:939051844006:web:696e50e93e43424edccf67"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(); // Inicializa o Firestore
+
+        // Variáveis para armazenar o ID do usuário e do barbeiro
+        const userId = "usuario123"; // ID do usuário
+        const barberId = "barbeiro456"; // ID do barbeiro
+
+        // Função para adicionar uma avaliação
+        async function addRating(userId, barberId, rating) {
+            try {
+                await db.collection('ratings').add({
+                    userId: userId,
+                    barberId: barberId,
+                    rating: rating,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp() // Armazena o tempo da avaliação
+                });
+                console.log("Avaliação adicionada com sucesso!");
+                calculateAverageRating(barberId); // Recalcula a média após enviar a avaliação
+            } catch (error) {
+                console.error("Erro ao adicionar avaliação:", error);
+            }
+        }
+
+        // Função para obter as avaliações de um barbeiro
+        async function getRatings(barberId) {
+            try {
+                const ratingsSnapshot = await db.collection('ratings')
+                    .where('barberId', '==', barberId)
+                    .get();
+
+                if (ratingsSnapshot.empty) {
+                    console.log("Nenhuma avaliação encontrada.");
+                    return [];
+                }
+
+                const ratings = [];
+                ratingsSnapshot.forEach(doc => {
+                    ratings.push(doc.data());
+                });
+                return ratings;
+            } catch (error) {
+                console.error("Erro ao buscar avaliações:", error);
+            }
+        }
+
+        // Função para calcular a média das avaliações de um barbeiro
+        async function calculateAverageRating(barberId) {
+            const ratings = await getRatings(barberId);
+            if (ratings.length === 0) {
+                document.getElementById("average-rating-value").innerText = "0";
+                return;
+            }
+
+            let totalRating = 0;
+            ratings.forEach(rating => {
+                totalRating += rating.rating;
+            });
+
+            const average = totalRating / ratings.length;
+            document.getElementById("average-rating-value").innerText = average.toFixed(2);
+        }
+
+        // Atualiza o valor da avaliação quando uma estrela é clicada
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function () {
+                const ratingValue = this.getAttribute('data-value');
+                document.getElementById('rating-value').innerText = ratingValue;
+                // Adiciona classe ativa às estrelas selecionadas
+                document.querySelectorAll('.star').forEach(s => {
+                    s.style.color = s.getAttribute('data-value') <= ratingValue ? 'gold' : 'lightgray';
+                });
+            });
+        });
+
+        // Adiciona a avaliação ao clicar no botão "Enviar Avaliação"
+        document.getElementById('submit-rating').addEventListener('click', function () {
+            const ratingValue = document.getElementById('rating-value').innerText;
+            if (ratingValue > 0) {
+                addRating(userId, barberId, parseInt(ratingValue));
+                document.getElementById('rating-value').innerText = '0'; // Reseta o valor exibido
+                document.querySelectorAll('.star').forEach(s => s.style.color = 'lightgray'); // Reseta as estrelas
+            } else {
+                alert("Por favor, selecione uma avaliação antes de enviar.");
+            }
+        });
+
+        // Calcula e exibe a média das avaliações do barbeiro ao carregar a página
+        calculateAverageRating(barberId);
+    </script>
 
 </body>
 

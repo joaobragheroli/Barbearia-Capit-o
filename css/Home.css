@@ -7,8 +7,8 @@
 }
 
 /* organizar aonde eu vou deixar no carrosel */
-.active img{
-    width: 100%; 
+.active img {
+    width: 100%;
     height: 500px;
 }
 
@@ -139,153 +139,88 @@ a {
 
 
 /* Area comentarios */
-
-/* 
-:root {
-    --amarelo: #ffcc00;
-    --cinza: #ccc;
+.average-rating {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
 }
-
-.estrelas input[type=radio] {
-    display: none;
-}
-
-.estrelas label i.opcao.fa:before {
-    content: '\f005';
-    color: var(--amarelo);
-}
-
-.estrelas input[type=radio]:checked~label i.fa:before {
-    color: var(--cinza);
-}
-
-.conteiner img {
-    border-radius: 15px;
-}
-
-.conteiner .item {
-    padding-bottom: 35px;
-}
-
-.conteiner button {
-    display: none;
-    background-color: white;
-    padding: 10px 15px;
-}
-
-.botao-login button a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.conteiner {
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    height: 100%;
-}
-
-.conteiner i {
-    color: black;
-    font-size: 20px;
-    padding-right: 14px;
-} */
 
 .star-rating {
-    display: flex; /* Use flexbox para alinhar as estrelas horizontalmente */
-    align-items: flex-end; /* Alinha as estrelas na parte inferior */
-  }
-  
-  .star {
-    font-size: 40px; /* Tamanho das estrelas */
-    color: lightgray; /* Cor padrão das estrelas */
-    cursor: pointer; /* Indica que é clicável */
-    transition: color 0.3s; /* Transição suave para a cor */
-    position: relative; /* Necessário para o posicionamento do tracinho */
-    margin: 0 5px; /* Espaçamento entre as estrelas */
-  }
-  
-  .star::before {
-    content: ''; /* Cria um elemento vazio */
-    position: absolute; /* Posiciona em relação à estrela */
-    top: -8px; /* Distância acima da estrela */
-    left: 50%; /* Alinha ao centro */
-    transform: translateX(-50%); /* Centraliza horizontalmente */
-    width: 10px; /* Largura do tracinho */
-    height: 2px; /* Altura do tracinho */
-    background-color: #ccc; /* Cor do tracinho */
-    transition: height 0.3s; /* Suave alteração na altura */
-  }
-  
-  .star:hover,
-  .star:hover ~ .star {
-    color: gold; /* Cor das estrelas ao passar o mouse */
-  }
-  
-  .star.selected {
-    color: gold; /* Cor das estrelas selecionadas */
-  }
-  
-  .star.selected::before {
-    height: 4px; /* Aumenta a altura do tracinho quando a estrela está selecionada */
-  }
-  
-  .average-rating {
-    margin-bottom: 10px; /* Espaçamento abaixo da média */
-    font-size: 1.5em; /* Tamanho da fonte da média */
-    color: #333; /* Cor do texto da média */
-  }
-  
-
-
-/* Problema centralizar deve estar em outro lugar*/
-#comentarios {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: column; /* Coloca as estrelas uma em cima da outra */
+    align-items: center; /* Centraliza as estrelas */
+    margin-bottom: 10px;
 }
 
-#avaliacaoTotal {
-    display: flex;
-    flex-direction: column;
-    height: 25%;
-}
-
-textarea {
-    padding: 1px;
-    background-color: rgb(159, 148, 148);
-    width: 100%;
-    font-size: 15px;
-    outline: none;
-    border-radius: 1px solid white;
-    color: black;
-}
-
-textarea::placeholder {
-    color: white;
-}
-
-#btn-enviar {
-    color: white;
-    width: 100%;
-    padding: 10px;
-    font-size: 17px;
-    outline: none;
-    border: none;
+.star {
     cursor: pointer;
-    color: white;
-    border-radius: 3px;
-    font-weight: bold;
-    background-color: blue;
+    font-size: 28px; /* Tamanho reduzido das estrelas */
+    color: lightgray; /* Cor padrão */
+    transition: color 0.2s; /* Transição suave */
+    position: relative; /* Permite posicionar o traço em relação à estrela */
 }
+
+.star:hover,
+.star.selected {
+    color: gold; /* Cor quando selecionada */
+}
+
+.star::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px; /* Altura do traço */
+    background-color: gold; /* Cor do traço */
+    position: absolute;
+    left: 35px; /* Distância do traço em relação à estrela */
+    bottom: 12px; /* Distância do traço em relação à estrela */
+    transition: width 0.3s ease; /* Transição suave */
+}
+
+.selected::after {
+    width: 50px; /* Preenche a largura desejada quando a estrela é selecionada */
+}
+
+#rating-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px; /* Espaçamento acima do valor da avaliação */
+}
+
+#submit-rating {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#submit-rating:hover {
+    background-color: #218838; /* Verde mais escuro ao passar o mouse */
+}
+
+/* Estilo da barra de progresso */
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px; /* Altura da barra */
+    margin: 15px 0; /* Margem acima e abaixo da barra */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0; /* Inicialmente vazia */
+    background-color: #28a745; /* Cor da barra de progresso */
+    transition: width 0.3s ease; /* Transição suave */
+}
+
 
 /* header */
 
@@ -717,12 +652,8 @@ section {
 .imagem-sombreada {
     width: 500px;
     height: auto;
-<<<<<<< HEAD
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); 
-  }
-  
-
-=======
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
->>>>>>> 0eeace13e200f868f93419153b575cb926070e78
+
+
+

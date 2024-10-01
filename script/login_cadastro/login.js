@@ -30,28 +30,28 @@ function login() {
 // Função que trata erros de login
 function handleLoginError(error) {
     console.log('Código de erro:', error.code); // Exibe o código de erro no console
+    console.log('Mensagem completa do erro:', error.message); // Exibe a mensagem completa do erro
 
     // Limpa todas as mensagens de erro antes de exibir uma nova
     clearErrorMessages();
 
-    switch (error.code) {
-        case "auth/wrong-password":
-            alert("Senha inválida! Verifique sua senha.");
-            form.senhaObrigatoria().style.display = "block"; // Exibe mensagem de senha obrigatória
-            break;
-        case "auth/user-not-found":
-            alert("Usuário não encontrado! Verifique o e-mail.");
-            form.emailInvalido().style.display = "block"; // Exibe mensagem de e-mail inválido
-            break;
-        case "auth/invalid-email":
-            alert("E-mail inválido! Verifique o formato do e-mail.");
-            form.emailInvalido().style.display = "block"; // Exibe mensagem de e-mail inválido
-            break;
-        default:
-            alert("Erro desconhecido. Tente novamente."); // Mensagem genérica para outros erros
-            break;
+    // Verifica os dois casos específicos
+    if (error.code === "auth/too-many-requests") {
+        alert("Senha ou e-mail incorreto! Tente novamente mais tarde.");
+        document.getElementById("senhaObrigatoria").style.display = "block"; // Exibe mensagem de senha obrigatória
+    } else if (error.code === "auth/invalid-credential") {
+        alert("Usuário não encontrado! Verifique suas credenciais.");
+        document.getElementById("emailInvalido").style.display = "block"; // Exibe mensagem de e-mail inválido
+    } else {
+        alert("Erro desconhecido. Tente novamente.");
+        console.error("Erro não tratado:", error); // Exibe erro no console para depuração
     }
 }
+
+
+// Senha Errada ou Email Errado = auth/too-many-requests
+// Usuario não encontrado = auth/invalid-credential
+
 
 // Função para recuperação de senha
 function recoverPassword() {
