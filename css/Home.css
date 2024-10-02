@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Satisfy&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -281,6 +282,9 @@ header {
     color: white;
     border-radius: 15px;
     padding: 5px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /*Efeito do link*/
@@ -302,6 +306,9 @@ nav a {
     font-family: 35px;
     font-size: 20px;
     position: relative;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 nav a::after {
@@ -349,8 +356,10 @@ section {
 
 
 .segunda-section {
-    height: 100vw;
+    height: 100%;
+    display: flex;
     flex-direction: column;
+    justify-content: start;
 }
 
 .terceira-section {
@@ -383,6 +392,9 @@ section {
 #Entrada2 {
     font-size: 10vh;
     color: #000000;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #text1 {
@@ -405,6 +417,10 @@ section {
     padding-left: 10%;
     padding-right: 10%;
     color: #000000;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 }
 
 #text4 {
@@ -658,7 +674,12 @@ section {
 }
 
 .imagem-sombreada {
-    width: 500px;
+    width: 1200px;
     height: auto;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev {
+    left: 100px!important;
+    outline: 1px solid red!important;
 }
