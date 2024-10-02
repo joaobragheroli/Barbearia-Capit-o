@@ -664,3 +664,8 @@ section {
     height: auto;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
+
+.carousel-control-prev {
+    left: 100px!important;
+    outline: 1px solid red!important;
+}
