@@ -546,7 +546,7 @@ li {
     background-image: url(..img/barba.png);
 }
 .itemI {
-    background-image: url(..img/.jpg);
+    background-image: url(..img/platinado.jpg);
 }
 .nomesCard {
     margin-left: 110px;
@@ -731,4 +731,16 @@ li {
         display: none;
       }
         
+}
+
+.carousel-control-prev {
+    left: 13%!important;
+}
+
+.carousel-control-next {
+    right: 13%!important;
+}
+
+.carousel-control-prev-icon {
+
 }
