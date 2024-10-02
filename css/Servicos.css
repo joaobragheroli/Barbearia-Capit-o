@@ -536,7 +536,13 @@ li {
 
 }
 .itemG {
-    background-image: url(..img/corte5.jpg);
+    background-image: url(..img/corte7.jpg);
+}
+.itemH {
+    background-image: url(..img/barba.png);
+}
+.itemI {
+    background-image: url(..img/.jpg);
 }
 .nomesCard {
     margin-left: 110px;
