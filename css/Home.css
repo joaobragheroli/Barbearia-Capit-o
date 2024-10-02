@@ -148,60 +148,63 @@ a {
 
 .star-rating {
     display: flex;
-    flex-direction: column; /* Coloca as estrelas uma em cima da outra */
-    align-items: center; /* Centraliza as estrelas */
-    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: start;
+    position: relative;
+    margin-top: 0;
 }
 
 .star {
+    font-size: 28px;
+    color: rgb(255, 0, 0);
+    transition: color 0.2s;
     cursor: pointer;
-    font-size: 28px; /* Tamanho reduzido das estrelas */
-    color: lightgray; /* Cor padrão */
-    transition: color 0.2s; /* Transição suave */
-    position: relative; /* Permite posicionar o traço em relação à estrela */
+    position: relative;
 }
 
-.star:hover,
 .star.selected {
-    color: gold; /* Cor quando selecionada */
+    color: gold;
 }
 
-.star::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px; /* Altura do traço */
-    background-color: gold; /* Cor do traço */
-    position: absolute;
-    left: 35px; /* Distância do traço em relação à estrela */
-    bottom: 12px; /* Distância do traço em relação à estrela */
-    transition: width 0.3s ease; /* Transição suave */
+.star.selected:hover{
+    color: gold;
 }
 
-.selected::after {
-    width: 50px; /* Preenche a largura desejada quando a estrela é selecionada */
+.star-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    font-size: 10px;
+    color: lightgray;
+    gap: 5px;
+}
+
+.star-rating-avali-quant {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+
+.star:hover {
+    color: lightgray;
+    /* Remove o efeito de cor amarela ao passar o mouse */
+}
+
+.star::before {
+    content: attr(data-value); /* Remova esta linha se estiver presente */
 }
 
 #rating-value {
     font-size: 20px;
     font-weight: bold;
     color: #333;
-    margin-top: 10px; /* Espaçamento acima do valor da avaliação */
 }
 
-#submit-rating {
-    background-color: #28a745; /* Verde */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
 
-#submit-rating:hover {
-    background-color: #218838; /* Verde mais escuro ao passar o mouse */
+.star[data-value]:before {
+    content: attr(data-value); /* Isso mostra o valor em pseudo-elemento */
+    display: none; /* Isso vai esconder o número */
 }
 
 /* Estilo da barra de progresso */
@@ -210,15 +213,20 @@ a {
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
-    height: 20px; /* Altura da barra */
-    margin: 15px 0; /* Margem acima e abaixo da barra */
+    height: 20px;
+    /* Altura da barra */
+    margin: 15px 0;
+    /* Margem acima e abaixo da barra */
 }
 
 .progress-bar {
     height: 100%;
-    width: 0; /* Inicialmente vazia */
-    background-color: #28a745; /* Cor da barra de progresso */
-    transition: width 0.3s ease; /* Transição suave */
+    width: 0;
+    /* Inicialmente vazia */
+    background-color: #28a745;
+    /* Cor da barra de progresso */
+    transition: width 0.3s ease;
+    /* Transição suave */
 }
 
 
@@ -654,6 +662,3 @@ section {
     height: auto;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
-
-
-

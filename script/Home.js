@@ -20,14 +20,23 @@ function updateUserInitials(firstName, lastName) {
 }
 
 // Avaliação
-document.querySelectorAll('.star').forEach(star => {
-  star.addEventListener('click', () => {
-      // Remove a classe 'selected' de todas as estrelas
-      document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
-      
-      // Adiciona a classe 'selected' à estrela clicada
-      star.classList.add('selected');
-      
-      // Aqui você poderia adicionar lógica para atualizar a barra de progresso
-  });
+
+const stars = document.querySelectorAll('.star');
+const ratingValue = document.getElementById('rating-value');
+
+stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        // Limpa a seleção anterior
+        stars.forEach(s => s.classList.remove('selected'));
+        
+        // Adiciona a classe 'selected' até a estrela clicada
+        for (let i = 0; i <= index; i++) {
+            stars[i].classList.add('selected');
+        }
+
+        // Atualiza o valor de avaliação
+        ratingValue.textContent = index + 1; // Atualiza o valor com base no índice
+    });
 });
+
+
