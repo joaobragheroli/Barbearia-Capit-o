@@ -356,8 +356,10 @@ section {
 
 
 .segunda-section {
-    height: 100vw;
+    height: 100%;
+    display: flex;
     flex-direction: column;
+    justify-content: start;
 }
 
 .terceira-section {
@@ -672,7 +674,12 @@ section {
 }
 
 .imagem-sombreada {
-    width: 500px;
+    width: 1200px;
     height: auto;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev {
+    left: 100px!important;
+    outline: 1px solid red!important;
 }

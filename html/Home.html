@@ -106,16 +106,21 @@
                     <img src="../img/slide3.png" class="d-flex w-100" alt="Slide 3">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" 
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
+            
+            <div style="position: relative; left: 1000px;"> <!-- Contêiner com altura definida -->
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="position: absolute; top: 20px; left: 30px;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+            
+            
+            
         </div>
 
 
@@ -157,7 +162,7 @@
             </p>
         </section>
         <section class="hidden terceira-section">
-            <img src="../img/ambiente.png" class="imagem-sombreada" width="500px" height="400px" alt="">
+            <img src="../img/ambiente.png" class="imagem-sombreada" alt="">
         </section>
 
     </main>
