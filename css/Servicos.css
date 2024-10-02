@@ -725,3 +725,15 @@ li {
       }
         
 }
+
+.carousel-control-prev {
+    left: 13%!important;
+}
+
+.carousel-control-next {
+    right: 13%!important;
+}
+
+.carousel-control-prev-icon {
+
+}
