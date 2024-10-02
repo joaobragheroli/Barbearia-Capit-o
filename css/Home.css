@@ -6,12 +6,13 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-/* organizar aonde eu vou deixar no carrosel */
-.active img {
+/* carrosel home */
+.carousel-inner img {
     width: 100%;
-    height: 500px;
+    height: 400px; /* ou qualquer altura desejada */
+    object-fit: cover; /* Faz com que a imagem cubra a área do contêiner */
 }
+
 
 body {
     height: 100%;
@@ -683,3 +684,5 @@ section {
     left: 100px!important;
     outline: 1px solid red!important;
 }
+
+
