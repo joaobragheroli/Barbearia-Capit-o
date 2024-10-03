@@ -110,8 +110,12 @@ h2 {
     color: white;
 }
 
-button {
+#prevMonth, #nextMonth {
     width: 100%;
     margin-top: 20px;
     padding: 10px;
+}
+
+.scheduleBtn{
+    width: 100%;
 }
