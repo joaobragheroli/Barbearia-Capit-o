@@ -129,3 +129,26 @@ function displaycart() {
         }).join('');
     }
 }
+
+function sendToWhatsApp() {
+    if (cart.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    // Constrói a mensagem
+    let message = "Produtos no carrinho:\n";
+    cart.forEach(item => {
+        message += `${item.title} - R$ ${item.price.toFixed(2)}\n`;
+    });
+    message += `\nTotal: R$ ${document.getElementById("total").innerHTML.replace('R$', '').trim()}`;
+
+    // Codifica a mensagem para URL
+    const whatsappMessage = encodeURIComponent(message);
+    
+    // Define o número de telefone
+    const phoneNumber = "5515998490468"; // O número sem espaços ou caracteres especiais
+    
+    // Abre o WhatsApp com a mensagem e o número definido
+    window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`, '_blank');
+}

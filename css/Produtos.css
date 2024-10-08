@@ -104,10 +104,39 @@ body {
 
 .foot {
   display: flex;
-  justify-content: space-between;
-  margin: 20px 0px;
-  padding: 10px 0px;
-  border-top: 1px solid #333;
+  flex-direction: column; /* Muda para coluna para alinhar verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  margin: 20px 0; /* Margem superior e inferior */
+  padding: 10px 0; /* Padding superior e inferior */
+  border-top: 1px solid #333; /* Borda superior */
+}
+
+.foot h3,
+.foot h2 {
+    margin: 0; /* Remove margens padrão */
+    padding: 5px 0; /* Adiciona espaço vertical entre os títulos */
+}
+
+.foot h3 {
+    margin-bottom: 10px; /* Espaço abaixo do h3 */
+}
+
+.foot h2 {
+    margin-bottom: 20px; /* Espaço abaixo do h2 */
+}
+
+.foot button {
+    margin-top: 10px; /* Espaço acima do botão */
+    padding: 10px 20px; /* Tamanho do botão */
+    background-color: #4CAF50; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+}
+
+.foot button:hover {
+    background-color: #45a049; /* Cor do botão ao passar o mouse */
 }
 
 .box {
@@ -177,6 +206,14 @@ button:hover {
   margin: 10px 10px;
 }
 
+.header-cart {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Para empurrar para a direita */
+  margin-right: 20px; /* Ajuste a margem conforme necessário */
+  color: #000000;
+  background-color: #000000;
+}
 
 
 .row-img {

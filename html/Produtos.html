@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/Produtos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="../script/menu.js" defer></script>
-    <title>Loja barbeiro</title>
+    <title>Loja Barbeiro</title>
 </head>
 
 <body>
@@ -22,32 +22,25 @@
             </div>
             <div class="item">
                 <nav class="menu">
-
                     <a href="../html/Home.html">Home</a>
                     <a href="../html/Produtos.html">Produtos</a>
                     <a href="../html/Servicos.html">Serviços</a>
                     <a href="../html/Agendamento.html">Agendamento</a>
-                    <a href="../html/FullCalendar/index.html">Agendamento Funcionario</a>
+                    <a href="../html/FullCalendar/index.html">Agendamento Funcionário</a>
                 </nav>
             </div>
-
-
             <a href="./Contas/login.html">
-                <butto class="button-login">Entrar</button>
+                <button class="button-login">Entrar</button>
             </a>
-
         </div>
 
-        <!-- header responsivo -->
+        <!-- Header Responsivo -->
         <div class="headerResp">
             <div class="modalResp">
                 <button id="mostrarModal">
                     <i class="ph ph-list-plus"></i>
                 </button>
             </div>
-
-
-
             <div class="modalgeral">
                 <div class="sabiduria">
                     <a href="index.html">
@@ -64,47 +57,38 @@
                     </a>
                 </div>
                 <div class="modalfechar">
-                    <a href="">
-                        <button class="tan" id="fecharModal">Fechar</button>
-                    </a>
+                    <button class="tan" id="fecharModal">Fechar</button>
                 </div>
             </div>
+        </div>
     </header>
 
     <div class="container scroll">
-
         <div id="root">
-
+            <!-- Produtos serão exibidos aqui -->
         </div>
 
         <div class="sidebar">
-
             <div class="head">
                 <p>Carrinho</p>
                 <div class="cart">
-                    <a href="https://web.whatsapp.com/send?phone=15 99849-0468" target="_blank">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
+                    <i class="fa-brands fa-whatsapp"></i>
                     <p id="count">0</p>
                 </div>
             </div>
 
             <div class="cartitemscroll">
-
+                <div id="cartItem">Produtos</div>
             </div>
-            <div id="cartItem">Produtos</div>
 
             <div class="foot">
                 <h3>Total</h3>
                 <h2 id="total">R$ 0.00</h2>
+                <button onclick="sendToWhatsApp()">Enviar para WhatsApp</button>
             </div>
-
-
-
         </div>
-
     </div>
     <script src="../script/produtos.js"></script>
 </body>
 
-</html>
+</html

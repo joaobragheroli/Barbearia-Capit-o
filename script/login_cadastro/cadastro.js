@@ -23,6 +23,20 @@ function onChangeConfirmPassword() {
     toggleRegisterButtonDisable();
 }
 
+// Função chamada quando o nome é alterado
+function onChangeNome() {
+    const nome = form.nome().value;
+    form.nomeRequiredError().style.display = nome ? "none" : "block";
+    toggleRegisterButtonDisable();
+}
+
+// Função chamada quando o telefone é alterado
+function onChangeTelefone() {
+    const telefone = form.telefone().value;
+    form.telefoneRequiredError().style.display = telefone ? "none" : "block";
+    toggleRegisterButtonDisable();
+}
+
 // Função de mandar o Registro para Firebase
 function register(event) {
     event.preventDefault(); // Previne o comportamento padrão do formulário
@@ -70,6 +84,9 @@ function toggleRegisterButtonDisable() {
 // Valida todos os campos do formulário
 function isFormValid() {
     const email = form.email().value;
+    const nome = form.nome().value;
+    const telefone = form.telefone().value;
+
     if (!email || !validateEmail(email)) {
         return false;
     }
@@ -84,6 +101,14 @@ function isFormValid() {
         return false;
     }
 
+    if (!nome) {
+        return false; // Nome é obrigatório
+    }
+
+    if (!telefone) {
+        return false; // Telefone é obrigatório
+    }
+
     return true;
 }
 
@@ -94,18 +119,28 @@ function validateEmail(email) {
     return emailPattern.test(email);
 }
 
-// Objeto que contém referências aos elementos do formulário
-const form = {
-    confirmPassword: () => document.getElementById('confirmPassword'),
-    confirmPasswordDoesntMatchError: () => document.getElementById('confirm-password-doesnt-match-error'),
-    email: () => document.getElementById('email'),
-    emailInvalidError: () => document.getElementById('email-invalid-error'),
-    emailRequiredError: () => document.getElementById('email-required-error'),
-    password: () => document.getElementById('password'),
-    passwordMinLengthError: () => document.getElementById('password-min-length-error'),
-    passwordRequiredError: () => document.getElementById('password-required-error'),
-    registerButton: () => document.getElementById('register-button')
-};
+document.addEventListener('DOMContentLoaded', () => {
+    // Objeto que contém referências aos elementos do formulário
+    const form = {
+        confirmPassword: () => document.getElementById('confirmPassword'),
+        confirmPasswordDoesntMatchError: () => document.getElementById('confirm-password-doesnt-match-error'),
+        email: () => document.getElementById('email'),
+        emailInvalidError: () => document.getElementById('email-invalid-error'),
+        emailRequiredError: () => document.getElementById('email-required-error'),
+        password: () => document.getElementById('password'),
+        passwordMinLengthError: () => document.getElementById('password-min-length-error'),
+        passwordRequiredError: () => document.getElementById('password-required-error'),
+        registerButton: () => document.getElementById('register-button'),
+        nome: () => document.getElementById('nome'),
+        nomeRequiredError: () => document.getElementById('nome-required-error'),
+        telefone: () => document.getElementById('telefone'),
+        telefoneRequiredError: () => document.getElementById('telefone-required-error'),
+    };
 
-// Listener de submissão de formulário
-document.getElementById('register-form').addEventListener('submit', register);
+    // Listener de submissão de formulário
+    document.getElementById('register-form').addEventListener('submit', register);
+
+    // O restante do seu código vai aqui...
+});
+
+

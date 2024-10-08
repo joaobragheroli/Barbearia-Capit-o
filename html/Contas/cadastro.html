@@ -23,6 +23,7 @@
                         <form onsubmit="register(event)">
                             <h2 class="h2-cadastro">Cadastrar</h2>
 
+                            <!-- Campo de Email -->
                             <div class="inputbox">
                                 <ion-icon name="mail-outline"></ion-icon>
                                 <input type="email" id="email" placeholder=" " onchange="onChangeEmail()" required>
@@ -32,6 +33,7 @@
                             </div>
                             <div class="erros" id="email-invalid-error" style="display: none;">Email inválido</div>
 
+                            <!-- Campo de Senha -->
                             <div class="inputbox">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
                                 <input type="password" id="password" placeholder=" " onchange="onChangePassword()"
@@ -43,6 +45,7 @@
                             <div class="erros" id="password-min-length-error" style="display: none;">Senha deve ter pelo
                                 menos 6 caracteres</div>
 
+                            <!-- Campo de Confrirmar Senha -->
                             <div class="inputbox">
                                 <input type="password" id="confirmPassword" placeholder=" "
                                     onchange="onChangeConfirmPassword()" required>
@@ -50,6 +53,24 @@
                             </div>
                             <div class="erros" id="confirm-password-doesnt-match-error" style="display: none;">Senha e
                                 Confirmar senha devem ser iguais</div>
+
+                            <!-- Campo de Nome -->
+                            <div class="inputbox">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <input type="text" id="nome" placeholder=" " onchange="onChangeNome()" required>
+                                <label for="nome">Nome</label>
+                            </div>
+                            <div class="erros" id="nome-required-error" style="display: none;">Nome é obrigatório</div>
+
+                            <!-- Campo de Telefone -->
+                            <div class="inputbox">
+                                <ion-icon name="call-outline"></ion-icon>
+                                <input type="tel" id="telefone" placeholder=" " onchange="onChangeTelefone()" required>
+                                <label for="telefone">Telefone</label>
+                            </div>
+                            <div class="erros" id="telefone-required-error" style="display: none;">Número de telefone é
+                                obrigatório</div>
+
 
                             <button type="submit" id="register-button" disabled>Cadastrar-se</button>
 
@@ -73,13 +94,15 @@
         <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
         <script>
+
             const firebaseConfig = {
-                apiKey: "AIzaSyChx2h9-1qFLPAaJvfYXayqSXojBX-BOWg",
-                authDomain: "tcc-capita-5c9ec.firebaseapp.com",
-                projectId: "tcc-capita-5c9ec",
-                storageBucket: "tcc-capita-5c9ec.appspot.com",
-                messagingSenderId: "939051844006",
-                appId: "1:939051844006:web:696e50e93e43424edccf67"
+                apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+                authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+                projectId: "capitaobarbeiro-5b7be",
+                storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+                messagingSenderId: "1013857162216",
+                appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+                measurementId: "G-DMR6NG64B3"
             };
             firebase.initializeApp(firebaseConfig);
         </script>
