@@ -1,3 +1,7 @@
+<?php
+    include '../SQL/conexao.php';  
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -31,10 +35,10 @@
             <div class="item">
                 <nav class="menu">
 
-                    <a href="../html/Home.html">Home</a>
+                    <a href="../html/Home.php">Home</a>
                     <a href="../html/Produtos.html">Produtos</a>
                     <a href="../html/Servicos.html">Serviços</a>
-                    <a href="../html/Agendamento.html">Agendamento</a>
+                    <a href="../html/Agendamento.php">Agendamento</a>
                     <a href="../html/FullCalendar/index.html">Agendamento Funcionario</a>
                 </nav>
             </div>

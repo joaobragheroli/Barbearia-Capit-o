@@ -119,6 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
         alert(confirmationMessage);
 
         // Redireciona para a página principal ou outra página desejada
-        window.location.href = '../..//html/Home.html'; 
+        window.location.href = '../..//html/Home.php'; 
     });
 });

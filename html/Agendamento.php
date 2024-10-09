@@ -1,3 +1,7 @@
+<?php
+    include '../SQL/conexao.php';  
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,10 +28,10 @@
             <div class="item">
                 <nav class="menu">
 
-                    <a href="../html/Home.html">Home</a>
+                    <a href="../html/Home.php">Home</a>
                     <a href="../html/Produtos.html">Produtos</a>
                     <a href="../html/Servicos.html">Serviços</a>
-                    <a href="../html/Agendamento.html">Agendamento</a>
+                    <a href="../html/Agendamento.php">Agendamento</a>
                     <a href="../html/FullCalendar/index.html">Agendamento Funcionario</a>
                 </nav>
             </div>
@@ -78,7 +82,7 @@
     <main class="corpo-agendamento">
         <div class="AgendamentoResponsi"> <!-- Talvez use -->
             <ul class="agendamento">
-                <a href="./Paginas_Agendamento/mostraServicos.html">
+                <a href="./Paginas_Agendamento/mostraServicos.php">
                     <li>
                         <h2>Lucas Ferreira</h2>
                         <img src="../img/anonimo.jpg" class="funcionario">
@@ -87,7 +91,7 @@
 
                     </li>
                 </a>
-                <a href="./Paginas_Agendamento/mostraServicos.html">
+                <a href="./Paginas_Agendamento/mostraServicos.php">
                     <li>
                         <h2>Kennedy Esquitini</h2>
                         <img src="../img/anonimo.jpg" class="funcionario">
@@ -96,7 +100,7 @@
 
                     </li>
                 </a>
-                <a href="./Paginas_Agendamento/mostraServicos.html">
+                <a href="./Paginas_Agendamento/mostraServicos.php">
                     <li>
                         <h2>Sem Preferencia</h2>
                         <img src="../img/img.jpg">

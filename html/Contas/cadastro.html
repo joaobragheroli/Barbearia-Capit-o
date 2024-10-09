@@ -7,6 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
         <link rel="stylesheet" href="../../css/Style/cadastro.css">
+        <!-- links firebase -->
+        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
         <title>Cadastro</title>
     </head>
 
@@ -33,6 +37,22 @@
                             </div>
                             <div class="erros" id="email-invalid-error" style="display: none;">Email inválido</div>
 
+                            <!-- Campo de Nome -->
+                            <div class="inputbox">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <input type="text" id="nome" placeholder=" " onchange="onChangeNome()" required>
+                                <label for="nome">Nome</label>
+                            </div>
+                            <div class="erros" id="nome-required-error" style="display: none;">Nome é obrigatório</div>
+                            <!-- Campo de Telefone -->
+                            <div class="inputbox">
+                                <ion-icon name="call-outline"></ion-icon>
+                                <input type="tel" id="telefone" placeholder=" " onchange="onChangeTelefone()" required>
+                                <label for="telefone">Telefone</label>
+                            </div>
+                            <div class="erros" id="telefone-required-error" style="display: none;">Número de telefone é
+                                obrigatório</div>
+
                             <!-- Campo de Senha -->
                             <div class="inputbox">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
@@ -54,23 +74,6 @@
                             <div class="erros" id="confirm-password-doesnt-match-error" style="display: none;">Senha e
                                 Confirmar senha devem ser iguais</div>
 
-                            <!-- Campo de Nome -->
-                            <div class="inputbox">
-                                <ion-icon name="person-outline"></ion-icon>
-                                <input type="text" id="nome" placeholder=" " onchange="onChangeNome()" required>
-                                <label for="nome">Nome</label>
-                            </div>
-                            <div class="erros" id="nome-required-error" style="display: none;">Nome é obrigatório</div>
-
-                            <!-- Campo de Telefone -->
-                            <div class="inputbox">
-                                <ion-icon name="call-outline"></ion-icon>
-                                <input type="tel" id="telefone" placeholder=" " onchange="onChangeTelefone()" required>
-                                <label for="telefone">Telefone</label>
-                            </div>
-                            <div class="erros" id="telefone-required-error" style="display: none;">Número de telefone é
-                                obrigatório</div>
-
 
                             <button type="submit" id="register-button" disabled>Cadastrar-se</button>
 
@@ -83,18 +86,11 @@
             </section>
         </div>
 
-        <!-- Scripts do Ionicons -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
         <!-- Scripts customizados -->
         <script src="../../script/login_cadastro/cadastro.js"></script>
 
-        <!-- Links do Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
         <script>
-
+            // Configuração do Firebase
             const firebaseConfig = {
                 apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
                 authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
@@ -104,7 +100,51 @@
                 appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
                 measurementId: "G-DMR6NG64B3"
             };
+
+            // Inicializando o Firebase
             firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+
+            // Função de mandar o Registro para Firebase
+            async function register(event) {
+                event.preventDefault(); // Previne o comportamento padrão do formulário
+
+                const email = form.email().value;
+                const password = form.password().value;
+                const nome = form.nome().value;
+                const telefone = form.telefone().value;
+
+                // Desabilita o botão de registro para evitar múltiplos cliques
+                form.registerButton().disabled = true;
+
+                // Valida o formato do e-mail
+                if (!validateEmail(email)) {
+                    alert("Por favor, insira um e-mail válido.");
+                    form.registerButton().disabled = false; // Habilita o botão em caso de erro
+                    return;
+                }
+
+                try {
+                    // Criar um novo usuário com email e senha
+                    const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+                    const user = userCredential.user;
+
+                    // Armazenar dados do usuário no Firestore na coleção "Usuarios"
+                    await db.collection("Usuarios").doc(user.uid).set({
+                        email: email,
+                        nome: nome,
+                        telefone: telefone
+                    });
+                    alert("Usuário cadastrado com sucesso!");
+                } catch (error) {
+                    // Aqui tratamos os diferentes erros de autenticação
+                    alert(getErrorMessage(error));
+                } finally {
+                    // Habilita o botão de registro após a operação
+                    form.registerButton().disabled = false;
+                }
+            }
+
         </script>
     </body>
 

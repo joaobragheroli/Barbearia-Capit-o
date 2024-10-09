@@ -1,3 +1,7 @@
+<?php
+    include '../../SQL/conexao.php';  
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,7 +19,7 @@
         <!-- Botão Centralizado -->
         <div class="conteinerButton">
             <p class="TituloExplic">Faça o seu Agendamento</p>
-            <a href="DATA_Agendamento.html"><button class="mid-button">Agendar</button></a>
+            <a href="DATA_Agendamento.php"><button class="mid-button">Agendar</button></a>
         </div>
     </div>
 

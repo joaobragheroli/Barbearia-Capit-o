@@ -1,3 +1,7 @@
+<?php
+    include '../../SQL/conexao.php';  
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
