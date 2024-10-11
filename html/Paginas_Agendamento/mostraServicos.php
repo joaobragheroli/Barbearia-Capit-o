@@ -27,9 +27,7 @@
 
     </div>
 
-    <div class="ph-arrow-circle-left-conteiner">    
-        <i class="ph ph-arrow-circle-left"></i>
-    </div>
+    
 
 
     <!-- Cards com os serviços -->

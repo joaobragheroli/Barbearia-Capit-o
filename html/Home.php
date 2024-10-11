@@ -203,34 +203,69 @@
 
 
                         <!-- Avaliação Serviços -->
-                        <div class="average-rating">
-                            <!-- Média de Avaliações: -->
-                            <span id="average-rating-value">0</span>/5
-                        </div>
-                        <div class="average-rating-avali">
-                            <div class="star-rating-avali-quant">
-                                <span class="star-icons">
-                                    <!-- 5 estrelas pequenas -->
-                                    <i class="ph ph-star small-star" data-value="1"></i>
-                                    <!-- 4 estrelas pequenas -->
-                                    <i class="ph ph-star small-star" data-value="2"></i>
-                                    <!-- 3 estrelas pequenas -->
-                                    <i class="ph ph-star small-star" data-value="3"></i>
-                                    <!-- 2 estrelas pequenas -->
-                                    <i class="ph ph-star small-star" data-value="4"></i>
-                                    <!-- 1 estrela pequena -->
-                                    <i class="ph ph-star small-star" data-value="5"></i>
-                                </span>
+                        <div class="app">
+                            <h2>Avaliação</h2>
+                            <div class="rating">
+                                <div class="rating__average">
+                                    <h1 id="average-rating">1.0</h1>
+                                    <div class="star-outer">
+                                        <div class="star-inner" id="star-rating">★★★★★</div>
+                                    </div>
+                                    <p id="total-reviews">0</p>
+                                </div>
+                                
+                                <div class="rating__progress">
+                                    <div class="rating__progress-value">
+                                        <p>5 <span class="star">★</span></p>
+                                        <div class="progress">
+                                            <div class="bar" id="bar-5"></div>
+                                        </div>
+                                        <p id="reviews-5">0</p>
+                                    </div>
+                                    <div class="rating__progress-value">
+                                        <p>4 <span class="star">★</span></p>
+                                        <div class="progress">
+                                            <div class="bar" id="bar-4"></div>
+                                        </div>
+                                        <p id="reviews-4">0</p>
+                                    </div>
+                                    <div class="rating__progress-value">
+                                        <p>3 <span class="star">★</span></p>
+                                        <div class="progress">
+                                            <div class="bar" id="bar-3"></div>
+                                        </div>
+                                        <p id="reviews-3">0</p>
+                                    </div>
+                                    <div class="rating__progress-value">
+                                        <p>2 <span class="star">★</span></p>
+                                        <div class="progress">
+                                            <div class="bar" id="bar-2"></div>
+                                        </div>
+                                        <p id="reviews-2">0</p>
+                                    </div>
+                                    <div class="rating__progress-value">
+                                        <p>1 <span class="star">★</span></p>
+                                        <div class="progress">
+                                            <div class="bar" id="bar-1"></div>
+                                        </div>
+                                        <p id="reviews-1">0</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p>Avaliação: <span id="rating-value">0</span>/5</p>
-                            <div class="star-rating">
-                                <span class="star" data-value="1">&#9733;</span>
-                                <span class="star" data-value="2">&#9733;</span>
-                                <span class="star" data-value="3">&#9733;</span>
-                                <span class="star" data-value="4">&#9733;</span>
-                                <span class="star" data-value="5">&#9733;</span>
+                        
+                            <!-- Avaliação por estrela -->
+                            <div class="star-rating-input">
+                                <p>Faça sua avaliação:</p>
+                                <span class="star-input" data-value="1">&#9733;</span>
+                                <span class="star-input" data-value="2">&#9733;</span>
+                                <span class="star-input" data-value="3">&#9733;</span>
+                                <span class="star-input" data-value="4">&#9733;</span>
+                                <span class="star-input" data-value="5">&#9733;</span>
                             </div>
                         </div>
+                        
+                        <script src="../script/avaliacao.js"></script>
+                        
                 </footer>
 
                 <!-- links do firebase
