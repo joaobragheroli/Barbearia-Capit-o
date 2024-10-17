@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Satisfy&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 /* carrosel home */
 .carousel-inner img {
     width: 100%;
-    height: 400px; /* ou qualquer altura desejada */
-    object-fit: cover; /* Faz com que a imagem cubra a área do contêiner */
+    height: 400px;
+    /* ou qualquer altura desejada */
+    object-fit: cover;
+    /* Faz com que a imagem cubra a área do contêiner */
 }
 
 
@@ -24,7 +28,7 @@ body {
 /* Footer */
 
 footer {
-    height: 50vh;
+    height: 70vh;
     margin-top: auto;
     background-color: black;
 }
@@ -35,7 +39,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 90px;
-    height: 100%;
+    height: 70vh;
 }
 
 h2,
@@ -143,85 +147,102 @@ a {
 /* Area comentarios */
 :root {
     --text-color: #fff;
-    }
+}
+
+.container-avali {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+}
+
+.Faca-avaliacao {
+    margin: 0;
+    padding: 0;
+   white-space: nowrap;  /* tira o espaço que causa altomaticamente  */
+}
 
 .app {
     background-color: var(--primary);
     color: var(--text-color);
     display: grid;
     place-items: center;
-    }
-    
-    .rating {
-    width: 60vw;
+}
+
+.rating {
+    width: 50vw;
+    height: 40vh;
     display: flex;
     align-items: center;
     column-gap: 2rem;
-    }
-    
-    .rating__average {
+}
+
+.rating__average {
     width: 30%;
     background-color: var(--secondary);
     padding: 1rem;
     border-radius: 1rem;
     text-align: center;
-    }
-    
-    .rating__average h1 {
+}
+
+.rating__average h1 {
     font-size: 3rem;
-    }
-    
-    .rating__average p {
+}
+
+.rating__average p {
     margin-top: .7rem;
     letter-spacing: .1rem;
-    }
-    
-    .rating__progress {
+}
+
+.rating__progress {
     width: 70%;
-    }
-    
-    .rating__progress-value {
+}
+
+.rating__progress-value {
     height: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     column-gap: 1rem;
-    }
-    
-    .rating__progress-value .star {
+}
+
+.rating__progress-value .star {
     font-size: 1.2rem;
     color: gold;
-    }
-    
-    .rating__progress-value p:last-child {
+}
+
+.rating__progress-value p:last-child {
     width: 10%;
-    }
-    
-    .rating__progress .progress {
+}
+
+.rating__progress .progress {
     flex: 1 1 0;
     height: .5rem;
     border-radius: .5rem;
     background-color: #ff02;
-    }
-    
-    .bar {
+}
+
+.bar {
     width: 0;
     height: 100%;
     background-color: gold;
     border-radius: .5rem;
-    }
-    
-    /* Estilo para estrelas interativas */
-    .star-input {
+}
+
+/* Estilo para estrelas interativas */
+.star-input {
     font-size: 2rem;
     cursor: pointer;
     color: gold;
-    }
-    
-    .star-input:hover,
-    .star-input.selected {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.star-input:hover,
+.star-input.selected {
     color: darkred;
-    }
+}
 
 
 /* header */

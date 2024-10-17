@@ -1,15 +1,14 @@
-<?php
-    include '../../SQL/conexao.php';  
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/img.ico" type="image/x-icon">
     <title>Agendamento com Calendário Fixo</title>
     <link rel="stylesheet" href="DATA_Agendamento.css">
 </head>
+
 <body>
     <div class="main-container">
         <div class="calendar-container">
@@ -28,10 +27,15 @@
             <h2>Selecione o Horário:</h2>
             <div id="time-grid" class="time-grid"></div>
 
-            <button class="scheduleBtn"  id="scheduleBtn">Agendar</button>
+            <button class="scheduleBtn" id="scheduleBtn">Agendar</button>
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
     <script src="../../script/DATA_agendamento.js"></script>
 </body>
+
 </html>

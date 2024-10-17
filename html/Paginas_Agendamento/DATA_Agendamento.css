@@ -50,9 +50,9 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #313030;
-}
+
+
+
 
 #calendar {
     display: grid;
@@ -105,11 +105,6 @@ h2 {
     cursor: pointer;
 }
 
-.time-slot.selected {
-    background-color: #28a745;
-    color: white;
-}
-
 #prevMonth, #nextMonth {
     width: 100%;
     margin-top: 20px;
@@ -117,6 +112,12 @@ h2 {
 }
 
 .scheduleBtn{
+    margin-top: 5px;
     width: 100%;
-    
+    background-color: rgb(94, 97, 100);
+}
+
+.selected-time-slot {
+    background-color: green; 
+    color: white; 
 }

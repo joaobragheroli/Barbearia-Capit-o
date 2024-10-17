@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/img.ico" type="image/x-icon">
+        <link rel="icon" href="../../img/img.ico" type="image/x-icon">
         <link rel="stylesheet" href="../../css/Style/login.css">
         <title>Login</title>
     </head>
@@ -23,15 +24,17 @@
                         <h2 class="h2-login">Login</h2>
                         <div class="inputbox">
                             <ion-icon name="mail-outline"></ion-icon>
-                            <input type="email" name="email" id="email" placeholder=" " onchange="onChangeEmail()" required>
+                            <input type="email" name="email" id="email" placeholder=" " onchange="onChangeEmail()"
+                                required>
                             <label for="email">Email</label>
-                        </div>                        
+                        </div>
                         <div class="erros" id="email-obrigatorio">Email é obrigatório</div>
                         <div class="erros" id="email-invalido">Email inválido</div>
 
                         <div class="inputbox">
                             <ion-icon name="lock-closed-outline"></ion-icon>
-                            <input type="password" name="password" placeholder=" " id="password" onchange="onChangePassword()" required>
+                            <input type="password" name="password" placeholder=" " id="password"
+                                onchange="onChangePassword()" required>
                             <label for="password">Senha</label>
                         </div>
                         <div class="erros" id="senha-Obrigatoria">Senha é obrigatório </div>
@@ -67,12 +70,13 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyChx2h9-1qFLPAaJvfYXayqSXojBX-BOWg",
-            authDomain: "tcc-capita-5c9ec.firebaseapp.com",
-            projectId: "tcc-capita-5c9ec",
-            storageBucket: "tcc-capita-5c9ec.appspot.com",
-            messagingSenderId: "939051844006",
-            appId: "1:939051844006:web:696e50e93e43424edccf67"
+            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+            projectId: "capitaobarbeiro-5b7be",
+            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+            messagingSenderId: "1013857162216",
+            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+            measurementId: "G-DMR6NG64B3"
         };
 
         firebase.initializeApp(firebaseConfig);

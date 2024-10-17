@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Satisfy&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -16,7 +18,7 @@ body {
 /* Footer */
 
 footer {
-    height: 50vh;
+    height: 70vh;
     margin-top: auto;
     background-color: black;
 }
@@ -27,7 +29,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 90px;
-    height: 100%;
+    height: 70vh;
 }
 
 h2 {
@@ -66,13 +68,13 @@ a {
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:hover {
+}
+
+.wrapper .button:hover {
     width: 200px;
-  }
-  
-  .wrapper .button .icon {
+}
+
+.wrapper .button .icon {
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -82,156 +84,159 @@ a {
     box-sizing: border-box;
     line-height: 60px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:nth-child(1):hover .icon {
+}
+
+.wrapper .button:nth-child(1):hover .icon {
     background: #4267B2;
-  }
-  
-  .wrapper .button:nth-child(2):hover .icon {
+}
+
+.wrapper .button:nth-child(2):hover .icon {
     background: #E1306C;
-  }
-  
-  .wrapper .button:nth-child(3):hover .icon {
+}
+
+.wrapper .button:nth-child(3):hover .icon {
     background: #46dd8a;
-  }
-  
-  .wrapper .button .icon i {
+}
+
+.wrapper .button .icon i {
     font-size: 25px;
     line-height: 60px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:hover .icon i {
+}
+
+.wrapper .button:hover .icon i {
     color: #fff;
-  }
-  
-  .wrapper .button span {
+}
+
+.wrapper .button span {
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
     margin-left: 10px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:nth-child(1) span {
+}
+
+.wrapper .button:nth-child(1) span {
     color: #4267B2;
-  }
-  
-  .wrapper .button:nth-child(2) span {
+}
+
+.wrapper .button:nth-child(2) span {
     color: #E1306C;
-  }
-  
-  .wrapper .button:nth-child(3) span {
+}
+
+.wrapper .button:nth-child(3) span {
     color: #46dd8a;
-  }
-  
-  
+}
 
 /* Area comentarios */
-
-
 :root {
-    --amarelo: #ffcc00;
-    --cinza: #ccc;
+    --text-color: #fff;
 }
 
-.estrelas input[type=radio] {
-    display: none;
-}
-
-.estrelas label i.opcao.fa:before {
-    content: '\f005';
-    color: var(--amarelo);
-}
-
-.estrelas input[type=radio]:checked~label i.fa:before {
-    color: var(--cinza);
-}
-
-.conteiner img {
-    border-radius: 15px;
-}
-
-.conteiner .item {
-    padding-bottom: 35px;
-}
-
-.conteiner button {
-    display: none;
-    background-color: white;
-    padding: 10px 15px;
-}
-
-.botao-login button a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.conteiner {
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 60px;
+.container-avali {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    height: 100%;
-}
-
-.conteiner i {
-    color: black;
-    font-size: 20px;
-    padding-right: 14px;
-}
-
-/* Problema centralizar deve estar em outro lugar*/
-#comentarios {
-    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 0;
 }
 
-#avaliacaoTotal {
-    display: flex;
-    flex-direction: column;
-    height: 25%;
+.Faca-avaliacao {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    /* tira o espaço que causa altomaticamente  */
+    color: #ffffff;
 }
 
-textarea {
-    padding: 1px;
-    background-color: rgb(159, 148, 148);
-<<<<<<< HEAD
-=======
-    width: 100%;
->>>>>>> 2e0f831f937c3523d5f59e1e2dd57e74b13aae9b
-    font-size: 15px;
-    outline: none;
-    border-radius: 1px solid white;
-    color: black;
-}
-
-textarea::placeholder {
-    color: white;
-}
-
-#btn-enviar {
-    color: white;
-    width: 100%;
+.avaliacao{
+    color: #fff;
     padding: 10px;
-    font-size: 17px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    border-radius: 3px;
-    font-weight: bold;
-    background-color: blue;
+    font-size: calc(1.325rem + .9vw);
 }
+
+.app {
+    background-color: var(--primary);
+    color: var(--text-color);
+    display: grid;
+    place-items: center;
+}
+
+.rating {
+    width: 50vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.rating__average {
+    width: 30%;
+    background-color: var(--secondary);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.rating__average h1 {
+    font-size: 3rem;
+}
+
+.rating__average p {
+    margin-top: .7rem;
+    letter-spacing: .1rem;
+}
+
+.rating__progress {
+    width: 70%;
+}
+
+.rating__progress-value {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 1rem;
+}
+
+.rating__progress-value .star {
+    font-size: 1.2rem;
+    color: gold;
+}
+
+.rating__progress-value p:last-child {
+    width: 10%;
+}
+
+.rating__progress .progress {
+    flex: 1 1 0;
+    height: .5rem;
+    border-radius: .5rem;
+    background-color: #ff02;
+}
+
+.bar {
+    width: 0;
+    height: 100%;
+    background-color: gold;
+    border-radius: .5rem;
+}
+
+/* Estilo para estrelas interativas */
+.star-input {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gold;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.star-input:hover,
+.star-input.selected {
+    color: darkred;
+}
+
+
 
 /* header */
 
@@ -255,9 +260,9 @@ header {
 }
 
 .conteiner-header {
-    padding-top: 20px; 
-    padding-left: 50px; 
-    padding-right: 60px; 
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -386,17 +391,17 @@ h2 {
 }
 
 /* header Responsivo */
-.funcionario{
+.funcionario {
     padding: 19%;
 }
 
-.headerResp{
-   display: none;
-   
+.headerResp {
+    display: none;
+
 }
 
 
-  
+
 
 @media screen and (max-width: 920px) {
 
@@ -405,7 +410,7 @@ h2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;   
+        flex-direction: column;
     }
 
     .agendamento {
@@ -436,7 +441,7 @@ h2 {
         height: 100%;
         margin-top: auto;
         background-color: black;
-    } 
+    }
 
     .conteiner-footer {
         display: flex;
@@ -449,100 +454,100 @@ h2 {
     }
 
     /* header resposivo */
-.headerResp{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
+    .headerResp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
 
-#mostrarModal{
-    background-color: #000000;
-}
+    #mostrarModal {
+        background-color: #000000;
+    }
 
-.ph-list-plus{
-    color: aliceblue;
-}
+    .ph-list-plus {
+        color: aliceblue;
+    }
 
-.nomePrincipal {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 4em;
-  }
-  
-  .modalResp{
-    margin-left: auto;
-    padding-right: 30px;
-    font-size: 2em;
-  }
-  
-  .modalgeral {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 100%;
-    position: fixed;
-    right: 0%;
-    top: 0%;
-    background-color: #000000;
-    transition: 500ms;
-    transform: translateX(100%);
-  }
-  
-  .aberto {
-    transform: translateX(0%);
-  }
-  
-  .fechado {
-    transform: translateX(100%);
-  }
-  
-  .sabiduria a {
-    display: flex;
-    gap: 1rem;
-    font-size: 40px;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-  }
-  
-  .sabiduria {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50%;
-  }
-  
-  .modalfechar {
-    margin: auto;
-    width: 200px;
-    height: 50px;
-  }
-  
-  .tan {
-    width: 100%;
-    height: 100%;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    font-size: 1em;
-  }
-  
-  button {
-    width: 50px;
-    height: 50px;
-    font-size: 1em;
-    background-color: rgb(255, 255, 255);
-    border: 0;
-  }
+    .nomePrincipal {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 4em;
+    }
 
-  .paginasResponsi{
-    color: #ccc;
-    padding-bottom: 15%;
-  }
+    .modalResp {
+        margin-left: auto;
+        padding-right: 30px;
+        font-size: 2em;
+    }
 
-  .conteiner-header{
-    display: none;
-  }
-    
+    .modalgeral {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 100%;
+        position: fixed;
+        right: 0%;
+        top: 0%;
+        background-color: #000000;
+        transition: 500ms;
+        transform: translateX(100%);
+    }
+
+    .aberto {
+        transform: translateX(0%);
+    }
+
+    .fechado {
+        transform: translateX(100%);
+    }
+
+    .sabiduria a {
+        display: flex;
+        gap: 1rem;
+        font-size: 40px;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+
+    .sabiduria {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50%;
+    }
+
+    .modalfechar {
+        margin: auto;
+        width: 200px;
+        height: 50px;
+    }
+
+    .tan {
+        width: 100%;
+        height: 100%;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        font-size: 1em;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 1em;
+        background-color: rgb(255, 255, 255);
+        border: 0;
+    }
+
+    .paginasResponsi {
+        color: #ccc;
+        padding-bottom: 15%;
+    }
+
+    .conteiner-header {
+        display: none;
+    }
+
 }

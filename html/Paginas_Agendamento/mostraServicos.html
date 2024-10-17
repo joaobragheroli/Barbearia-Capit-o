@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/img.ico" type="image/x-icon">
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="mostraServicos.css">
+    <title>Página de Seleção de Cards</title>
+</head>
+
+<body>
+
+    <div class="cards_Geral">
+        <div class="conteinerButton">
+            <p class="TituloExplic">Faça o seu Agendamento</p>
+            <button class="mid-button" id="agendarButton" onclick="agendar()">Agendar</button>
+        </div>
+    </div>
+
+    <div class="FundoImg"></div>
+
+    <div class="container">
+        <div class="card" onclick="toggleCard(this, '5uCUdVI1PFZw9k70BZuO')"> <!-- ID do serviço 1 -->
+            <div class="imgBx">
+                <img src="../../img/barba.png" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Barba</h2>
+                <div class="size">
+                    <h3>Tempo: 00:30</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 30:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'AHYoG8RGm93ZjwjGVYf1')"> <!-- ID do serviço 2 -->
+            <div class="imgBx">
+                <img src="../../img/corte.png" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Corte e Barba</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 60:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'Do4bj2fpcRtazHvaHwfQ')"> <!-- ID do serviço 3 -->
+            <div class="imgBx">
+                <img src="../../img/corte.png" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Corte</h2>
+                <div class="size">
+                    <h3>Tempo: 00:40</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 30:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'NncuHzrJIRYxSVlIn5DV')"> <!-- ID do serviço 4 -->
+            <div class="imgBx">
+                <img src="../../img/barba.png" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Corte e Barba e Sobrancelha</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 70:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'POzQEXc42anM1hs9AsKW')"> <!-- ID do serviço 5 -->
+            <div class="imgBx">
+                <img src="../../img/" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Progressiva</h2>
+                <div class="size">
+                    <h3>Tempo: 2:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 150:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'U5WchYCe7IdlG5qn6fMk')"> <!-- ID do serviço 6 -->
+            <div class="imgBx">
+                <img src="../../img/" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Relaxamento</h2>
+                <div class="size">
+                    <h3>Tempo: 2:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 120:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'WvcipkwORRgQmL1zsfvX')"> <!-- ID do serviço 7 -->
+            <div class="imgBx">
+                <img src="../../img/" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Serviço Especial</h2>
+                <div class="size">
+                    <h3>Tempo: 1:30</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 90:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'mocAI8VSroMOutKOOeMU')"> <!-- ID do serviço 8 -->
+            <div class="imgBx">
+                <img src="../../img/" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Maquiagem</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 80:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'o0WObhZ3CnF7nkvSIGGp')"> <!-- ID do serviço 9 -->
+            <div class="imgBx">
+                <img src="../../img/" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Penteado</h2>
+                <div class="size">
+                    <h3>Tempo: 1:00</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 70:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'spKbw9atfyCyJHncuViS')"> <!-- ID do serviço 10 -->
+            <div class="imgBx">
+                <img src="../../img/" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Sobrancelha</h2>
+                <div class="size">
+                    <h3>Tempo: 00:20</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 25:00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this, 'vgsP3U0sneOOg1R9aCb2')"> <!-- ID do serviço 11 -->
+            <div class="imgBx">
+                <img src="../../img/corte.png" alt="" class="user-image">
+            </div>
+            <div class="contentBx">
+                <h2>Corte Infantil</h2>
+                <div class="size">
+                    <h3>Tempo: 00:30</h3>
+                </div>
+                <div class="color">
+                    <h3>Valor: 40:00</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        let selectedServices = []; // Array para armazenar os IDs dos serviços selecionados
+
+        // Função para alternar a seleção do card
+        function toggleCard(card, serviceId) {
+            card.classList.toggle('selected');
+            if (card.classList.contains('selected')) {
+                // Adiciona o serviço selecionado ao array
+                selectedServices.push(serviceId);
+            } else {
+                // Remove o serviço do array
+                selectedServices = selectedServices.filter(id => id !== serviceId);
+            }
+            console.log(selectedServices); // Apenas para depuração
+        }
+
+        // Função para agendar
+        function agendar() {
+            if (selectedServices.length > 0) {
+                // Armazena os serviços no sessionStorage
+                sessionStorage.setItem('selectedServices', JSON.stringify(selectedServices));
+                // Redireciona para a próxima página com os IDs dos serviços selecionados
+                window.location.href = `DATA_Agendamento.html?services=${JSON.stringify(selectedServices)}&barberId=${localStorage.getItem('selectedBarberId')}`;
+            } else {
+                alert('Por favor, selecione pelo menos um serviço.');
+            }
+        }
+
+        // Página de seleção de serviço
+        function selecionarServico(serviceId) {
+            sessionStorage.setItem('selectedServiceId', serviceId);
+            window.location.href = 'time_selection_page.html'; // Redirecionar para a página de horários
+        }
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+            projectId: "capitaobarbeiro-5b7be",
+            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+            messagingSenderId: "1013857162216",
+            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+            measurementId: "G-DMR6NG64B3"
+        };
+        // Inicializando o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Satisfy&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -19,7 +20,7 @@ body {
 
 footer {
     all: unset;
-    height: 50vh;
+    height: 70vh;
     margin-top: auto;
     background-color: black;
 }
@@ -31,7 +32,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 90px;
-    height: 100%;
+    height: 70vh;
 }
 
 h2 {
@@ -71,13 +72,13 @@ a {
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:hover {
+}
+
+.wrapper .button:hover {
     width: 200px;
-  }
-  
-  .wrapper .button .icon {
+}
+
+.wrapper .button .icon {
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -87,51 +88,51 @@ a {
     box-sizing: border-box;
     line-height: 60px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:nth-child(1):hover .icon {
+}
+
+.wrapper .button:nth-child(1):hover .icon {
     background: #4267B2;
-  }
-  
-  .wrapper .button:nth-child(2):hover .icon {
+}
+
+.wrapper .button:nth-child(2):hover .icon {
     background: #E1306C;
-  }
-  
-  .wrapper .button:nth-child(3):hover .icon {
+}
+
+.wrapper .button:nth-child(3):hover .icon {
     background: #46dd8a;
-  }
-  
-  .wrapper .button .icon i {
+}
+
+.wrapper .button .icon i {
     font-size: 25px;
     line-height: 60px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:hover .icon i {
+}
+
+.wrapper .button:hover .icon i {
     color: #fff;
-  }
-  
-  .wrapper .button span {
+}
+
+.wrapper .button span {
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
     margin-left: 10px;
     transition: all 0.3s ease-out;
-  }
-  
-  .wrapper .button:nth-child(1) span {
+}
+
+.wrapper .button:nth-child(1) span {
     color: #4267B2;
-  }
-  
-  .wrapper .button:nth-child(2) span {
+}
+
+.wrapper .button:nth-child(2) span {
     color: #E1306C;
-  }
-  
-  .wrapper .button:nth-child(3) span {
+}
+
+.wrapper .button:nth-child(3) span {
     color: #46dd8a;
-  }
-  
-  
+}
+
+
 
 /* Area comentarios */
 
@@ -194,22 +195,119 @@ a {
     padding-right: 14px;
 }
 
-/* Problema centralizar deve estar em outro lugar*/
-#comentarios {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+/* Area comentarios */
+:root {
+    --text-color: #fff;
 }
 
-#avaliacaoTotal {
+.container-avali {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    height: 25%;
+    margin-top: 0;
 }
+
+.Faca-avaliacao {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    /* tira o espaço que causa altomaticamente  */
+    color: #ffffff;
+}
+
+.avaliacao {
+    color: #fff;
+    padding: 10px;
+    font-size: calc(1.325rem + .9vw);
+}
+
+.app {
+    background-color: var(--primary);
+    color: var(--text-color);
+    display: grid;
+    place-items: center;
+}
+
+.rating {
+    width: 50vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.rating__average {
+    width: 30%;
+    background-color: var(--secondary);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.rating__average h1 {
+    font-size: 3rem;
+}
+
+.rating__average p {
+    margin-top: .7rem;
+    letter-spacing: .1rem;
+}
+
+.rating__progress {
+    width: 70%;
+}
+
+.rating__progress-value {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 1rem;
+}
+
+.rating__progress-value .star {
+    font-size: 1.2rem;
+    color: gold;
+}
+
+.rating__progress-value p:last-child {
+    width: 10%;
+}
+
+.rating__progress .progress {
+    flex: 1 1 0;
+    height: .5rem;
+    border-radius: .5rem;
+    background-color: #ff02;
+}
+
+.bar {
+    width: 0;
+    height: 100%;
+    background-color: gold;
+    border-radius: .5rem;
+}
+
+/* Estilo para estrelas interativas */
+.star-input {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gold;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.star-input:hover,
+.star-input.selected {
+    color: darkred;
+}
+
+
 
 textarea {
     padding: 1px;
-    background-color:rgb(159, 148, 148);
+    background-color: rgb(159, 148, 148);
     background-color: rgb(159, 148, 148);
     width: 100%;
     font-size: 15px;
@@ -514,40 +612,59 @@ li {
 }
 
 
-.itemA, .itemB, .itemC, .itemD, .itemE, .itemF, .itemG, .itemH, .itemI {
-    width: 250px; /* Largura dos itens */
-    height: 350px; /* Altura dos itens */
+.itemA,
+.itemB,
+.itemC,
+.itemD,
+.itemE,
+.itemF,
+.itemG,
+.itemH,
+.itemI {
+    width: 250px;
+    /* Largura dos itens */
+    height: 350px;
+    /* Altura dos itens */
     background-color: rgb(219, 221, 221);
 }
 
 .itemA {
     background-image: url(..img/corte1.jpg);
 }
+
 .itemB {
     background-image: url(..img/corte2.jpg);
 }
+
 .itemC {
     background-image: url(..img/corte3.jpg);
 }
+
 .itemD {
     background-image: url(..img/corte6.jpg);
 }
+
 .itemE {
     background-image: url(..img/corte5.jpg);
 }
+
 .itemF {
     background-image: url(..img/pezinho.jpg);
 
 }
+
 .itemG {
     background-image: url(..img/corte7.jpg);
 }
+
 .itemH {
     background-image: url(..img/barba.png);
 }
+
 .itemI {
     background-image: url(..img/platinado.jpg);
 }
+
 .nomesCard {
     margin-left: 110px;
     margin-top: 30px;
@@ -558,12 +675,12 @@ li {
 }
 
 /* header Responsivo */
-.funcionario{
+.funcionario {
     padding: 19%;
 }
 
-.headerResp{
-   display: none;
+.headerResp {
+    display: none;
 }
 
 
@@ -634,35 +751,35 @@ li {
         display: none;
     }
 
-    .headerResp{
+    .headerResp {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
     }
-    
-    #mostrarModal{
+
+    #mostrarModal {
         background-color: #000000;
     }
-    
-    .ph-list-plus{
+
+    .ph-list-plus {
         color: aliceblue;
     }
-    
+
     .nomePrincipal {
         display: flex;
         align-items: center;
         gap: 5px;
         font-size: 4em;
-      }
-      
-      .modalResp{
+    }
+
+    .modalResp {
         margin-left: auto;
         padding-right: 30px;
         font-size: 2em;
-      }
-      
-      .modalgeral {
+    }
+
+    .modalgeral {
         display: flex;
         flex-direction: column;
         width: 400px;
@@ -673,74 +790,72 @@ li {
         background-color: #000000;
         transition: 500ms;
         transform: translateX(100%);
-      }
-      
-      .aberto {
+    }
+
+    .aberto {
         transform: translateX(0%);
-      }
-      
-      .fechado {
+    }
+
+    .fechado {
         transform: translateX(100%);
-      }
-      
-      .sabiduria a {
+    }
+
+    .sabiduria a {
         display: flex;
         gap: 1rem;
         font-size: 40px;
         color: rgb(0, 0, 0);
         text-decoration: none;
-      }
-      
-      .sabiduria {
+    }
+
+    .sabiduria {
         margin: auto;
         display: flex;
         align-items: center;
         flex-direction: column;
         margin-top: 50%;
-      }
-      
-      .modalfechar {
+    }
+
+    .modalfechar {
         margin: auto;
         width: 200px;
         height: 50px;
-      }
-      
-      .tan {
+    }
+
+    .tan {
         width: 100%;
         height: 100%;
         color: rgb(0, 0, 0);
         background-color: rgb(255, 255, 255);
         font-size: 1em;
-      }
-      
-      button {
+    }
+
+    button {
         width: 50px;
         height: 50px;
         font-size: 1em;
         background-color: rgb(255, 255, 255);
         border: 0;
-      }
-    
-      .paginasResponsi{
+    }
+
+    .paginasResponsi {
         color: #ccc;
         padding-bottom: 15%;
-    
-      }
-    
-      .conteiner-header{
+
+    }
+
+    .conteiner-header {
         display: none;
-      }
-        
+    }
+
 }
 
 .carousel-control-prev {
-    left: 13%!important;
+    left: 13% !important;
 }
 
 .carousel-control-next {
-    right: 13%!important;
+    right: 13% !important;
 }
 
-.carousel-control-prev-icon {
-
-}
+.carousel-control-prev-icon {}
