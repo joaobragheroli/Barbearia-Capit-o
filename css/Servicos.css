@@ -137,56 +137,76 @@ a {
 /* Area comentarios */
 
 
+/* Area comentarios */
 :root {
-    --amarelo: #ffcc00;
-    --cinza: #ccc;
+    --text-color: #fff;
 }
 
-.estrelas input[type=radio] {
-    display: none;
+.app {
+    background-color: var(--primary);
+    color: var(--text-color);
+    display: grid;
+    place-items: center;
 }
 
-.estrelas label i.opcao.fa:before {
-    content: '\f005';
-    color: var(--amarelo);
-}
-
-.estrelas input[type=radio]:checked~label i.fa:before {
-    color: var(--cinza);
-}
-
-.conteiner img {
-    border-radius: 15px;
-}
-
-.conteiner .item {
-    padding-bottom: 35px;
-}
-
-.conteiner button {
-    display: none;
-    background-color: white;
-    padding: 10px 15px;
-}
-
-.botao-login button a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.conteiner {
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 60px;
+.rating {
+    width: 60vw;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    gap: 50px;
-    width: 100%;
+    column-gap: 2rem;
+}
+
+.rating__average {
+    width: 30%;
+    background-color: var(--secondary);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.rating__average h1 {
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+.rating__average p {
+    margin-top: .7rem;
+    letter-spacing: .1rem;
+}
+
+.rating__progress {
+    width: 70%;
+}
+
+.rating__progress-value {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 1rem;
+}
+
+.rating__progress-value .star {
+    font-size: 1.2rem;
+    color: gold;
+}
+
+.rating__progress-value p:last-child {
+    width: 10%;
+}
+
+.rating__progress .progress {
+    flex: 1 1 0;
+    height: .5rem;
+    border-radius: .5rem;
+    background-color: #ff02;
+}
+
+.bar {
+    width: 0;
     height: 100%;
+    background-color: gold;
+    border-radius: .5rem;
 }
 
 .conteiner i {
@@ -327,11 +347,17 @@ textarea::placeholder {
     font-size: 17px;
     outline: none;
     border: none;
+
+/* Estilo para estrelas interativas */
+.star-input {
+    font-size: 2rem;
     cursor: pointer;
-    color: white;
-    border-radius: 3px;
-    font-weight: bold;
-    background-color: blue;
+    color: gold;
+}
+
+.star-input:hover,
+.star-input.selected {
+    color: darkred;
 }
 
 /* header */
@@ -858,4 +884,6 @@ li {
     right: 13% !important;
 }
 
-.carousel-control-prev-icon {}
+/* .carousel-control-prev-icon { */
+/*      */
+/* } */
