@@ -8,6 +8,7 @@ const firebaseConfig = {
     appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
     measurementId: "G-DMR6NG64B3"
 };
+
 // Inicializando o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextMonthBtn = document.getElementById('nextMonth');
     const timeGrid = document.getElementById('time-grid');
     const scheduleBtn = document.getElementById('scheduleBtn');
+
     // IDs dos horários
     const hourIds = [
         '2BF6vz9F2Ym0isAewNmL', // 08:00
@@ -130,22 +132,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Chama a função para popular os horários
     populateTimeSlots();
 
-    // Função para buscar o ID do horário no Firestore
-    async function fetchHourId(timeSlot) {
+    // Função para buscar o horário correspondente ao ID
+    async function fetchTimeById(hourId) {
         try {
-            const querySnapshot = await db.collection('Hora').where('hora', '==', timeSlot).get();
-            if (!querySnapshot.empty) {
-                querySnapshot.forEach(doc => {
-                    selectedHourId = doc.id; // Captura o ID da hora correspondente
-                });
+            const doc = await db.collection('Hora').doc(hourId).get();
+            if (doc.exists) {
+                return doc.data().time; // Retorna o valor do campo 'time'
             } else {
                 console.error('Horário não encontrado.');
+                return null;
             }
         } catch (error) {
             console.error("Erro ao buscar horário: ", error);
         }
     }
 
+    // Evento de clique do botão de agendar
     scheduleBtn.addEventListener('click', async function () {
         if (!selectedDay || !selectedHourId) {
             alert('Por favor, selecione um dia e um horário.');
@@ -153,8 +155,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const selectedDate = `${selectedDay.textContent}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
-        await fetchHourId(selectedTime); // Busca o ID da hora selecionada
-        const confirmationMessage = `Agendamento confirmado para o dia ${selectedDate} às ${selectedHourId}`;
+        
+        // Busca o horário correspondente ao ID selecionado
+        const selectedTime = await fetchTimeById(selectedHourId);
+
+        if (!selectedTime) {
+            alert('Horário não encontrado.');
+            return;
+        }
+
+        // Adiciona o agendamento ao Firestore
+        await db.collection('Agendamento').add({
+            data: selectedDate,           // Data selecionada
+            hora: selectedTime,           // Valor do horário selecionado
+            idFuncionario: 'id_do_barbeiro', // Coloque o ID do barbeiro aqui
+            idUsuario: 'id_do_usuario',    // Coloque o ID do usuário aqui
+            idServico: 'id_do_servico'  // Coloque o ID do usuário aqui
+        });
+
+        const confirmationMessage = `Agendamento confirmado para o dia ${selectedDate} às ${selectedTime}`;
 
         // Exibe uma mensagem de confirmação
         alert(confirmationMessage);

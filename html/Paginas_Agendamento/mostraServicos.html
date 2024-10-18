@@ -195,8 +195,11 @@
                 // Remove o serviço do array
                 selectedServices = selectedServices.filter(id => id !== serviceId);
             }
-            console.log(selectedServices); // Apenas para depuração
+
+            console.log(selectedServices);
         }
+
+        // Area de Transportar o Id
 
         // Função para agendar
         function agendar() {
@@ -204,7 +207,7 @@
                 // Armazena os serviços no sessionStorage
                 sessionStorage.setItem('selectedServices', JSON.stringify(selectedServices));
                 // Redireciona para a próxima página com os IDs dos serviços selecionados
-                window.location.href = `DATA_Agendamento.html?services=${JSON.stringify(selectedServices)}&barberId=${localStorage.getItem('selectedBarberId')}`;
+                // window.location.href = `DATA_Agendamento.html?services=${JSON.stringify(selectedServices)}&barberId=${localStorage.getItem('selectedBarberId')}`;
             } else {
                 alert('Por favor, selecione pelo menos um serviço.');
             }
@@ -213,10 +216,12 @@
         // Página de seleção de serviço
         function selecionarServico(serviceId) {
             sessionStorage.setItem('selectedServiceId', serviceId);
-            window.location.href = 'time_selection_page.html'; // Redirecionar para a página de horários
         }
+        
 
+        // Não sei se seria necessario ja que vai levar somente o Id
 
+        // Configuração do Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
             authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
