@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeGrid = document.getElementById('time-grid');
     const scheduleBtn = document.getElementById('scheduleBtn');
 
+    let selectedServices = JSON.parse(localStorage.getItem('selectedServices')) || []; // Serviços selecionados
+    let selectedBarberId = localStorage.getItem('selectedBarberId'); // ID do barbeiro
+
+    console.log('Serviços selecionados:', selectedServices);
+    console.log('Barbeiro selecionado:', selectedBarberId);
+
     // IDs dos horários
     const hourIds = [
         '2BF6vz9F2Ym0isAewNmL', // 08:00
@@ -48,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedHourId = null; // Para armazenar o ID do horário selecionado
     let currentDate = new Date();
 
+
     function renderCalendar(date) {
         const year = date.getFullYear();
         const month = date.getMonth();
@@ -57,27 +64,43 @@ document.addEventListener('DOMContentLoaded', function () {
         calendar.innerHTML = '';
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDayIndex = new Date(year, month, 1).getDay();
-
+    
+        // Data atual sem horas, minutos e segundos
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+    
         for (let i = 0; i < firstDayIndex; i++) {
             const emptyDiv = document.createElement('div');
             calendar.appendChild(emptyDiv);
         }
-
+    
         for (let day = 1; day <= daysInMonth; day++) {
             const dayElement = document.createElement('div');
             dayElement.classList.add('day');
             dayElement.textContent = day;
-            dayElement.addEventListener('click', function () {
-                if (selectedDay) {
-                    selectedDay.classList.remove('selected');
-                }
-                selectedDay = dayElement;
-                dayElement.classList.add('selected');
-            });
+    
+            // Cria uma data para o dia atual do loop
+            const dayDate = new Date(year, month, day);
+            
+            // Desabilita o botão se o dia já passou
+            if (dayDate < today) {
+                dayElement.classList.add('disabled'); // Adiciona uma classe para estilizar
+                dayElement.style.pointerEvents = 'none'; // Impede o clique
+                dayElement.style.color = 'gray'; // Muda a cor para indicar que está desabilitado
+            } else {
+                dayElement.addEventListener('click', function () {
+                    if (selectedDay) {
+                        selectedDay.classList.remove('selected');
+                    }
+                    selectedDay = dayElement;
+                    dayElement.classList.add('selected');
+                });
+            }
+    
             calendar.appendChild(dayElement);
         }
     }
-
+    
     renderCalendar(currentDate);
 
     prevMonthBtn.addEventListener('click', function () {
@@ -147,38 +170,73 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Função para buscar detalhes do barbeiro
+    async function fetchBarberDetails(barberId) {
+        try {
+            const doc = await db.collection('funcionario').doc(barberId).get(); // Altere aqui
+            if (doc.exists) {
+                return doc.data().nome; // Retorna apenas o nome do barbeiro
+            } else {
+                console.error('Barbeiro não encontrado.');
+                return null;
+            }
+        } catch (error) {
+            console.error("Erro ao buscar barbeiro: ", error);
+        }
+    }
+
+    // Função para buscar detalhes dos serviços
+    async function fetchServiceDetails(serviceIds) {
+        const serviceNames = [];
+        for (const serviceId of serviceIds) {
+            try {
+                const doc = await db.collection('Servico').doc(serviceId).get();
+                if (doc.exists) {
+                    serviceNames.push(doc.data().nome); // Adiciona apenas o nome do serviço ao array
+                } else {
+                    console.error(`Serviço ${serviceId} não encontrado.`);
+                }
+            } catch (error) {
+                console.error(`Erro ao buscar serviço ${serviceId}: `, error);
+            }
+        }
+        return serviceNames; // Retorna um array com os nomes dos serviços
+    }
+
+
     // Evento de clique do botão de agendar
     scheduleBtn.addEventListener('click', async function () {
-        if (!selectedDay || !selectedHourId) {
+        const selectedDayValue = selectedDay ? selectedDay.textContent : null;
+        const selectedDate = selectedDayValue ? `${selectedDayValue}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}` : null;
+
+        if (!selectedDate || !selectedHourId) {
             alert('Por favor, selecione um dia e um horário.');
             return;
         }
 
-        const selectedDate = `${selectedDay.textContent}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
-        
-        // Busca o horário correspondente ao ID selecionado
-        const selectedTime = await fetchTimeById(selectedHourId);
+        // Busca detalhes do barbeiro e dos serviços
+        const [barberName, serviceNames] = await Promise.all([
+            fetchBarberDetails(selectedBarberId),
+            fetchServiceDetails(selectedServices)
+        ]);
 
-        if (!selectedTime) {
-            alert('Horário não encontrado.');
-            return;
+        // Monta o objeto de agendamento
+        const appointment = {
+            data: selectedDate,
+            hora: await fetchTimeById(selectedHourId),
+            barbeiro: barberName, // Nome do barbeiro
+            servicos: serviceNames, // Nomes dos serviços
+            status: 'agendado' // ou outro status que você desejar
+        };
+
+        // Salva o agendamento no Firestore
+        try {
+            await db.collection('Agendamento').add(appointment);
+            alert('Agendamento realizado com sucesso!');
+            window.location.href = '../Home.html';
+        } catch (error) {
+            console.error("Erro ao agendar: ", error);
+            alert('Erro ao realizar o agendamento.');
         }
-
-        // Adiciona o agendamento ao Firestore
-        await db.collection('Agendamento').add({
-            data: selectedDate,           // Data selecionada
-            hora: selectedTime,           // Valor do horário selecionado
-            idFuncionario: 'id_do_barbeiro', // Coloque o ID do barbeiro aqui
-            idUsuario: 'id_do_usuario',    // Coloque o ID do usuário aqui
-            idServico: 'id_do_servico'  // Coloque o ID do usuário aqui
-        });
-
-        const confirmationMessage = `Agendamento confirmado para o dia ${selectedDate} às ${selectedTime}`;
-
-        // Exibe uma mensagem de confirmação
-        alert(confirmationMessage);
-
-        // Redireciona para a próxima página, passando o ID da hora selecionada
-        // window.location.href = `../Home.html?hourId='${selectedHourId}'`; // Altere para o nome correto da próxima página
     });
 });

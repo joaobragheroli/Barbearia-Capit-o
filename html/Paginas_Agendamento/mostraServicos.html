@@ -15,7 +15,7 @@
     <div class="cards_Geral">
         <div class="conteinerButton">
             <p class="TituloExplic">Faça o seu Agendamento</p>
-            <button class="mid-button" id="agendarButton" onclick="agendar()">Agendar</button>
+            <button class="mid-button" id="agendarButton" onclick="saveAndNavigate()">Agendar</button>
         </div>
     </div>
 
@@ -184,6 +184,8 @@
 
     <script>
         let selectedServices = []; // Array para armazenar os IDs dos serviços selecionados
+        let selectedBarberId = localStorage.getItem('selectedBarberId'); // Recuperar o ID do barbeiro do localStorage
+        console.log('Barbeiro selecionado:', selectedBarberId);
 
         // Função para alternar a seleção do card
         function toggleCard(card, serviceId) {
@@ -195,29 +197,26 @@
                 // Remove o serviço do array
                 selectedServices = selectedServices.filter(id => id !== serviceId);
             }
-
             console.log(selectedServices);
         }
 
-        // Area de Transportar o Id
 
-        // Função para agendar
-        function agendar() {
-            if (selectedServices.length > 0) {
-                // Armazena os serviços no sessionStorage
-                sessionStorage.setItem('selectedServices', JSON.stringify(selectedServices));
-                // Redireciona para a próxima página com os IDs dos serviços selecionados
-                // window.location.href = `DATA_Agendamento.html?services=${JSON.stringify(selectedServices)}&barberId=${localStorage.getItem('selectedBarberId')}`;
-            } else {
-                alert('Por favor, selecione pelo menos um serviço.');
-            }
+        // function selectBarber(barberId) {
+            // selectedBarberId = barberId;
+            // console.log('Barbeiro selecionado:', selectedBarberId);
+        // }
+
+        // Area de Transportar o ID
+        function saveAndNavigate() {
+            localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
+            localStorage.setItem('selectedBarberId', selectedBarberId);
+            window.location.href = 'DATA_Agendamento.html'; // redireciona para a nova página
         }
 
         // Página de seleção de serviço
         function selecionarServico(serviceId) {
             sessionStorage.setItem('selectedServiceId', serviceId);
         }
-        
 
         // Não sei se seria necessario ja que vai levar somente o Id
 

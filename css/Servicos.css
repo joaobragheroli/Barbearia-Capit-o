@@ -209,6 +209,13 @@ a {
     border-radius: .5rem;
 }
 
+.conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
 .conteiner i {
     color: black;
     font-size: 20px;
@@ -347,6 +354,7 @@ textarea::placeholder {
     font-size: 17px;
     outline: none;
     border: none;
+}
 
 /* Estilo para estrelas interativas */
 .star-input {
@@ -886,4 +894,5 @@ li {
 
 /* .carousel-control-prev-icon { */
 /*      */
-/* } */
+/* }
+

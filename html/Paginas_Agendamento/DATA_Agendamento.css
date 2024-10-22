@@ -121,3 +121,9 @@ h2 {
     background-color: green; 
     color: white; 
 }
+
+.disabled {
+    color: gray;
+    opacity: 0.5; /* Para dar um efeito visual de desabilitado */
+    cursor: not-allowed; /* Para mudar o cursor quando passar sobre o dia */
+}

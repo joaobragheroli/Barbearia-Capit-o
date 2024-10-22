@@ -38,17 +38,17 @@
     <main class="corpo-agendamento">
         <div class="AgendamentoResponsi">
             <ul class="agendamento">
-                <li class="barber" onclick="selectBarber('m3FXSC4t8bBIBhJUDD5s')">
+                <li class="barber" onclick="selectBarber('m3FXSC4t8bBIBhJUDD5s'); saveBarberAndNavigate()">
                     <h2>Lucas Ferreira</h2>
                     <img src="../img/anonimo.jpg" class="funcionario">
                     <p class="agendamento-descricao">Prefiro atender com o Lucas</p>
                 </li>
-                <li class="barber" onclick="selectBarber('xFBjnum08ucGkx8rdcg6')">
+                <li class="barber" onclick="selectBarber('xFBjnum08ucGkx8rdcg6'); saveBarberAndNavigate()">
                     <h2>Kennedy Esquitini</h2>
                     <img src="../img/anonimo.jpg" class="funcionario">
                     <p class="agendamento-descricao">Prefiro atender com o Kennedy</p>
                 </li>
-                <li class="barber" onclick="selectBarber('neqHWiSiMSoRS25p0D57')">
+                <li class="barber" onclick="selectBarber('neqHWiSiMSoRS25p0D57'); saveBarberAndNavigate()">
                     <h2>Sem Preferência</h2>
                     <img src="../img/img.jpg">
                     <p class="agendamento-descricao">Sem preferência de corte</p>
@@ -159,31 +159,18 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
 
     <script>
+
         let selectedBarberId = null;
 
         function selectBarber(barberId) {
-            // Armazena o ID do barbeiro selecionado
-            selectedBarberId = barberId;
-
-            // Opcional: Adicione um feedback visual para mostrar qual barbeiro foi selecionado
-            const barbers = document.querySelectorAll('.barber');
-            barbers.forEach(barber => barber.classList.remove('selected'));
-
-            const selectedBarber = document.querySelector(`.barber[onclick*="${barberId}"]`);
-            if (selectedBarber) {
-                selectedBarber.classList.add('selected'); // Adiciona uma classe de seleção
-            }
-
-            // Aqui você pode armazenar o ID no Firestore se necessário
-            // Por exemplo, ao passar para a próxima página:
-            localStorage.setItem('selectedBarberId', barberId);
-            window.location.href = '././Paginas_Agendamento/mostraServicos.html'; // Redirecionar para a próxima página
+            selectedBarberId = barberId; // Armazena o ID do barbeiro na variável
+            console.log("Barbeiro selecionado:", selectedBarberId); // Exibe o ID no console
         }
 
-        // Página de seleção de barbeiro
-        function selecionarBarbeiro(barberId) {
-            localStorage.setItem('selectedBarberId', barberId);
-            window.location.href = 'service_selection_page.html'; // Redirecionar para a página de serviços
+        // Função para salvar no localStorage e voltar para a primeira página
+        function saveBarberAndNavigate() {
+            localStorage.setItem('selectedBarberId', selectedBarberId);
+            window.location.href = '././Paginas_Agendamento/mostraServicos.html'; // volta para a primeira página
         }
 
 

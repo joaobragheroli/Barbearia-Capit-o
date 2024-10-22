@@ -19,7 +19,7 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(response => {
             // Login bem-sucedido
-            window.location.href = "../..//html/Home.html"; // Redireciona após login bem-sucedido
+            window.location.href = "../../html/Home.html"; // Redireciona após login bem-sucedido
         })
         .catch(error => {
             // Tratar os diferentes erros
@@ -47,11 +47,6 @@ function handleLoginError(error) {
         console.error("Erro não tratado:", error); // Exibe erro no console para depuração
     }
 }
-
-
-// Senha Errada ou Email Errado = auth/too-many-requests
-// Usuario não encontrado = auth/invalid-credential
-
 
 // Função para recuperação de senha
 function recoverPassword() {
@@ -122,4 +117,14 @@ const form = {
     senhaObrigatoria: () => document.getElementById("senha-Obrigatoria"),
     recuperarSenha: () => document.getElementById('recuperar-senha'),
     btnEntrar: () => document.getElementById("login-button")
+};
+
+// Verifica o estado de autenticação ao carregar a página
+window.onload = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // O usuário está logado, redirecione para a página inicial ou do usuário
+            // window.location.href = "../../html/Home.html"; // Altere para a página do usuário
+        }
+    });
 };
