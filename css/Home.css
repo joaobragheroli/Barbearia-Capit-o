@@ -160,7 +160,8 @@ a {
 .Faca-avaliacao {
     margin: 0;
     padding: 0;
-   white-space: nowrap;  /* tira o espaço que causa altomaticamente  */
+    white-space: nowrap;
+    /* tira o espaço que causa altomaticamente  */
 }
 
 .app {
@@ -488,18 +489,19 @@ section {
 .user-avatar {
     width: 50px;
     height: 50px;
-    background-color: #ffffff; /* Cor do círculo (azul) */
-    border-radius: 50%; /* Faz o elemento ser circular */
+    background-image: url(../img/anonimo.jpg);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  #user-initials {
+}
+
+#user-initials {
     color: rgb(0, 0, 0);
     font-size: 20px;
     font-weight: bold;
-  }  
+}
+
 
 /* header Responsivo */
 .funcionario {
@@ -509,13 +511,6 @@ section {
 .headerResp {
     display: none;
 }
-
-
-
-
-
-
-
 
 
 @media screen and (max-width: 920px) {

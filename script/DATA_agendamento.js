@@ -64,24 +64,24 @@ document.addEventListener('DOMContentLoaded', function () {
         calendar.innerHTML = '';
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDayIndex = new Date(year, month, 1).getDay();
-    
+
         // Data atual sem horas, minutos e segundos
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-    
+
         for (let i = 0; i < firstDayIndex; i++) {
             const emptyDiv = document.createElement('div');
             calendar.appendChild(emptyDiv);
         }
-    
+
         for (let day = 1; day <= daysInMonth; day++) {
             const dayElement = document.createElement('div');
             dayElement.classList.add('day');
             dayElement.textContent = day;
-    
+
             // Cria uma data para o dia atual do loop
             const dayDate = new Date(year, month, day);
-            
+
             // Desabilita o botão se o dia já passou
             if (dayDate < today) {
                 dayElement.classList.add('disabled'); // Adiciona uma classe para estilizar
@@ -94,13 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     selectedDay = dayElement;
                     dayElement.classList.add('selected');
+
+                    console.log("Dia selecionado:", selectedDay.textContent);
+                    // Chama populateTimeSlots após selecionar um dia
+                    populateTimeSlots();
                 });
             }
-    
             calendar.appendChild(dayElement);
         }
     }
-    
+
     renderCalendar(currentDate);
 
     prevMonthBtn.addEventListener('click', function () {
@@ -113,44 +116,77 @@ document.addEventListener('DOMContentLoaded', function () {
         renderCalendar(currentDate);
     });
 
+    // Função para verificar a disponibilidade do horário
+    async function checkTimeSlotAvailability(date, time) {
+        try {
+            const querySnapshot = await db.collection('Agendamento')
+                .where('data', '==', date) // Agora compara diretamente com o objeto Date
+                .where('hora', '==', time) // Verifica se a hora é igual
+                .get();
+    
+            return querySnapshot.empty; // Retorna true se o horário estiver disponível
+        } catch (error) {
+            console.error("Erro ao verificar disponibilidade do horário: ", error);
+            return false; // Em caso de erro, considera que o horário não está disponível
+        }
+    }
+
     // Função para popular os horários
-    function populateTimeSlots() {
+    async function populateTimeSlots() {
         const startHour = 8;
         const endHour = 17;
         const interval = 30;
         let hourIndex = 0; // Índice para os IDs dos horários
-
+    
+        // Primeiro, verifique se um dia foi selecionado
+        if (!selectedDay) {
+            console.error("Nenhum dia selecionado.");
+            return;
+        }
+    
+        // Limpa os horários exibidos anteriormente
+        timeGrid.innerHTML = '';
+    
+        const selectedDayValue = selectedDay.textContent;
+        const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue);
+    
         for (let hour = startHour; hour < endHour; hour++) {
             for (let minutes = 0; minutes < 60; minutes += interval) {
                 const timeSlot = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-                const timeButton = document.createElement('button');
-                timeButton.classList.add('time-slot');
-                timeButton.textContent = timeSlot;
-
-                // Atribuindo o ID do horário como um atributo ao botão
-                timeButton.setAttribute('data-hour-id', hourIds[hourIndex]);
-
-                // Adiciona um evento de clique para capturar o ID e mudar a cor
-                timeButton.addEventListener('click', function () {
-                    // Remove a classe de todos os botões
-                    const allButtons = document.querySelectorAll('.time-slot');
-                    allButtons.forEach(button => {
-                        button.classList.remove('selected-time-slot'); // Remove a classe de todos
+                const timeId = hourIds[hourIndex];
+    
+                // Verifica se o horário está disponível apenas para a data selecionada
+                const isAvailable = await checkTimeSlotAvailability(selectedDate, timeSlot);
+    
+                if (isAvailable) {
+                    const timeButton = document.createElement('button');
+                    timeButton.classList.add('time-slot');
+                    timeButton.textContent = timeSlot;
+                    timeButton.setAttribute('data-hour-id', timeId);
+    
+                    // Adiciona um evento de clique para capturar o ID e mudar a cor
+                    timeButton.addEventListener('click', function () {
+                        // Remove a classe de todos os botões
+                        const allButtons = document.querySelectorAll('.time-slot');
+                        allButtons.forEach(button => {
+                            button.classList.remove('selected-time-slot');
+                        });
+    
+                        // Adiciona a classe ao botão clicado
+                        this.classList.add('selected-time-slot');
+    
+                        // Captura o ID do horário selecionado
+                        selectedHourId = this.getAttribute('data-hour-id');
+                        console.log(`ID selecionado: ${selectedHourId}`);
                     });
-
-                    // Adiciona a classe ao botão clicado
-                    this.classList.add('selected-time-slot'); // Marca o botão como selecionado
-
-                    // Captura o ID do horário selecionado
-                    selectedHourId = this.getAttribute('data-hour-id');
-                    console.log(`ID selecionado: ${selectedHourId}`); // Aqui você pode usar o ID como quiser
-                });
-
-                timeGrid.appendChild(timeButton);
+    
+                    timeGrid.appendChild(timeButton);
+                }
+    
                 hourIndex++; // Avança para o próximo ID
             }
         }
-    }
+    }    
 
     // Chama a função para popular os horários
     populateTimeSlots();
@@ -222,12 +258,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Monta o objeto de agendamento
         const appointment = {
-            data: selectedDate,
+            data: selectedDate ? new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue) : null, // Armazena como objeto Date
             hora: await fetchTimeById(selectedHourId),
             barbeiro: barberName, // Nome do barbeiro
             servicos: serviceNames, // Nomes dos serviços
             status: 'agendado' // ou outro status que você desejar
         };
+
 
         // Salva o agendamento no Firestore
         try {

@@ -201,38 +201,22 @@
         }
 
 
-        // function selectBarber(barberId) {
-            // selectedBarberId = barberId;
-            // console.log('Barbeiro selecionado:', selectedBarberId);
-        // }
-
         // Area de Transportar o ID
         function saveAndNavigate() {
-            localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
-            localStorage.setItem('selectedBarberId', selectedBarberId);
-            window.location.href = 'DATA_Agendamento.html'; // redireciona para a nova página
+            if (selectedServices.length > 0) { // Verifica se algum serviço foi selecionado
+                localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
+                localStorage.setItem('selectedBarberId', selectedBarberId);
+                window.location.href = 'DATA_Agendamento.html'; // Redireciona para a nova página
+            } else {
+                alert('Por favor, selecione pelo menos um serviço.'); // Mensagem de alerta
+            }
         }
 
         // Página de seleção de serviço
         function selecionarServico(serviceId) {
             sessionStorage.setItem('selectedServiceId', serviceId);
         }
-
-        // Não sei se seria necessario ja que vai levar somente o Id
-
-        // Configuração do Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
-            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
-            projectId: "capitaobarbeiro-5b7be",
-            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
-            messagingSenderId: "1013857162216",
-            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
-            measurementId: "G-DMR6NG64B3"
-        };
-        // Inicializando o Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        
     </script>
 </body>
 
