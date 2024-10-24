@@ -119,12 +119,3 @@ const form = {
     btnEntrar: () => document.getElementById("login-button")
 };
 
-// Verifica o estado de autenticação ao carregar a página
-window.onload = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            // O usuário está logado, redirecione para a página inicial ou do usuário
-            // window.location.href = "../../html/Home.html"; // Altere para a página do usuário
-        }
-    });
-};

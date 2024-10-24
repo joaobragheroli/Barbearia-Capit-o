@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="../script/menu.js" defer></script>
+    <script defer src="../script/Troca_Login.js"></script>
     <title>Loja Barbeiro</title>
 </head>
 
@@ -28,6 +29,28 @@
                     <a href="../html/Agendamento.html">Agendamento</a>
                     <a href="../html/FullCalendar/index.html">Agendamento Funcionário</a>
                 </nav>
+            </div>
+
+            <div class="user-avatar" id="user-avatar" onclick="toggleDropdown()">
+                <span id="user-initials"></span>
+                <div class="dropdown-content" id="dropdown-content" style="display: none;">
+                    <p id="user-name"></p>
+
+                    <hr>
+
+                    <div class="social-buttons">
+                        <a href="" class="social-button facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="social-button instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="" class="social-button whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <button id="logout-button" onclick="logout()">Sair</button>
+                </div>
             </div>
 
             <a href="./Contas/login.html">
@@ -90,6 +113,28 @@
         </div>
     </div>
     <script src="../script/produtos.js"></script>
+
+
+    <!-- Importa as bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+            projectId: "capitaobarbeiro-5b7be",
+            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+            messagingSenderId: "1013857162216",
+            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+            measurementId: "G-DMR6NG64B3"
+        };
+        // Inicializa o Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
 </body>
 
 </html

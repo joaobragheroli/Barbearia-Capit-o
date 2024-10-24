@@ -17,7 +17,7 @@
     <!-- links script -->
     <script defer src="../script/menu.js" defer></script>
     <script defer src="../script/Home.js"></script>
-    <!-- <script defer src="../script/Troca_Login.js"></script> -->
+    <script defer src="../script/Troca_Login.js"></script>
 
     <title>Home</title>
 </head>
@@ -40,18 +40,33 @@
                 </nav>
             </div>
 
-            <div class="user-avatar" id="user-avatar">
+
+            <div class="user-avatar" id="user-avatar" onclick="toggleDropdown()">
                 <span id="user-initials"></span>
+                <div class="dropdown-content" id="dropdown-content" style="display: none;">
+                    <p id="user-name"></p>
+
+                    <hr>
+                    <div class="social-buttons">
+                        <a href="" class="social-button facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="social-button instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="" class="social-button whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                    <button id="logout-button" onclick="logout()">Sair</button>
+                </div>
             </div>
+
 
             <a href="./Contas/login.html">
                 <butto class="button-login">Entrar</button>
             </a>
-
-            <div id="user-initials" class="item" style="display: none;">
-                <span id="initials"></span>
-            </div>
-
         </div>
 
 
