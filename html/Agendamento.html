@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <header>
         <div class="conteiner-header">
             <div class="item">
@@ -59,22 +60,34 @@
     <main class="corpo-agendamento">
         <div class="AgendamentoResponsi">
             <ul class="agendamento">
-                <li class="barber" onclick="selectBarber('m3FXSC4t8bBIBhJUDD5s'); saveBarberAndNavigate()">
+                <li class="barber" onclick="handleBarberClick('m3FXSC4t8bBIBhJUDD5s')">
                     <h2>Lucas Ferreira</h2>
                     <img src="../img/anonimo.jpg" class="funcionario">
                     <p class="agendamento-descricao">Prefiro atender com o Lucas</p>
                 </li>
-                <li class="barber" onclick="selectBarber('xFBjnum08ucGkx8rdcg6'); saveBarberAndNavigate()">
+                <li class="barber" onclick="handleBarberClick('xFBjnum08ucGkx8rdcg6')">
                     <h2>Kennedy Esquitini</h2>
                     <img src="../img/anonimo.jpg" class="funcionario">
                     <p class="agendamento-descricao">Prefiro atender com o Kennedy</p>
                 </li>
-                <li class="barber" onclick="selectBarber('neqHWiSiMSoRS25p0D57'); saveBarberAndNavigate()">
+                <li class="barber" onclick="handleBarberClick('neqHWiSiMSoRS25p0D57')">
                     <h2>Sem Preferência</h2>
                     <img src="../img/img.jpg">
                     <p class="agendamento-descricao">Sem preferência de corte</p>
                 </li>
             </ul>
+        </div>
+
+
+        <!-- modal de não logado  -->
+        <div id="loginModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img src="../img/img.jpg" alt="Imagem da Barbearia" class="modal-image">
+                <h2>🚪 Acesso Negado</h2>
+                <p>Você precisa estar logado para agendar um serviço. Por favor, faça login para continuar.</p>
+                <button onclick="closeModal()" class="modal-button">Fechar</button>
+            </div>
         </div>
     </main>
 
@@ -108,7 +121,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Area de Comentario -->
+
             <!-- Avaliação Serviços -->
             <div class="container-avali">
                 <div class="app">
@@ -175,25 +188,40 @@
         <script src="../script/avaliacao.js"></script>
     </footer>
 
+
+
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
 
     <script>
 
-        let selectedBarberId = null;
+        let selectedBarberName = null;
 
-        function selectBarber(barberId) {
-            selectedBarberId = barberId; // Armazena o ID do barbeiro na variável
-            console.log("Barbeiro selecionado:", selectedBarberId); // Exibe o ID no console
+        function exibirInfoUsuario(user) {
+            const uid = user.uid;
+            const db = firebase.firestore();
+
+            db.collection("Usuarios").doc(uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        const nome = userData.nome || "Nome não disponível";
+
+                        // Atualiza o conteúdo do <p> com o ID "user-name"
+                        document.getElementById("user-name").innerText = nome;
+
+                        // Armazena o nome na variável selectedBarberName
+                        selectedBarberName = nome; // Armazena o nome na variável
+                    } else {
+                        document.getElementById("user-name").innerText = "Usuário não encontrado";
+                    }
+                })
+                .catch((error) => {
+                    console.error("Erro ao buscar o nome do usuário:", error);
+                    document.getElementById("user-name").innerText = "Erro ao buscar o nome";
+                });
         }
-
-        // Função para salvar no localStorage e voltar para a primeira página
-        function saveBarberAndNavigate() {
-            localStorage.setItem('selectedBarberId', selectedBarberId);
-            window.location.href = '././Paginas_Agendamento/mostraServicos.html'; // volta para a primeira página
-        }
-
 
         // Configuração do Firebase
         const firebaseConfig = {
@@ -212,7 +240,7 @@
 
     </script>
 
-
+    <script src="../script/Agendamento.js"></script>
 </body>
 
 </html>

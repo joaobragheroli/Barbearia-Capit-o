@@ -527,6 +527,89 @@ hr {
     opacity: .25;
 }
 
+/* modal de não logado  */
+.modal {
+    position: fixed;
+    z-index: 1000; /* Para garantir que o modal esteja sobre outros conteúdos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    margin: 20px auto;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 500px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    text-align: center; 
+    top: 0;
+}
+
+/* Estilo da imagem */
+.modal-image {
+    width: 100%; /* A imagem ocupará 100% da largura do modal */
+    max-width: 300px; /* Largura máxima para a imagem */
+    border-radius: 5px; /* Bordas arredondadas para a imagem */
+    margin-bottom: 15px; /* Espaço abaixo da imagem */
+}
+
+/* Estilo do título */
+.modal-content h2 {
+    font-family: 'Arial', sans-serif; /* Fonte moderna */
+    color: #c0392b; /* Cor vermelha */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+/* Estilo da descrição */
+.modal-content p {
+    font-family: 'Arial', sans-serif; /* Fonte moderna */
+    color: #333; /* Cor do texto */
+    margin-bottom: 20px; /* Espaço abaixo do parágrafo */
+}
+
+/* Botão de fechar */
+.close {
+    color: #888; /* Cor do 'X' */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #c0392b; /* Cor ao passar o mouse */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo do botão no modal */
+.modal-button {
+    background-color: #c0392b; /* Cor vermelha */
+    color: white; /* Cor do texto */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Mão ao passar o mouse */
+    display: block; /* Para centralizar */
+    margin: 20px auto; /* Margem automática para centralização */
+}
+
+.modal-button:hover {
+    background-color: #e74c3c; /* Cor ao passar o mouse */
+}
+
+/* Classe para desativar a rolagem */
+.no-scroll {
+    overflow: hidden; /* Impede a rolagem da página */
+}
+
 /* header Responsivo */
 .funcionario {
     padding: 19%;

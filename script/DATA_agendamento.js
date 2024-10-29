@@ -11,6 +11,7 @@ const firebaseConfig = {
 
 // Inicializando o Firebase
 firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 const db = firebase.firestore();
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let selectedDay = null;
     let selectedTime = null;
-    let selectedHourId = null; // Para armazenar o ID do horário selecionado
+    let selectedHourId = null;
     let currentDate = new Date();
 
 
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .where('data', '==', date) // Agora compara diretamente com o objeto Date
                 .where('hora', '==', time) // Verifica se a hora é igual
                 .get();
-    
+
             return querySnapshot.empty; // Retorna true se o horário estiver disponível
         } catch (error) {
             console.error("Erro ao verificar disponibilidade do horário: ", error);
@@ -137,33 +138,33 @@ document.addEventListener('DOMContentLoaded', function () {
         const endHour = 17;
         const interval = 30;
         let hourIndex = 0; // Índice para os IDs dos horários
-    
+
         // Primeiro, verifique se um dia foi selecionado
         if (!selectedDay) {
-            console.error("Nenhum dia selecionado.");
+            // console.error("Nenhum dia selecionado.");
             return;
         }
-    
+
         // Limpa os horários exibidos anteriormente
         timeGrid.innerHTML = '';
-    
+
         const selectedDayValue = selectedDay.textContent;
         const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue);
-    
+
         for (let hour = startHour; hour < endHour; hour++) {
             for (let minutes = 0; minutes < 60; minutes += interval) {
                 const timeSlot = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
                 const timeId = hourIds[hourIndex];
-    
+
                 // Verifica se o horário está disponível apenas para a data selecionada
                 const isAvailable = await checkTimeSlotAvailability(selectedDate, timeSlot);
-    
+
                 if (isAvailable) {
                     const timeButton = document.createElement('button');
                     timeButton.classList.add('time-slot');
                     timeButton.textContent = timeSlot;
                     timeButton.setAttribute('data-hour-id', timeId);
-    
+
                     // Adiciona um evento de clique para capturar o ID e mudar a cor
                     timeButton.addEventListener('click', function () {
                         // Remove a classe de todos os botões
@@ -171,22 +172,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         allButtons.forEach(button => {
                             button.classList.remove('selected-time-slot');
                         });
-    
+
                         // Adiciona a classe ao botão clicado
                         this.classList.add('selected-time-slot');
-    
+
                         // Captura o ID do horário selecionado
                         selectedHourId = this.getAttribute('data-hour-id');
                         console.log(`ID selecionado: ${selectedHourId}`);
                     });
-    
+
                     timeGrid.appendChild(timeButton);
                 }
-    
+
                 hourIndex++; // Avança para o próximo ID
             }
         }
-    }    
+    }
 
     // Chama a função para popular os horários
     populateTimeSlots();
@@ -240,6 +241,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    // Função para obter dados do usuário logado
+    async function obterDadosUsuario() {
+        const usuario = auth.currentUser; // Pega o usuário logado
+
+        let nome = '';
+        let telefone = '';
+
+        if (usuario) {
+            const uid = usuario.uid; // ID do usuário logado
+            const docRef = db.collection("Usuarios").doc(uid); // Referência ao documento do usuário
+            const docSnap = await docRef.get(); // Faz a consulta
+
+            if (docSnap.exists) {
+                const dadosUsuario = docSnap.data();
+                nome = dadosUsuario.nome; // Armazena o nome
+                telefone = dadosUsuario.telefone; // Armazena o telefone
+            }
+        }
+
+        return { nome, telefone }; // Retorna os valores
+    }
+
+    // Observador de estado de autenticação
+    auth.onAuthStateChanged(async (usuario) => {
+        if (usuario) {
+            // Usuário está logado
+            const { nome, telefone } = await obterDadosUsuario();
+            console.log(`Nome: ${nome}\nTelefone: ${telefone}`); // Formatação com quebra de linha
+        } else {
+            // Usuário não está logado
+            console.log("Nenhum usuário logado.");
+        }
+    });
+
+    // Evento de clique do botão de agendar
     // Evento de clique do botão de agendar
     scheduleBtn.addEventListener('click', async function () {
         const selectedDayValue = selectedDay ? selectedDay.textContent : null;
@@ -256,24 +292,35 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchServiceDetails(selectedServices)
         ]);
 
-        // Monta o objeto de agendamento
-        const appointment = {
-            data: selectedDate ? new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue) : null, // Armazena como objeto Date
-            hora: await fetchTimeById(selectedHourId),
-            barbeiro: barberName, // Nome do barbeiro
-            servicos: serviceNames, // Nomes dos serviços
-            status: 'agendado' // ou outro status que você desejar
-        };
+        // Verifica se o usuário está logado
+        const usuario = auth.currentUser; // Pega o usuário logado
+        if (usuario) {
+            const { nome, telefone } = await obterDadosUsuario();
 
+            // Monta o objeto de agendamento
+            const appointment = {
+                data: selectedDate ? new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue) : null, // Armazena com
+                hora: await fetchTimeById(selectedHourId),
+                barbeiro: barberName, // Nome do barbeiro
+                servicos: serviceNames, // Nomes dos serviços
+                Nome_Usuario: nome, // Armazena o nome do usuário
+                Telefone_Usuario: telefone, // Armazena o telefone do usuário
+                status: 'agendado' // ou outro status que você desejar
+            };
 
-        // Salva o agendamento no Firestore
-        try {
-            await db.collection('Agendamento').add(appointment);
-            alert('Agendamento realizado com sucesso!');
-            window.location.href = '../Home.html';
-        } catch (error) {
-            console.error("Erro ao agendar: ", error);
-            alert('Erro ao realizar o agendamento.');
+            // Salva o agendamento no Firestore
+            try {
+                await db.collection('Agendamento').add(appointment);
+                alert('Agendamento realizado com sucesso!');
+                window.location.href = '../Home.html';
+            } catch (error) {
+                console.error("Erro ao agendar: ", error);
+                alert('Erro ao realizar o agendamento.');
+            }
+        } else {
+            // Usuário não está logado
+            console.log("Nenhum usuário logado.");
+            alert('Você precisa estar logado para agendar um serviço.');
         }
     });
 });
