@@ -276,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Evento de clique do botão de agendar
-    // Evento de clique do botão de agendar
     scheduleBtn.addEventListener('click', async function () {
         const selectedDayValue = selectedDay ? selectedDay.textContent : null;
         const selectedDate = selectedDayValue ? `${selectedDayValue}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}` : null;

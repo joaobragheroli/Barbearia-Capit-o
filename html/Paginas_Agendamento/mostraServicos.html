@@ -12,6 +12,8 @@
 
 <body>
 
+
+
     <div class="cards_Geral">
         <div class="conteinerButton">
             <p class="TituloExplic">Faça o seu Agendamento</p>
@@ -178,6 +180,31 @@
         </div>
     </div>
 
+    <!-- Botão para voltar das paginas -->
+    <div class="button-container" id="draggable-container">
+        <div class="button">
+            <i class="ph ph-user-circle"></i>
+            <span>Trocar Barbeiro</span>
+        </div>
+        <div class="button">
+            <i class="ph ph-scissors"></i>
+            <span>Trocar Serviço</span>
+        </div>
+        <div class="button">
+            <i class="ph ph-house"></i>
+            <span>Página Inicial</span>
+        </div>
+        <div class="button">
+            <i class="ph ph-package"></i>
+            <span>Produtos</span>
+        </div>
+        <div class="button">
+            <i class="ph ph-call-bell"></i>
+            <span>Serviços</span>
+        </div>
+    </div>
+    <!-- Final do Botão  -->
+
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
@@ -217,6 +244,40 @@
             sessionStorage.setItem('selectedServiceId', serviceId);
         }
 
+    </script>
+
+    <script>
+        const draggableContainer = document.getElementById('draggable-container');
+
+        draggableContainer.addEventListener('mousedown', function (event) {
+            // Captura as coordenadas iniciais do mouse em relação ao container
+            let shiftX = event.clientX - draggableContainer.getBoundingClientRect().left;
+            let shiftY = event.clientY - draggableContainer.getBoundingClientRect().top;
+
+            // Função para mover o container
+            function moveAt(pageX, pageY) {
+                draggableContainer.style.left = pageX - shiftX + 'px';
+                draggableContainer.style.top = pageY - shiftY + 'px';
+            }
+
+            // Movimenta o container ao mover o mouse
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+            }
+
+            // Inicia o movimento ao segurar o mouse
+            document.addEventListener('mousemove', onMouseMove);
+
+            // Para o movimento ao soltar o mouse
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', onMouseMove);
+            }, { once: true });
+        });
+
+        // Impede a seleção de texto no container
+        draggableContainer.ondragstart = function () {
+            return false;
+        };
     </script>
 </body>
 

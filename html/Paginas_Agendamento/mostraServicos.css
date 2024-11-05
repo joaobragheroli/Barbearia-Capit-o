@@ -369,3 +369,58 @@ body {
 .container .card:hover:before {
     clip-path: circle(300px at 80% -20%);
 }
+
+
+/* Botão para mudar as paginas */
+.button-container {
+    position: absolute; /* Torna o container solto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border: 5px solid #bfbfbf;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.button {
+    height: 60px;
+    width: 60px;
+    background-color: #333;
+    color: floralwhite;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 2px solid #bfbfbf;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.button i {
+    font-size: 24px;
+}
+/* Tooltip Style */
+.button span {
+    position: absolute;
+    left: 70px; /* Aparece à direita do botão */
+    background-color: #444;
+    color: floralwhite;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+.button:hover span {
+    opacity: 1; /* Mostrar ao passar o mouse */
+}
+.button:hover {
+    background-color: #555;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

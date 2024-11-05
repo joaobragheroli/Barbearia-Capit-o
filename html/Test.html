@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia - Marketplace de Freelancers</title>
+    <script defer="" src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* styles.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        h1 {
+            margin-bottom: 10vh;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 70vh;
+            background-color: #000;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 5px solid #ecf0f1;
+        }
+
+        .highlight {
+            color: #ecf0f1;
+            font-style: italic;
+        }
+
+        .containerPesq {
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background-color: #adadad;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #444;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .categories button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .categories button:hover {
+            background-color: #ddd;
+        }
+
+        .popular-services {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .service-card:hover {
+            background-color: #f9f9f9;
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .popular-services {
+            padding: 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .swiper-container {
+            position: relative;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            width: 30px;
+            height: 30px;
+            z-index: 10;
+        }
+
+        .swiper-button-next {
+            right: 10px;
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        #suggestions-list {
+            position: absolute;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #000000;
+            border-top: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1;
+        }
+
+        #suggestions-list li {
+            padding: 10px;
+            cursor: pointer;
+            color: #000000;
+        }
+
+        #suggestions-list li:hover {
+            background-color: #b1b1b1;
+        }
+
+        #searchService {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 8px;
+            background-color: #979797;
+        }
+
+        .suggestions-list div {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .suggestions-list div:hover {
+            background-color: #f1f1f1;
+        }
+
+        .suggestion-link {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        /* Botão de mudar  */
+        .button-container {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border: 5px solid #bfbfbf;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-icons {
+            height: 60px;
+            width: 60px;
+            background-color: #333;
+            color: floralwhite;
+            border-radius: 50%;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border: 2px solid #bfbfbf;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button-icons i {
+            font-size: 24px;
+        }
+
+
+        .button-icons span {
+            position: absolute;
+            left: 70px;
+            background-color: #444;
+            color: floralwhite;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            white-space: nowrap;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            font-size: 14px;
+        }
+
+        .button-icones:hover span {
+            opacity: 1;
+        }
+
+        .button-icons:hover {
+            background-color: #555;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-container {
+            position: relative;
+            width: 100%;
+            height: 100%;      
+        }
+
+        /* Modifique o botão container para usar posição absoluta */
+        .button-container {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-container" id="content-container">
+        <div class="button-container" id="draggable-container">
+            <div class="button-icons">
+                <i class="ph ph-user-circle"></i>
+                <span>Trocar Barbeiro</span>
+            </div>
+            <div class="button-icons">
+                <i class="ph ph-scissors"></i>
+                <span>Trocar Serviço</span>
+            </div>
+            <div class="button-icons">
+                <i class="ph ph-house"></i>
+                <span>Página Inicial</span>
+            </div>
+            <div class="button-icons">
+                <i class="ph ph-package"></i>
+                <span>Produtos</span>
+            </div>
+            <div class="button-icons">
+                <i class="ph ph-call-bell"></i>
+                <span>Serviços</span>
+            </div>
+        </div>
+
+
+        <!-- Seção Principal -->
+        <section class="hero">
+            <h1>Pesquise seu Serivço para melhor <span class="highlight">Ajudá lo</span> na sua Escolha </h1>
+
+
+            <div class="containerPesq">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Pesquise por serviços de barbearia..."
+                        oninput="searchService()">
+                    <button id="searchService" onclick="searchService()">🔍</button>
+                    <ul id="suggestions-list" class="suggestions-list"></ul>
+                </div>
+            </div>
+
+
+            <div class="categories">
+                <button>Corte de Cabelo</button>
+                <button>Barba</button>
+                <button>Tratamentos Capilares</button>
+                <button>Estilo e Design</button>
+            </div>
+        </section>
+
+        <!-- Serviços Populares -->
+        <section class="popular-services">
+            <h2>Serviços Populares</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <img src="images.jpg" alt="Corte de Cabelo" class="service-image">
+                            <h3>Corte de Cabelo</h3>
+                            <p>Preço: R$50,00</p>
+                            <p>Duração: 60 min</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <img src="images.jpg" alt="Barba Clássica" class="service-image">
+                            <h3>Barba Clássica</h3>
+                            <p>Preço: R$30,00</p>
+                            <p>Duração: 30 min</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <img src="images.jpg" alt="Estilo de Barba" class="service-image">
+                            <h3>Estilo de Barba</h3>
+                            <p>Preço: R$40,00</p>
+                            <p>Duração: 45 min</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <img src="images.jpg" alt="Corte com Navalha" class="service-image">
+                            <h3>Corte com Navalha</h3>
+                            <p>Preço: R$60,00</p>
+                            <p>Duração: 75 min</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <img src="images.jpg" alt="Tratamento Capilar" class="service-image">
+                            <h3>Tratamento Capilar</h3>
+                            <p>Preço: R$80,00</p>
+                            <p>Duração: 90 min</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <img src="images.jpg" alt="Design de Sobrancelhas" class="service-image">
+                            <h3>Design de Sobrancelhas</h3>
+                            <p>Preço: R$25,00</p>
+                            <p>Duração: 30 min</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3, // Número de slides visíveis
+            spaceBetween: 20, // Espaço entre os slides
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                // Quando a tela é menor que 640px
+                640: {
+                    slidesPerView: 1,
+                },
+                // Quando a tela é menor que 768px
+                768: {
+                    slidesPerView: 2,
+                },
+                // Quando a tela é maior que 768px
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Barra de pesquisa
+        const services = [
+            { name: "Corte de cabelo", page: "corte-cabelo.html" },
+            { name: "Corte e barba", page: "corte-e-barba.html" },
+            { name: "Barba", page: "barba.html" },
+            { name: "Tratamento capilar", page: "tratamento-capilar.html" },
+            { name: "Coloração", page: "coloracao.html" },
+            { name: "Sobrancelha", page: "sobrancelha.html" },
+            { name: "Relaxamento", page: "relaxamento.html" },
+            { name: "Progressiva", page: "progressiva.html" },
+            { name: "Alisamento", page: "alisamento.html" }
+        ];
+
+        // Função de busca
+        function searchService() {
+            const input = document.getElementById("search-input").value.toLowerCase();
+            const suggestionsList = document.getElementById("suggestions-list");
+            // Limpa as sugestões anteriores
+            suggestionsList.innerHTML = '';
+            if (input === "") {
+                suggestionsList.style.display = 'none';
+                return;
+            }
+            // Filtra serviços que contêm o texto digitado
+            const filteredServices = services.filter(service => service.name.toLowerCase().includes(input));
+            // Exibe os resultados
+            if (filteredServices.length > 0) {
+                suggestionsList.style.display = 'block';
+                filteredServices.forEach(service => {
+                    const li = document.createElement("li");
+                    li.textContent = service.name; // Mantém o nome do serviço
+                    li.onclick = () => {
+                        window.location.href = service.page; // Redireciona para a página do serviço
+                    };
+                    suggestionsList.appendChild(li);
+                });
+            } else {
+                suggestionsList.style.display = 'none';
+            }
+        }
+
+        // botão
+        // Função para tornar o container arrastável
+        const draggableContainer = document.getElementById('draggable-container');
+        const contentContainer = document.getElementById('content-container');
+
+        draggableContainer.onmousedown = function (event) {
+            // Calcula a posição do mouse em relação ao container
+            let shiftX = event.clientX - draggableContainer.getBoundingClientRect().left;
+            let shiftY = event.clientY - draggableContainer.getBoundingClientRect().top;
+
+            // Mova o container ao mover o mouse
+            function moveAt(pageX, pageY) {
+                let newLeft = pageX - shiftX - contentContainer.getBoundingClientRect().left;
+                let newTop = pageY - shiftY - contentContainer.getBoundingClientRect().top;
+
+                // Limite a posição dentro do contêiner pai
+                const maxWidth = contentContainer.clientWidth - draggableContainer.offsetWidth;
+                const maxHeight = contentContainer.clientHeight - draggableContainer.offsetHeight;
+
+                newLeft = Math.max(0, Math.min(newLeft, maxWidth));
+                newTop = Math.max(0, Math.min(newTop, maxHeight));
+
+                draggableContainer.style.left = newLeft + 'px';
+                draggableContainer.style.top = newTop + 'px';
+            }
+
+            // Mova o container ao mover o mouse
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+            }
+
+            // Inicia o movimento
+            document.addEventListener('mousemove', onMouseMove);
+
+            // Solte o container ao soltar o mouse
+            document.onmouseup = function () {
+                document.removeEventListener('mousemove', onMouseMove);
+                document.onmouseup = null;
+            };
+        };
+
+        // Impede o container de ser selecionado
+        draggableContainer.ondragstart = function () {
+            return false;
+        };
+    </script>
+</body>
+
+</html>
