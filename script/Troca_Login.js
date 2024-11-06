@@ -45,6 +45,8 @@ window.onload = () => {
       if (user) {
           document.getElementById("user-initials").innerText = user.email.charAt(0).toUpperCase();
           document.getElementById("user-avatar").style.display = "block"; // Exibe o avatar ao logar
+          document.querySelector(".button-login").style.display = "none"; // Exibe o avatar ao logar
+         
           exibirInfoUsuario(user);
       } else {
           document.getElementById("user-avatar").style.display = "none"; // Esconde o avatar ao deslogar
