@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Agendamentos</title>
+
+    <!-- Importa as bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .agendamento {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #user-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #agendamentos-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="user-info">
+        <h2 id="user-name">Usuário não logado</h2>
+        <p id="user-phone"></p>
+        <p id="user-email"></p>
+    </div>
+
+    <div class="overlay"></div> <!-- Camada escura para melhorar a legibilidade -->
+
+    <div class="container" id="agendamentos-container" style="display: none;">
+        <h1>Meus Agendamentos - Barbearia</h1>
+        <div id="agendamentos-list">
+            <!-- Os agendamentos serão inseridos aqui -->
+        </div>
+    </div>
+
+    <!-- Botão de login -->
+    <div id="login-container" style="display: none;">
+        <button onclick="login()">Login com Google</button>
+    </div>
+
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+            projectId: "capitaobarbeiro-5b7be",
+            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+            messagingSenderId: "1013857162216",
+            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+            measurementId: "G-DMR6NG64B3"
+        };
+
+        // Inicializar Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Função de login com Google
+        function login() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider).then((result) => {
+                renderAgendamentos(); // Re-renderiza os agendamentos após login
+            }).catch((error) => {
+                console.error("Erro no login: ", error);
+            });
+        }
+
+        // Função para exibir as informações do usuário logado
+        function exibirInfoUsuario(user) {
+            const uid = user.uid;
+            db.collection("Usuarios").doc(uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        const nome = userData.Nome_Usuario || "Nome não disponível";
+                        const telefone = userData.Telefone_Usuario || "Telefone não disponível";
+                        const email = user.email || "Email não disponível";
+                        document.getElementById("user-name").innerText = nome;
+                        document.getElementById("user-phone").innerText = telefone;
+                        document.getElementById("user-email").innerText = email;
+                    } else {
+                        document.getElementById("user-name").innerText = "Usuário não encontrado";
+                    }
+                })
+                .catch((error) => {
+                    console.error("Erro ao buscar o nome do usuário:", error);
+                    document.getElementById("user-name").innerText = "Erro ao buscar o nome";
+                });
+        }
+
+        // Função para exibir os agendamentos do usuário logado
+        function renderAgendamentos() {
+            const user = auth.currentUser;
+            if (user) {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("agendamentos-container").style.display = "block";
+
+                // Exibir informações do usuário
+                exibirInfoUsuario(user);
+
+                // Buscar agendamentos do usuário logado no Firestore
+                db.collection("Agendamentos")
+                    .where("userId", "==", user.uid) // Filtro para pegar os agendamentos do usuário logado
+                    .get()
+                    .then((querySnapshot) => {
+                        const container = document.getElementById("agendamentos-list");
+                        container.innerHTML = ''; // Limpar lista de agendamentos anteriores
+                        querySnapshot.forEach((doc) => {
+                            const agendamento = doc.data();
+                            const agendamentoDiv = document.createElement("div");
+                            agendamentoDiv.classList.add("agendamento");
+
+                            // Inserindo as informações do agendamento no HTML
+                            agendamentoDiv.innerHTML = `
+                                <h3><strong>Nome do Usuário:</strong> ${agendamento.Nome_Usuario}</h3>
+                                <p><strong>Telefone:</strong> ${agendamento.Telefone_Usuario}</p>
+                                <p><strong>Barbeiro:</strong> ${agendamento.barbeiro}</p>
+                                <p><strong>Data:</strong> ${agendamento.data}</p>
+                                <p><strong>Hora:</strong> ${agendamento.hora}</p>
+                                <p><strong>Serviço:</strong> ${agendamento.servicos}</p>
+                            `;
+                            container.appendChild(agendamentoDiv);
+                        });
+                    })
+                    .catch((error) => {
+                        console.log("Erro ao buscar agendamentos: ", error);
+                    });
+            } else {
+                document.getElementById("login-container").style.display = "block";
+                document.getElementById("agendamentos-container").style.display = "none";
+            }
+        }
+
+        // Monitorar mudanças de autenticação
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                renderAgendamentos();
+            } else {
+                document.getElementById("login-container").style.display = "block";
+                document.getElementById("agendamentos-container").style.display = "none";
+            }
+        });
+
+        // Chama renderização quando a página carrega
+        window.onload = function() {
+            renderAgendamentos(); // Garantir que a renderização aconteça quando a página estiver pronta
+        }
+    </script>
+
+</body>
+</html>

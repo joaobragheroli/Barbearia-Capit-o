@@ -222,6 +222,17 @@
             text-decoration: underline;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        .imgPreto{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
         /* Botão de mudar  */
         .button-container {
             position: absolute;
@@ -271,7 +282,7 @@
             font-size: 14px;
         }
 
-        .button-icones:hover span {
+        .button-icons:hover span {
             opacity: 1;
         }
 
@@ -284,7 +295,7 @@
         .content-container {
             position: relative;
             width: 100%;
-            height: 100%;      
+            height: 100%;
         }
 
         /* Modifique o botão container para usar posição absoluta */
@@ -297,26 +308,36 @@
 <body>
     <div class="content-container" id="content-container">
         <div class="button-container" id="draggable-container">
-            <div class="button-icons">
-                <i class="ph ph-user-circle"></i>
-                <span>Trocar Barbeiro</span>
-            </div>
-            <div class="button-icons">
-                <i class="ph ph-scissors"></i>
-                <span>Trocar Serviço</span>
-            </div>
-            <div class="button-icons">
-                <i class="ph ph-house"></i>
-                <span>Página Inicial</span>
-            </div>
-            <div class="button-icons">
-                <i class="ph ph-package"></i>
-                <span>Produtos</span>
-            </div>
-            <div class="button-icons">
-                <i class="ph ph-call-bell"></i>
-                <span>Serviços</span>
-            </div>
+            <a href="../Agendamento.html">
+                <div class="button-icons">
+                    <i class="ph ph-user-circle"></i>
+                    <span>Trocar Barbeiro</span>
+                </div>
+            </a>
+            <a href="Test.html">
+                <div class="button-icons">
+                    <i class="ph ph-scissors"></i>
+                    <span>Trocar Serviço</span>
+                </div>
+            </a>
+            <a href="../Home.html">
+                <div class="button-icons">
+                    <i class="ph ph-house"></i>
+                    <span>Página Inicial</span>
+                </div>
+            </a>
+            <a href="../Produtos.html">
+                <div class="button-icons">
+                    <i class="ph ph-package"></i>
+                    <span>Produtos</span>
+                </div>
+            </a>
+            <a href="../Servicos.html">
+                <div class="button-icons">
+                    <i class="ph ph-call-bell"></i>
+                    <span>Serviços</span>
+                </div>
+            </a>
         </div>
 
 
@@ -404,7 +425,14 @@
                 <div class="swiper-pagination"></div>
             </div>
         </section>
+
+        <div class="imgPreto">
+            <img src="../../img/preto.jpg" alt="">
+        </div>
     </div>
+
+
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {

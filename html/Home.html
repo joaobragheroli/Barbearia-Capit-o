@@ -356,3 +356,122 @@
 </body>
 
 </html>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1f1f1f;
+    /* Cor de fundo preta */
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1575088708277-b08f5fbe51a2');
+    /* Coloque a URL de uma imagem da sua escolha */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* A sobrecapa escura */
+    z-index: 1;
+}
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo escuro com transparência */
+    border-radius: 12px;
+}
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #f4f4f4;
+    margin-bottom: 20px;
+}
+.agendamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+.agendamento:hover {
+    transform: scale(1.05);
+}
+.agendamento img {
+    width: 50px;
+    /* Tamanho da imagem */
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.agendamento .info {
+    flex: 1;
+}
+.agendamento h2 {
+    color: #f4f4f4;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+.agendamento p {
+    margin: 5px 0;
+    color: #ccc;
+    font-size: 16px;
+}
+.agendamento .button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+.agendamento .button:hover {
+    background-color: #45a049;
+}
+/* Estilos adicionais para responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+    .container {
+        padding: 20px;
+    }
+    .agendamento {
+        padding: 15px;
+        margin: 5px;
+    }
+    .agendamento h2 {
+        font-size: 20px;
+    }
+    .agendamento img {
+        width: 40px;
+        height: 40px;
+    }
+    .agendamento .button {
+        font-size: 16px;
+    }
+}

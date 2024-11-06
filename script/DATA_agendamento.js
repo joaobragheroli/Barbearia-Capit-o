@@ -118,46 +118,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Função para verificar a disponibilidade do horário
-    async function checkTimeSlotAvailability(date, time) {
-        try {
-            const querySnapshot = await db.collection('Agendamento')
-                .where('data', '==', date) // Agora compara diretamente com o objeto Date
-                .where('hora', '==', time) // Verifica se a hora é igual
-                .get();
+    // async function checkTimeSlotAvailability(date, time) {
+    // try {
+    // const querySnapshot = await db.collection('Agendamento')
+    // .where('data', '==', date) // Agora compara diretamente com o objeto Date
+    // .where('hora', '==', time) // Verifica se a hora é igual
+    // .get();
 
-            return querySnapshot.empty; // Retorna true se o horário estiver disponível
-        } catch (error) {
-            console.error("Erro ao verificar disponibilidade do horário: ", error);
-            return false; // Em caso de erro, considera que o horário não está disponível
-        }
-    }
+    // return querySnapshot.empty; // Retorna true se o horário estiver disponível
+    // } catch (error) {
+    // console.error("Erro ao verificar disponibilidade do horário: ", error);
+    // return false; // Em caso de erro, considera que o horário não está disponível
+    // }
+    // }   
 
     // Função para popular os horários
     async function populateTimeSlots() {
         const startHour = 8;
         const endHour = 17;
         const interval = 30;
-        let hourIndex = 0; // Índice para os IDs dos horários
+        let hourIndex = 0;
 
-        // Primeiro, verifique se um dia foi selecionado
         if (!selectedDay) {
-            // console.error("Nenhum dia selecionado.");
+            console.error("Nenhum dia selecionado.");
             return;
         }
 
-        // Limpa os horários exibidos anteriormente
         timeGrid.innerHTML = '';
 
         const selectedDayValue = selectedDay.textContent;
         const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue);
+
+        // Obter o nome do barbeiro a partir do selectedBarberId
+        const barberName = await fetchBarberNameById(selectedBarberId);
 
         for (let hour = startHour; hour < endHour; hour++) {
             for (let minutes = 0; minutes < 60; minutes += interval) {
                 const timeSlot = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
                 const timeId = hourIds[hourIndex];
 
-                // Verifica se o horário está disponível apenas para a data selecionada
-                const isAvailable = await checkTimeSlotAvailability(selectedDate, timeSlot);
+                // Verifica a disponibilidade do horário para o barbeiro selecionado
+                const isAvailable = await checkTimeSlotAvailabilityForBarber(selectedDate, timeSlot, barberName);
 
                 if (isAvailable) {
                     const timeButton = document.createElement('button');
@@ -167,16 +168,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Adiciona um evento de clique para capturar o ID e mudar a cor
                     timeButton.addEventListener('click', function () {
-                        // Remove a classe de todos os botões
                         const allButtons = document.querySelectorAll('.time-slot');
-                        allButtons.forEach(button => {
-                            button.classList.remove('selected-time-slot');
-                        });
-
-                        // Adiciona a classe ao botão clicado
+                        allButtons.forEach(button => button.classList.remove('selected-time-slot'));
                         this.classList.add('selected-time-slot');
-
-                        // Captura o ID do horário selecionado
                         selectedHourId = this.getAttribute('data-hour-id');
                         console.log(`ID selecionado: ${selectedHourId}`);
                     });
@@ -184,10 +178,43 @@ document.addEventListener('DOMContentLoaded', function () {
                     timeGrid.appendChild(timeButton);
                 }
 
-                hourIndex++; // Avança para o próximo ID
+                hourIndex++;
             }
         }
     }
+
+    // Função para buscar o nome do barbeiro com base no selectedBarberId
+    async function fetchBarberNameById(barberId) {
+        try {
+            const doc = await db.collection('funcionario').doc(barberId).get();
+            if (doc.exists) {
+                return doc.data().nome;  // Retorna o nome do barbeiro
+            } else {
+                console.error('Barbeiro não encontrado.');
+                return null;
+            }
+        } catch (error) {
+            console.error("Erro ao buscar nome do barbeiro: ", error);
+            return null;
+        }
+    }
+
+    // Função para verificar a disponibilidade do horário para o barbeiro selecionado (agora com o nome)
+    async function checkTimeSlotAvailabilityForBarber(date, time, barberName) {
+        try {
+            const querySnapshot = await db.collection('Agendamento')
+                .where('data', '==', date)      // Filtra pela data
+                .where('hora', '==', time)      // Filtra pela hora
+                .where('barbeiro', '==', barberName) // Filtra pelo nome do barbeiro
+                .get();
+
+            return querySnapshot.empty; // Retorna true se o horário estiver disponível para o barbeiro
+        } catch (error) {
+            console.error("Erro ao verificar disponibilidade do horário para o barbeiro: ", error);
+            return false;
+        }
+    }
+
 
     // Chama a função para popular os horários
     populateTimeSlots();
