@@ -886,7 +886,8 @@ li {
         flex-direction: column;
         align-items: center;
         border: 5px solid black;
-        background-color: #c5003e;
+        /* background-color: #c5003e; */
+        background-color: darkred;
     }
 
     .ImgServico {
@@ -1005,7 +1006,11 @@ li {
     .conteiner-header {
         display: none;
     }
-
+    .rating {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
 }
 
 .carousel-control-prev {

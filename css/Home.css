@@ -751,6 +751,31 @@ section {
         z-index: 88888;
         display: none;
     }
+    .imagem-sombreada{
+        width: 300px;   /* Largura de 300 pixels */
+        height: 200px;  /* Altura de 200 pixels */
+    }
+    #Entrada2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+    }
+    #text2{
+        display: flex;
+        font-size: 19px;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    #text3{
+        display: flex;
+        font-size: 18px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
 
     /* header resposivo */
     .headerResp {
@@ -848,6 +873,17 @@ section {
 
     .conteiner-header {
         display: none;
+    }
+    .rating {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+    }
+    .star-rating-input{
+        padding: 9px;
+    }
+    .Faca-avaliacao{
+        padding: 10px;
     }
 
 

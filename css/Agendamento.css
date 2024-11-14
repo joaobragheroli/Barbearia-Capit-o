@@ -767,5 +767,10 @@ hr {
     .conteiner-header {
         display: none;
     }
+    .rating {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
 
 }
