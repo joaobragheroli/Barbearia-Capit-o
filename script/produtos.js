@@ -84,7 +84,9 @@ document.getElementById('root').innerHTML = categories.map((item) => {
                 <img class='images' src=${image} />
             </div>
             <div class='bottom'>
-                <p>${title}</p>
+                <div class='text-prod'>
+                    <p>${title}</p>
+                </div>
                 <h2>R$ ${price}.00</h2>
                 <button onclick='produtos(${i++})'>Adicionar ao Carrinho</button>
             </div>
@@ -107,7 +109,7 @@ function delElement(a) {
 function displaycart() {
     let j = 0, total = 0;
     document.getElementById("count").innerHTML = cart.length;
-    
+
     if (cart.length == 0) {
         document.getElementById('cartItem').innerHTML = "Your cart is empty";
         document.getElementById("total").innerHTML = "$0.00";
@@ -117,13 +119,15 @@ function displaycart() {
             total += price;
             document.getElementById("total").innerHTML = "$ " + total + ".00";
             return (
-                `<div class='cart-item'>
-                    <div class='row-img'>
-                        <img class='rowimg' src=${image} />
+                `<div class="cart-item">
+                    <div class="row-img">
+                        <img class="rowimg" src="${image}" />
                     </div>
-                    <p style='font-size:12px;'>${title}</p>
-                    <h2 style='font-size: 15px;'>$ ${price}.00</h2>
-                    <i class="fa-solid fa-trash" onclick='delElement(${j++})'></i>
+                    <div class="item-info">
+                        <p class="title">${title}</p>
+                        <h2 class="price">$ ${price}.00</h2>
+                    </div>
+                    <i class="fa-solid fa-trash delete-icon" onclick="delElement(${j++})"></i>
                 </div>`
             );
         }).join('');
@@ -145,10 +149,10 @@ function sendToWhatsApp() {
 
     // Codifica a mensagem para URL
     const whatsappMessage = encodeURIComponent(message);
-    
+
     // Define o número de telefone
     const phoneNumber = "5515998490468"; // O número sem espaços ou caracteres especiais
-    
+
     // Abre o WhatsApp com a mensagem e o número definido
     window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`, '_blank');
 }

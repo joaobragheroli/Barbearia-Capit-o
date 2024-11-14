@@ -8,6 +8,7 @@ function selectBarber(barberId) {
 // Função para salvar no localStorage e ir na proxima pagina
 function saveBarberAndNavigate() {
     localStorage.setItem('selectedBarberId', selectedBarberId);
+    // window.location.href = '././Paginas_Agendamento/Test.html';
     window.location.href = '././Paginas_Agendamento/mostraServicos.html';
 }
 

@@ -8,6 +8,9 @@ function exibirInfoUsuario(user) {
               const userData = doc.data();
               const nome = userData.nome || "Nome não disponível";
               document.getElementById("user-name").innerText = nome;
+
+              console.log(nome);
+              localStorage.setItem("Nome_Usuario", nome);
           } else {
               document.getElementById("user-name").innerText = "Usuário não encontrado";
           }
@@ -17,6 +20,18 @@ function exibirInfoUsuario(user) {
           document.getElementById("user-name").innerText = "Erro ao buscar o nome";
       });
 }
+
+// Adiciona o evento de clique para redirecionar para R.agendamentos.html com o nome do usuário
+document.getElementById("agendamentos-link").addEventListener("click", function() {
+    const nomeUsuario = localStorage.getItem("Nome_Usuario");
+    
+    if (nomeUsuario) {
+        window.location.href = `./Paginas_Modal/R.agendamentos.html?nomeUsuario=${encodeURIComponent(nomeUsuario)}`;
+    } else {
+        console.log("Nome de usuário não encontrado.");
+    }
+});
+
 
 function toggleDropdown() {
   const dropdownContent = document.getElementById("dropdown-content");
@@ -42,11 +57,14 @@ function logout() {
 // Verifica o estado de autenticação ao carregar a página
 window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-          document.getElementById("user-initials").innerText = user.email.charAt(0).toUpperCase();
-          document.getElementById("user-avatar").style.display = "block"; // Exibe o avatar ao logar
-          document.querySelector(".button-login").style.display = "none"; // Exibe o avatar ao logar
-         
+    if (user) {
+        document.getElementById("user-initials").innerText = user.email.charAt(0).toUpperCase();
+        document.querySelector(".button-login").style.display = "none";
+
+        setTimeout(() => {
+            document.getElementById("user-avatar").style.display = "block"; 
+        }, 500); // 500 milissegundos de atraso (0,5 segundos)
+
           exibirInfoUsuario(user);
       } else {
           document.getElementById("user-avatar").style.display = "none"; // Esconde o avatar ao deslogar

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Agendamento</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            /* Fundo preto */
+            color: #ffffff;
+            /* Texto branco */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #e0e0e0;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .agendamento-card {
+            display: flex;
+            align-items: center;
+            background-color: #1e1e1e;
+            /* Fundo do card */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .agendamento-card:hover {
+            transform: scale(1.02);
+        }
+
+        .card-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 2px solid #333;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #d9d9d9;
+        }
+
+        .card-content strong {
+            color: #ffffff;
+        }
+
+        .novo-agendamento-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .novo-agendamento-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <h1>Detalhes do Agendamento</h1>
+    <div class="container">
+        <div class="agendamento-card">
+            <div class="card-content" id="agendamento">
+                <p><strong>Nome do Usuário:</strong> <span id="nomeUsuario"></span></p>
+                <p><strong>Telefone do Usuário:</strong> <span id="telefoneUsuario"></span></p>
+                <p><strong>Barbeiro:</strong> <span id="barbeiro"></span></p>
+                <p><strong>Data:</strong> <span id="data"></span></p>
+                <p><strong>Hora:</strong> <span id="hora"></span></p>
+                <p><strong>Serviços:</strong> <span id="servicos"></span></p>
+                <p><strong>Status:</strong> <span id="status"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importa o Firebase SDK e o código JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Inicializa o Firebase com a configuração fornecida
+        const firebaseConfig = {
+            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+            projectId: "capitaobarbeiro-5b7be",
+            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+            messagingSenderId: "1013857162216",
+            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+            measurementId: "G-DMR6NG64B3"
+        };
+
+        // Inicializa o Firebase e o Firestore (compat)
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Função para obter o valor de um parâmetro da URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Tenta obter o nome do usuário da URL
+        const nomeUsuario = getQueryParam("nomeUsuario");
+
+        if (nomeUsuario) {
+            // Executa a busca se o nome do usuário está disponível
+            getAgendamentosUsuarioLogado(nomeUsuario);
+        } else {
+            console.log("Nome de usuário não encontrado na URL.");
+        }
+
+        // Função para buscar agendamentos do Firestore
+        async function getAgendamentosUsuarioLogado(nomeUsuario) {
+            try {
+                const container = document.querySelector(".container"); // Seleciona o contêiner principal
+                container.innerHTML = ""; // Limpa qualquer conteúdo anterior
+
+                const querySnapshot = await db.collection("Agendamento")
+                    .where("Nome_Usuario", "==", nomeUsuario)
+                    .get();
+
+                if (!querySnapshot.empty) {
+                    querySnapshot.forEach(doc => {
+                        const data = doc.data();
+
+                        // Cria o card do agendamento
+                        const agendamentoCard = document.createElement("div");
+                        agendamentoCard.classList.add("agendamento-card");
+
+                        // Cria a imagem do card usando img.jpg
+                        const cardImage = document.createElement("img");
+                        cardImage.src = "../../img/img.jpg"; // Atualize o caminho se necessário
+                        cardImage.alt = "Imagem do Agendamento";
+                        cardImage.classList.add("card-image");
+                        agendamentoCard.appendChild(cardImage);
+
+                        // Cria o conteúdo do card
+                        const cardContent = document.createElement("div");
+                        cardContent.classList.add("card-content");
+
+                        // Insere os dados do agendamento no conteúdo do card
+                        cardContent.innerHTML = `
+                    <p><strong>Nome do Usuário:</strong> ${data.Nome_Usuario}</p>
+                    <p><strong>Telefone do Usuário:</strong> ${data.Telefone_Usuario}</p>
+                    <p><strong>Barbeiro:</strong> ${data.barbeiro}</p>
+                    <p><strong>Data:</strong> ${data.data.toDate().toLocaleDateString()}</p>
+                    <p><strong>Hora:</strong> ${data.hora}</p>
+                    <p><strong>Serviços:</strong> ${data.servicos.join(", ")}</p>
+                    <p><strong>Status:</strong> ${data.status}</p>
+                `;
+
+                        agendamentoCard.appendChild(cardContent);
+                        container.appendChild(agendamentoCard); // Adiciona o card ao contêiner principal
+                    });
+                } else {
+                    container.innerHTML = "<p>Nenhum agendamento encontrado para esse usuário.</p>";
+                }
+
+                // Adiciona o botão de "Novo Agendamento" ao final da lista de agendamentos
+                const novoAgendamentoBtn = document.createElement("button");
+                novoAgendamentoBtn.classList.add("novo-agendamento-btn");
+                novoAgendamentoBtn.textContent = "Novo Agendamento";
+                novoAgendamentoBtn.onclick = () => {
+                    window.location.href = "../Home.html";
+                };
+                container.appendChild(novoAgendamentoBtn);
+
+            } catch (error) {
+                console.error("Erro ao buscar dados:", error);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

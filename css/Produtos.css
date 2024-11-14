@@ -71,6 +71,7 @@ body {
 
 }
 
+
 #root {
   width: 60%;
   display: grid;
@@ -107,39 +108,56 @@ body {
 
 .foot {
   display: flex;
-  flex-direction: column; /* Muda para coluna para alinhar verticalmente */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  margin: 20px 0; /* Margem superior e inferior */
-  padding: 10px 0; /* Padding superior e inferior */
-  border-top: 1px solid #333; /* Borda superior */
+  flex-direction: column;
+  /* Muda para coluna para alinhar verticalmente */
+  align-items: center;
+  /* Centraliza os itens horizontalmente */
+  margin: 20px 0;
+  /* Margem superior e inferior */
+  padding: 10px 0;
+  /* Padding superior e inferior */
+  border-top: 1px solid #333;
+  /* Borda superior */
 }
 
 .foot h3,
 .foot h2 {
-    margin: 0; /* Remove margens padrão */
-    padding: 5px 0; /* Adiciona espaço vertical entre os títulos */
+  margin: 0;
+  /* Remove margens padrão */
+  padding: 5px 0;
+  /* Adiciona espaço vertical entre os títulos */
 }
 
 .foot h3 {
-    margin-bottom: 10px; /* Espaço abaixo do h3 */
+  margin-bottom: 10px;
+  /* Espaço abaixo do h3 */
 }
 
 .foot h2 {
-    margin-bottom: 20px; /* Espaço abaixo do h2 */
+  margin-bottom: 20px;
+  /* Espaço abaixo do h2 */
 }
 
 .foot button {
-    margin-top: 10px; /* Espaço acima do botão */
-    padding: 10px 20px; /* Tamanho do botão */
-    background-color: #4CAF50; /* Cor do botão */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Remove borda */
-    border-radius: 5px; /* Arredonda os cantos do botão */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
+  margin-top: 10px;
+  /* Espaço acima do botão */
+  padding: 10px 20px;
+  /* Tamanho do botão */
+  background-color: #4CAF50;
+  /* Cor do botão */
+  color: white;
+  /* Cor do texto do botão */
+  border: none;
+  /* Remove borda */
+  border-radius: 5px;
+  /* Arredonda os cantos do botão */
+  cursor: pointer;
+  /* Muda o cursor ao passar o mouse */
 }
 
 .foot button:hover {
-    background-color: #45a049; /* Cor do botão ao passar o mouse */
+  background-color: #45a049;
+  /* Cor do botão ao passar o mouse */
 }
 
 .box {
@@ -150,6 +168,9 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   padding: 15px;
+  height: 350px;          /* Define a altura fixa para todos os contêineres */
+  box-sizing: border-box; /* Garante que padding e border não aumentem a largura e altura */
+  text-align: center;
 }
 
 .img-box {
@@ -162,34 +183,41 @@ body {
 
 .images {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 100%;       /* Limita a altura da imagem dentro do contêiner */
   object-fit: cover;
   object-position: center;
 }
 
 .bottom {
-  margin-top: 20px;
   width: 100%;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 110px;
+  gap: 10px;              /* Espaço entre os elementos dentro da seção */
+}
+
+.text-prod p {
+  font-size: 16px;
+  line-height: 1.2;       /* Ajusta o espaçamento das linhas do texto */
+  max-height: 40px;       /* Limita a altura do texto para manter o layout */
+  overflow: hidden;       /* Esconde o excesso de texto se passar da altura */
+  text-overflow: ellipsis;
+  margin: 0;
 }
 
 h2 {
   font-size: 20px;
   color: red;
+  margin: 5px 0;          /* Espaço entre o preço e o botão */
 }
 
 button {
   width: 100%;
-  position: relative;
   border: none;
   border-radius: 5px;
   background-color: black;
-  padding: 7px 25px;
+  padding: 7px 0;
   cursor: pointer;
   color: white;
 }
@@ -197,6 +225,7 @@ button {
 button:hover {
   background-color: #333;
 }
+
 
 .cart-item {
   display: flex;
@@ -209,20 +238,10 @@ button:hover {
   margin: 10px 10px;
 }
 
-.header-cart {
-  display: flex;
-  align-items: center;
-  margin-left: auto; /* Para empurrar para a direita */
-  margin-right: 20px; /* Ajuste a margem conforme necessário */
-  color: #000000;
-  background-color: #000000;
-}
-
-
 .row-img {
   width: 50px;
   height: 50px;
-  border-radius: 50px;
+  border-radius: 50%;
   border: 1px solid black;
   display: flex;
   align-items: center;
@@ -235,24 +254,78 @@ button:hover {
   border-radius: 50%;
 }
 
-.fa-trash:hover {
+.item-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 12px;
+  text-align: left;
+  flex: 1; /* Faz o título ocupar o espaço disponível */
+  margin-right: 10px;
+}
+
+.price {
+  font-size: 15px;
+  color: red;
+  text-align: right;
+  white-space: nowrap; /* Evita quebra de linha no preço */
+}
+
+.delete-icon {
   cursor: pointer;
-  color: #333;
+  color: #000000;
+  margin-left: 10px;
+}
+
+.header-cart {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 20px;
+  color: #000000;
+  background-color: #000000;
 }
 
 
+.text-content {
+  display: flex;
+  flex-direction: column; /* Faz os textos ficarem empilhados */
+  justify-content: center;
+}
+
+.text-content p {
+  font-size: 12px;
+  margin: 0; /* Remove margens para ajustar o espaço */
+}
+
+.text-content h2 {
+  font-size: 15px;
+  margin: 0; /* Remove margens para ajustar o espaço */
+}
+
+.fa-trash {
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  cursor: pointer;
+  color: #ff0000;
+}
 
 .fa-brands {
   background-color: rgb(243, 243, 243);
   color: black;
 }
 
-
 .scroll-section {
   max-height: 400px;
   overflow-y: auto;
 }
-
 
 .conteiner-header img {
   border-radius: 15px;
@@ -266,12 +339,7 @@ header {
 
 .conteiner-header .item {
   padding-bottom: 35px;
-}
-
-
-
-
-
+}    
 
 
 .botao-login button a {
@@ -299,15 +367,16 @@ header {
 }
 
 .button-login {
-    background-color: black;
-    border: 2px solid white;
-    font-size: 20px;
-    color: white;
-    border-radius: 15px;
-    padding: 5px;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+   display: inline-block;
+   background-color: black;
+   border: 2px solid white;
+   font-size: 20px;
+   color: white;
+   border-radius: 15px;
+   padding: 5px;
+   font-family: "Bebas Neue", sans-serif;
+   font-weight: 400;
+   font-style: normal;
 }
 
 /*Efeito do link*/
@@ -374,7 +443,7 @@ nav a:hover::after {
   width: 50px;
   height: 50px;
   font-size: 20px;
-  
+
 }
 
 /* Estilo do conteúdo do dropdown */
@@ -414,7 +483,7 @@ nav a:hover::after {
 /* Estilo do botão de logout */
 #logout-button {
   display: block;
-  width: 100%; 
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -493,12 +562,12 @@ hr {
 }
 
 /* header Responsivo */
-.funcionario{
+.funcionario {
   padding: 19%;
 }
 
-.headerResp{
- display: none;
+.headerResp {
+  display: none;
 }
 
 @media screen and (max-width: 920px) {
@@ -563,35 +632,35 @@ hr {
 
   }
 
-  .headerResp{
+  .headerResp {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-}
+  }
 
-#mostrarModal{
+  #mostrarModal {
     background-color: #000000;
     width: 1;
-}
+  }
 
-.ph-list-plus{
+  .ph-list-plus {
     color: aliceblue;
-}
+  }
 
-.nomePrincipal {
+  .nomePrincipal {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 4em;
   }
-  
-  .modalResp{
+
+  .modalResp {
     margin-left: auto;
     padding-right: 30px;
     font-size: 2em;
   }
-  
+
   .modalgeral {
     display: flex;
     flex-direction: column;
@@ -604,15 +673,15 @@ hr {
     transition: 500ms;
     transform: translateX(100%);
   }
-  
+
   .aberto {
     transform: translateX(0%);
   }
-  
+
   .fechado {
     transform: translateX(100%);
   }
-  
+
   .sabiduria a {
     display: flex;
     gap: 1rem;
@@ -620,7 +689,7 @@ hr {
     color: rgb(0, 0, 0);
     text-decoration: none;
   }
-  
+
   .sabiduria {
     margin: auto;
     display: flex;
@@ -628,13 +697,13 @@ hr {
     flex-direction: column;
     margin-top: 50%;
   }
-  
+
   .modalfechar {
     margin: auto;
     width: 200px;
     height: 50px;
   }
-  
+
   .tan {
     width: 100%;
     height: 100%;
@@ -642,7 +711,7 @@ hr {
     background-color: rgb(255, 255, 255);
     font-size: 1em;
   }
-  
+
   button {
     width: 50px;
     height: 50px;
@@ -651,15 +720,15 @@ hr {
     border: 0;
   }
 
-  .paginasResponsi{
+  .paginasResponsi {
     color: #ccc;
     padding-bottom: 15%;
 
   }
 
-  .conteiner-header{
+  .conteiner-header {
     display: none;
   }
-    
+
 
 }

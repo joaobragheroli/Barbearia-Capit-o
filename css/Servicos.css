@@ -406,6 +406,7 @@ header {
 }
 
 .button-login {
+    display: inline-block;
     background-color: black;
     border: 2px solid white;
     font-size: 20px;
