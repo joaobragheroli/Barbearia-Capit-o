@@ -754,6 +754,7 @@ hr {
     }
 
     .modalgeral {
+        z-index: 1900;
         display: flex;
         flex-direction: column;
         width: 400px;

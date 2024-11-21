@@ -16,8 +16,8 @@
     <!-- link css -->
     <link rel="stylesheet" href="../css/Home.css">
     <!-- links script -->
-    <script defer src="../script/menu.js" ></script>
-    
+    <script defer src="../script/menu.js"></script>
+
     <script defer src="../script/Troca_Login.js"></script>
     <script defer src="../script/Home.js"></script>
 
@@ -54,7 +54,7 @@
 
                         <div class="menu-paginas">
                             <!-- Faz a mudança de pagina o agendamentos-link -->
-                            <a href="#" class="menu-item" id="agendamentos-link" >
+                            <a href="#" class="menu-item" id="agendamentos-link">
                                 <ion-icon name="calendar-outline"></ion-icon>
                                 <div>
                                     <span>Agendamentos</span>
@@ -102,7 +102,65 @@
 
 
         <!-- header responsivo -->
+
         <div class="headerResp">
+
+            <div class="containeravatar">
+                <div class="user-avatar" id="user-avatar" onclick="toggleDropdown()">
+                    <span id="user-initials"></span>
+                    <div class="dropdown-content" id="dropdown-content" style="display: none;">
+                        <p id="user-name"></p>
+
+                        <hr>
+
+                        <div class="menu-paginas">
+                            <!-- Faz a mudança de pagina o agendamentos-link -->
+                            <a href="#" class="menu-item" id="agendamentos-link">
+                                <ion-icon name="calendar-outline"></ion-icon>
+                                <div>
+                                    <span>Agendamentos</span>
+                                    <small>Seu histórico de agendamentos</small>
+                                </div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <div>
+                                    <span>Meus dados</span>
+                                    <small>Seus dados pessoais</small>
+                                </div>
+                            </a>
+                            <a href="#" class="menu-item">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <div>
+                                    <span>Alterar senha</span>
+                                    <small>Gerencie a senha de sua conta</small>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="social-buttons">
+                            <a href="" class="social-button facebook" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="" class="social-button instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="" class="social-button whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+
+                        <button id="logout-button" onclick="logout()">Sair</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="./Contas/login.html">
+                <butto class="button-login">Entrar</button>
+            </a>
+
+
             <div class="modalResp">
                 <button id="mostrarModal">
                     <i class="ph ph-list-plus"></i>
@@ -113,16 +171,16 @@
 
         <div class="modalgeral">
             <div class="sabiduria">
-                <a href="index.html">
+                <a href="Home.html">
                     <p class="paginasResponsi">Home</p>
                 </a>
-                <a href="depressao.html">
+                <a href="Produtos.html">
                     <p class="paginasResponsi">Produtos</p>
                 </a>
-                <a href="tdah.html">
+                <a href="Servicos.html">
                     <p class="paginasResponsi">Serviços</p>
                 </a>
-                <a href="tdah.html">
+                <a href="Agendamento.html">
                     <p class="paginasResponsi">Agendamento</p>
                 </a>
             </div>
@@ -342,5 +400,3 @@
 </body>
 
 </html>
-
-
