@@ -837,6 +837,59 @@ li {
     /* Efeito de hover */
 }
 
+.menu-paginas {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens no contêiner */
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* Define uma largura fixa */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+    margin-bottom: 30px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Cada item ocupa toda a largura do contêiner */
+    margin-bottom: 11px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    background-color: #222; /* Cor de fundo para o item */
+}
+
+.menu-item ion-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #ffc107;
+    display: inline-block; /* Mantém o ícone alinhado com o texto */
+}
+
+.menu-item div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha o texto à esquerda, junto ao ícone */
+}
+
+.menu-item span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-item small {
+    font-size: 10px;
+    color: #ccc;
+}
+
+.menu-item:hover {
+    background-color: #333;
+}
+
+
 /* header Responsivo */
 .funcionario {
     padding: 19%;
@@ -846,6 +899,12 @@ li {
     display: none;
 }
 
+.modalResp {
+    margin-left: auto;
+    padding-right: 30px;
+    font-size: 2em;
+    z-index: 10000;
+}
 
 @media screen and (max-width: 920px) {
     body {
@@ -886,7 +945,8 @@ li {
         flex-direction: column;
         align-items: center;
         border: 5px solid black;
-        background-color: #c5003e;
+        /* background-color: #c5003e; */
+        background-color: darkred;
     }
 
     .ImgServico {
@@ -940,6 +1000,7 @@ li {
     .modalgeral {
         display: flex;
         flex-direction: column;
+        z-index: 1900;
         width: 400px;
         height: 100%;
         position: fixed;
@@ -1005,7 +1066,11 @@ li {
     .conteiner-header {
         display: none;
     }
-
+    .rating {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
 }
 
 .carousel-control-prev {

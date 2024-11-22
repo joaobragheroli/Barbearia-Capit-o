@@ -283,6 +283,7 @@ header {
 }
 
 .button-login {
+    display: none;
     display: inline-block;
     background-color: black;
     border: 2px solid white;
@@ -541,7 +542,7 @@ section {
 /* Estilo do botão de logout */
 #logout-button {
     display: block;
-    width: 100%; 
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -611,52 +612,70 @@ section {
     /* Efeito de hover */
 }
 
-/* paginas do modal  */
 .menu-paginas {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* Centraliza os itens no contêiner */
     background-color: #222;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .menu-item {
+    width: 300px;
+    /* Define uma largura fixa */
+    margin: 0 auto;
+    /* Centraliza o contêiner na página */
+    margin-bottom: 30px;
+}
+
+.menu-item {
     display: flex;
     align-items: center;
+    width: 100%;
+    /* Cada item ocupa toda a largura do contêiner */
     margin-bottom: 11px;
     text-decoration: none;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
     transition: background 0.3s ease;
-  }
-  
-  .menu-item ion-icon {
+    background-color: #222;
+    /* Cor de fundo para o item */
+}
+
+.menu-item ion-icon {
     font-size: 20px;
     margin-right: 10px;
-    color: #ffc107; /* Ícones amarelos */
-  }
-  
-  .menu-item div {
+    color: #ffc107;
+    display: inline-block;
+    /* Mantém o ícone alinhado com o texto */
+}
+
+.menu-item div {
     display: flex;
     flex-direction: column;
-  }
-  
-  .menu-item span {
+    align-items: flex-start;
+    /* Alinha o texto à esquerda, junto ao ícone */
+}
+
+.menu-item span {
     font-size: 14px;
     font-weight: bold;
-  }
-  
-  .menu-item small {
+}
+
+.menu-item small {
     font-size: 10px;
-    color: #ccc; /* Cor mais clara para o texto pequeno */
-  }
-  
-  .menu-item:hover {
+    color: #ccc;
+}
+
+.menu-item:hover {
     background-color: #333;
-  }
-  
+}
+
+.imagem-sombreada {
+    width: 50%;
+    height: auto;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
 
 /* header Responsivo */
 .funcionario {
@@ -666,7 +685,6 @@ section {
 .headerResp {
     display: none;
 }
-
 
 @media screen and (max-width: 920px) {
     /* campos obrigatorios */
@@ -752,6 +770,37 @@ section {
         display: none;
     }
 
+    .imagem-sombreada {
+        width: 300px;
+        /* Largura de 300 pixels */
+        height: 200px;
+        /* Altura de 200 pixels */
+    }
+
+    #Entrada2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+    }
+
+    #text2 {
+        display: flex;
+        font-size: 19px;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    #text3 {
+        display: flex;
+        font-size: 18px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
     /* header resposivo */
     .headerResp {
         display: flex;
@@ -782,6 +831,8 @@ section {
     }
 
     .modalgeral {
+        overflow: hidden;
+        z-index: 1900;
         display: flex;
         flex-direction: column;
         width: 400px;
@@ -850,11 +901,146 @@ section {
         display: none;
     }
 
+    .rating {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+    }
+
+    .star-rating-input {
+        padding: 9px;
+    }
+
+    .Faca-avaliacao {
+        padding: 10px;
+    }
+
+    .terceira-section {
+        height: 50vh;
+
+    }
+
+    #text3 {
+        display: block;
+    }
+
+    .carousel-control-prev {
+        top: 25%;
+    }
+
+    .carousel-control-next {
+        top: 25%;
+    }
+
+    .carousel-inner {
+        height: 30vh;
+    }
+
+
+    /* area do mudal Suspenso */
+    #user-initials {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* Estilo do Avatar do Usuário */
+    .user-avatar {
+        position: relative;
+        cursor: pointer;
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    /* Estilo do conteúdo do dropdown */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        background-color: #2c2c2c;
+        color: #fff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        z-index: 1000;
+        min-width: 250px;
+        min-height: 400px;
+        padding: 15px;
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* Exibir o dropdown ao clicar no avatar */
+    .user-avatar.active .dropdown-content {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Estilo do nome de usuário no dropdown */
+    .dropdown-content p {
+        margin: 0;
+        padding: 10px 0;
+        font-size: 30px;
+        color: #ffcccc;
+    }
+
+    /* Estilo do botão de logout */
+    #logout-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f44336;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #logout-button:hover {
+        background-color: #d32f2f;
+        /* Cor do botão ao passar o mouse */
+    }
+
+    /* Exibir o dropdown ao passar o mouse no avatar */
+    .user-avatar:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+    }
+
+    /* Estilo ao passar o mouse no dropdown */
+    .dropdown-content button:hover {
+        background-color: #d32f2f;
+        /* Cor do botão ao passar o mouse */
+    }
+
+
+    .button-login {
+        display: none;
+        display: inline-block;
+        background-color: black;
+        border: 2px solid white;
+        font-size: 20px;
+        color: white;
+        border-radius: 15px;
+        padding: 5px;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
 
 }
 
-.imagem-sombreada {
-    width: 50%;
-    height: auto;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-}
