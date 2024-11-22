@@ -327,7 +327,7 @@ nav a:hover::after {
 /* Corpo Agendamento */
 
 .corpo-agendamento {
-    height: 100vh;
+    height: 120vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -335,29 +335,38 @@ nav a:hover::after {
 }
 
 .agendamento {
-    width: 960px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
     margin: 0 auto;
-    padding: 30px;
 }
 
-
 .agendamento li {
-    color: #000000;
-    display: inline-block;
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    width: 30%;
-    height: auto;
-    vertical-align: top;
     margin: 0 1.5%;
-    padding: 30px 20px;
-    box-sizing: border-box;
+    padding: 30px;
     border: 2px solid #000000;
     border-radius: 10px;
+    transition: transform 0.3s, z-index 0s;
 }
 
 .agendamento li:hover {
     border-color: #990011;
+    transform: translateY(-10px); /* Move o item para cima ao passar o mouse */
+    z-index: 1; /* Garante que o item em destaque fique acima dos outros */
 }
+
+.agendamento li:hover h2 {
+    font-size: 35px;
+}
+
 
 .agendamento li:active {
     border-color: #339900;
@@ -367,17 +376,18 @@ h2 {
     font-weight: bold;
     font-size: 25px;
 }
-
-.agendamento li>img {
+.agendamento li img {
     width: 10em;
+    height: auto;
+    margin: 10px 0; /* Espaçamento entre a imagem e os textos */
 }
 
 .agendamento li:hover h2 {
     font-size: 35px;
 }
 
-.agendamento-descricao {
-    font-size: 20px;
+.agendamento li .agendamento-descricao {
+    margin-top: 10px; /* Espaço entre a imagem e a descrição */
 }
 
 .product-price {

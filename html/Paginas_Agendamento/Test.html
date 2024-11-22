@@ -227,7 +227,7 @@
             text-decoration: none;
         }
 
-        .imgPreto{
+        .imgPreto {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -363,73 +363,148 @@
                 <button>Barba Clássica</button>
                 <button>Estilo e Design</button>
             </div>
+
         </section>
+        <button class="mid-button" id="agendarButton" onclick="saveAndNavigate()">Agendar</button>
+
 
         <!-- Serviços Populares -->
         <section class="popular-services">
             <h2>Serviços Populares</h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
+                    <!-- ID do serviço 1 -->
                     <div class="swiper-slide">
-                        <div class="service-card">
-                            <img src="../../img/corte.png" alt="Corte de Cabelo" class="service-image">
-                            <h3>Corte de Cabelo</h3>
-                            <p>Preço: R$50,00</p>
-                            <p>Duração: 60 min</p>
+                        <div class="service-card-wrapper" onclick="toggleCard(this, '5uCUdVI1PFZw9k70BZuO')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Corte de Cabelo" class="service-image">
+                                <h3>Corte de Cabelo</h3>
+                                <p>Preço: R$50,00</p>
+                                <p>Duração: 60 min</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- ID do serviço 2 -->
                     <div class="swiper-slide">
-                        <div class="service-card">
-                            <img src="../../img/barba.png" alt="Barba Clássica" class="service-image">
-                            <h3>Barba Clássica</h3>
-                            <p>Preço: R$30,00</p>
-                            <p>Duração: 30 min</p>
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'AHYoG8RGm93ZjwjGVYf1')">
+                            <div class="service-card">
+                                <img src="../../img/barba.png" alt="Barba Clássica" class="service-image">
+                                <h3>Barba Clássica</h3>
+                                <p>Preço: R$30,00</p>
+                                <p>Duração: 30 min</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- ID do serviço 3 -->
                     <div class="swiper-slide">
-                        <div class="service-card">
-                            <img src="../../img/barba.png" alt="Estilo de Barba" class="service-image">
-                            <h3>Estilo de Barba</h3>
-                            <p>Preço: R$40,00</p>
-                            <p>Duração: 45 min</p>
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'Do4bj2fpcRtazHvaHwfQ')">
+                            <div class="service-card">
+                                <img src="../../img/barba.png" alt="Estilo de Barba" class="service-image">
+                                <h3>Estilo de Barba</h3>
+                                <p>Preço: R$40,00</p>
+                                <p>Duração: 45 min</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- ID do serviço 4 -->
                     <div class="swiper-slide">
-                        <div class="service-card">
-                            <img src="../../img/corte.png" alt="Corte com Navalha" class="service-image">
-                            <h3>Corte com Navalha</h3>
-                            <p>Preço: R$60,00</p>
-                            <p>Duração: 75 min</p>
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'NncuHzrJIRYxSVlIn5DV')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Corte com Navalha" class="service-image">
+                                <h3>Corte com Navalha</h3>
+                                <p>Preço: R$60,00</p>
+                                <p>Duração: 75 min</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- ID do serviço 5 -->
                     <div class="swiper-slide">
-                        <div class="service-card">
-                            <img src="../../img/corte.png" alt="Tratamento Capilar" class="service-image">
-                            <h3>Tratamento Capilar</h3>
-                            <p>Preço: R$80,00</p>
-                            <p>Duração: 90 min</p>
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'POzQEXc42anM1hs9AsKW')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Tratamento Capilar" class="service-image">
+                                <h3>Tratamento Capilar</h3>
+                                <p>Preço: R$80,00</p>
+                                <p>Duração: 90 min</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- ID do serviço 6 -->
                     <div class="swiper-slide">
-                        <div class="service-card">
-                            <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
-                            <h3>Design de Sobrancelhas</h3>
-                            <p>Preço: R$25,00</p>
-                            <p>Duração: 30 min</p>
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'U5WchYCe7IdlG5qn6fMk')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
+                                <h3>Design de Sobrancelhas</h3>
+                                <p>Preço: R$25,00</p>
+                                <p>Duração: 30 min</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ID do serviço 7 -->
+                    <div class="swiper-slide">
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'WvcipkwORRgQmL1zsfvX')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
+                                <h3>Design de Sobrancelhas</h3>
+                                <p>Preço: R$25,00</p>
+                                <p>Duração: 30 min</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ID do serviço 8 -->
+                    <div class="swiper-slide">
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'mocAI8VSroMOutKOOeMU')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
+                                <h3>Design de Sobrancelhas</h3>
+                                <p>Preço: R$25,00</p>
+                                <p>Duração: 30 min</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ID do serviço 9 -->
+                    <div class="swiper-slide">
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'o0WObhZ3CnF7nkvSIGGp')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
+                                <h3>Design de Sobrancelhas</h3>
+                                <p>Preço: R$25,00</p>
+                                <p>Duração: 30 min</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ID do serviço 10 -->
+                    <div class="swiper-slide">
+                        <div class="service-card-wrapper" onclick="toggleCard(this, 'spKbw9atfyCyJHncuViS')">
+                            <div class="service-card">
+                                <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
+                                <h3>Design de Sobrancelhas</h3>
+                                <p>Preço: R$25,00</p>
+                                <p>Duração: 30 min</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
             </div>
         </section>
 
-        <div class="imgPreto">
-            <img src="../../img/preto.jpg" alt="">
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    </section>
+
+    <div class="imgPreto">
+        <img src="../../img/preto.jpg" alt="">
+    </div>
     </div>
 
 
@@ -549,6 +624,37 @@
         draggableContainer.ondragstart = function () {
             return false;
         };
+    </script>
+    <script>
+        let selectedServices = []; // Array para armazenar os IDs dos serviços selecionados
+        let selectedBarberId = localStorage.getItem('selectedBarberId'); // Recuperar o ID do barbei
+        console.log('Barbeiro selecionado:', selectedBarberId);
+        // Função para alternar a seleção do card
+        function toggleCard(card, serviceId) {
+            card.classList.toggle('selected');
+            if (card.classList.contains('selected')) {
+                // Adiciona o serviço selecionado ao array
+                selectedServices.push(serviceId);
+            } else {
+                // Remove o serviço do array
+                selectedServices = selectedServices.filter(id => id !== serviceId);
+            }
+            console.log(selectedServices);
+        }
+        // Area de Transportar o ID
+        function saveAndNavigate() {
+            if (selectedServices.length > 0) { // Verifica se algum serviço foi selecionado
+                localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
+                localStorage.setItem('selectedBarberId', selectedBarberId);
+                window.location.href = 'DATA_Agendamento.html'; // Redireciona para a nova página
+            } else {
+                alert('Por favor, selecione pelo menos um serviço.'); // Mensagem de alerta
+            }
+        }
+        // Página de seleção de serviço
+        function selecionarServico(serviceId) {
+            sessionStorage.setItem('selectedServiceId', serviceId);
+        }
     </script>
 </body>
 

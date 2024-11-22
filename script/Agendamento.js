@@ -9,7 +9,7 @@ function selectBarber(barberId) {
 function saveBarberAndNavigate() {
     localStorage.setItem('selectedBarberId', selectedBarberId);
     // window.location.href = '././Paginas_Agendamento/Test.html';
-    window.location.href = '././Paginas_Agendamento/mostraServicos.html';
+    window.location.href = '././Paginas_Agendamento/Test.html';
 }
 
 

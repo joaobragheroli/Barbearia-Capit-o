@@ -115,22 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     nextMonthBtn.addEventListener('click', function () {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
-    });
-
-    // Função para verificar a disponibilidade do horário
-    // async function checkTimeSlotAvailability(date, time) {
-    // try {
-    // const querySnapshot = await db.collection('Agendamento')
-    // .where('data', '==', date) // Agora compara diretamente com o objeto Date
-    // .where('hora', '==', time) // Verifica se a hora é igual
-    // .get();
-
-    // return querySnapshot.empty; // Retorna true se o horário estiver disponível
-    // } catch (error) {
-    // console.error("Erro ao verificar disponibilidade do horário: ", error);
-    // return false; // Em caso de erro, considera que o horário não está disponível
-    // }
-    // }   
+    })
 
     // Função para popular os horários
     async function populateTimeSlots() {
@@ -140,11 +125,11 @@ document.addEventListener('DOMContentLoaded', function () {
         let hourIndex = 0;
 
         if (!selectedDay) {
-            console.error("Nenhum dia selecionado.");
+            console.log("Nenhum dia selecionado.");
             return;
         }
 
-        timeGrid.innerHTML = '';
+        timeGrid.innerHTML = '';  // Limpa os horários ao popular novamente
 
         const selectedDayValue = selectedDay.textContent;
         const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue);
@@ -157,27 +142,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 const timeSlot = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
                 const timeId = hourIds[hourIndex];
 
-                // Verifica a disponibilidade do horário para o barbeiro selecionado
-                const isAvailable = await checkTimeSlotAvailabilityForBarber(selectedDate, timeSlot, barberName);
+                // Cria o botão de horário
+                const timeButton = document.createElement('button');
+                timeButton.classList.add('time-slot');
+                timeButton.textContent = timeSlot;
+                timeButton.setAttribute('data-hour-id', timeId);
 
-                if (isAvailable) {
-                    const timeButton = document.createElement('button');
-                    timeButton.classList.add('time-slot');
-                    timeButton.textContent = timeSlot;
-                    timeButton.setAttribute('data-hour-id', timeId);
+                // Verifica a disponibilidade do horário apenas quando o botão é clicado
+                timeButton.addEventListener('click', async function () {
+                    // Remove a seleção anterior
+                    const allButtons = document.querySelectorAll('.time-slot');
+                    allButtons.forEach(button => button.classList.remove('selected-time-slot'));
+                    this.classList.add('selected-time-slot');
+                    selectedHourId = this.getAttribute('data-hour-id');
+                    console.log(`ID selecionado: ${selectedHourId}`);
 
-                    // Adiciona um evento de clique para capturar o ID e mudar a cor
-                    timeButton.addEventListener('click', function () {
-                        const allButtons = document.querySelectorAll('.time-slot');
-                        allButtons.forEach(button => button.classList.remove('selected-time-slot'));
-                        this.classList.add('selected-time-slot');
-                        selectedHourId = this.getAttribute('data-hour-id');
-                        console.log(`ID selecionado: ${selectedHourId}`);
-                    });
+                    // Verifica a disponibilidade somente para o horário selecionado
+                    const isAvailable = await checkTimeSlotAvailabilityForBarber(selectedDate, timeSlot, barberName);
 
-                    timeGrid.appendChild(timeButton);
-                }
+                    // Exibe a disponibilidade do horário selecionado no console
+                    if (isAvailable) {
+                        console.log(`Horário ${timeSlot} disponível para o barbeiro ${barberName}`);
+                    } else {
+                        console.log(`Horário ${timeSlot} ocupado para o barbeiro ${barberName}`);
+                    }
+                });
 
+                // Adiciona o botão ao grid de horários
+                timeGrid.appendChild(timeButton);
                 hourIndex++;
             }
         }
@@ -199,21 +191,96 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Função para verificar a disponibilidade do horário para o barbeiro selecionado (agora com o nome)
+
+    let availableBarberName = null; // Variável para armazenar o nome do barbeiro disponível
     async function checkTimeSlotAvailabilityForBarber(date, time, barberName) {
         try {
-            const querySnapshot = await db.collection('Agendamento')
-                .where('data', '==', date)      // Filtra pela data
-                .where('hora', '==', time)      // Filtra pela hora
-                .where('barbeiro', '==', barberName) // Filtra pelo nome do barbeiro
-                .get();
-
-            return querySnapshot.empty; // Retorna true se o horário estiver disponível para o barbeiro
+            
+            if (barberName === "Sem Preferência") {
+                // IDs dos barbeiros
+                const barberIds = ["m3FXSC4t8bBIBhJUDD5s", "xFBjnum08ucGkx8rdcg6", "MSol9Vb586vYSVzNKfsz"];
+                // Buscar os nomes dos barbeiros
+                const barberPromises = barberIds.map(async (id) => {
+                    const barberDoc = await db.collection('funcionario').doc(id).get();
+                    return barberDoc.exists ? barberDoc.data().nome : null;
+                });
+                const barberNames = await Promise.all(barberPromises);
+                // Verificar a disponibilidade de cada barbeiro para o horário específico
+                const availabilityPromises = barberNames.map(async (barber) => {
+                    const querySnapshot = await db.collection('Agendamento')
+                        .where('data', '==', date)  // Data específica
+                        .where('hora', '==', time)  // Horário específico
+                        .where('barbeiro', '==', barber)  // Verifica se o barbeiro está agendado
+                        .get();
+                    // Retorna o barbeiro e se está disponível
+                    return {
+                        barber,
+                        isAvailable: querySnapshot.empty  // True se o horário estiver disponível
+                    };
+                });
+                // Aguardar todas as verificações de disponibilidade
+                const availabilityResults = await Promise.all(availabilityPromises);
+                // Filtrando os barbeiros que estão disponíveis para o horário
+                const availableBarbers = availabilityResults.filter(result => result.isAvailable);
+                // Se houver pelo menos um barbeiro disponível
+                if (availableBarbers.length > 0) {
+                    console.log(`Horário ${time} disponível para os seguintes barbeiros:`);
+                    // Exibe todos os barbeiros disponíveis
+                    availableBarbers.forEach(barber => {
+                        console.log(barber.barber);  // Exibe cada barbeiro disponível
+                    });
+                    // Escolhe o primeiro barbeiro disponível
+                    availableBarberName = availableBarbers[0].barber;
+                    console.log(`Barbeiro escolhido: ${availableBarberName}`); // Exibe o barbeiro escolhido
+                    return true;  // Pelo menos um barbeiro está disponível
+                } else {
+                    // Se todos os barbeiros estiverem ocupados, esconde o botão correspondente
+                    console.log(`Horário ${time} ocupado para todos os barbeiros.`);
+                    return false;  // Todos os barbeiros estão ocupados
+                }
+            } else {
+                // Verificar para um barbeiro específico
+                const querySnapshot = await db.collection('Agendamento')
+                    .where('data', '==', date)
+                    .where('hora', '==', time)
+                    .where('barbeiro', '==', barberName)
+                    .get();
+                return querySnapshot.empty;  // Retorna true se o horário estiver disponível
+            }
         } catch (error) {
             console.error("Erro ao verificar disponibilidade do horário para o barbeiro: ", error);
             return false;
         }
     }
+
+
+    // Adicionando evento de clique na data
+    document.addEventListener('DOMContentLoaded', function () {
+        const allDates = document.querySelectorAll('.date');  // Seleciona todos os botões ou elementos de data
+        const allButtons = document.querySelectorAll('.time-slot');  // Botões de horário
+        const date = "2024-11-21";  // Aqui, podemos pegar a data selecionada ou passá-la dinamicamente
+
+        // Evento para quando o usuário clicar em uma data
+        allDates.forEach(dateButton => {
+            dateButton.addEventListener('click', async function () {
+                const selectedDate = dateButton.textContent.trim();  // Pega a data clicada
+                console.log(`Data selecionada: ${selectedDate}`);
+
+                // Agora, verificamos todos os horários para a data selecionada
+                allButtons.forEach(async button => {
+                    const time = button.textContent.trim();  // Pega o horário do botão
+
+                    // Verifica a disponibilidade para o horário e a data selecionada
+                    const isAvailable = await checkTimeSlotAvailabilityForBarber(selectedDate, time, "Sem Preferência");
+
+                    if (!isAvailable) {
+                        // Se todos os barbeiros estiverem ocupados, esconde o botão
+                        button.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
 
 
     // Chama a função para popular os horários
@@ -327,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const appointment = {
                 data: selectedDate ? new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue) : null, // Armazena com
                 hora: await fetchTimeById(selectedHourId),
-                barbeiro: barberName, // Nome do barbeiro
+                barbeiro: selectedBarberId === "neqHWiSiMSoRS25p0D57" ? availableBarberName : barberName, 
                 servicos: serviceNames, // Nomes dos serviços
                 Nome_Usuario: nome, // Armazena o nome do usuário
                 Telefone_Usuario: telefone, // Armazena o telefone do usuário
@@ -350,3 +417,46 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+async function deletePastAppointments() {
+    try {
+        // Obtém a data e hora atual
+        const currentDate = new Date();
+
+        // Definir a data limite (3 dias atrás)
+        const limitDate = new Date(currentDate);
+        limitDate.setDate(currentDate.getDate() - 1);  // Subtrai 3 dias da data atual
+
+        // Busca todos os agendamentos na coleção principal (Agendamento)
+        const snapshot = await db.collection('Agendamento').get();
+
+        // Para cada agendamento encontrado
+        snapshot.forEach(async (doc) => {
+            const appointment = doc.data();
+
+            // Verificar se a subcoleção de agendamentos existe
+            if (appointment.agendamentos && appointment.agendamentos.length > 0) {
+                // Para cada agendamento na subcoleção "agendamentos"
+                appointment.agendamentos.forEach(async (agendamento) => {
+                    const appointmentDate = agendamento.data.toDate ? agendamento.data.toDate() : new Date(agendamento.data);
+
+                    // Verifica se o agendamento passou dos 3 dias
+                    if (appointmentDate < limitDate) {
+                        // Exclui o agendamento se a data for anterior aos 3 dias
+                        await db.collection('Agendamento').doc(doc.id).collection('agendamentos').doc(agendamento.id).delete();
+                        console.log(`Agendamento de ${appointment.Nome_Usuario} foi excluído da subcoleção!`);
+                    }
+                });
+            }
+        });
+    } catch (error) {
+        console.error("Erro ao excluir agendamentos antigos:", error);
+    }
+}
+
+// Rodar a função a cada 24 horas (86400000 ms)
+setInterval(deletePastAppointments, 86400000);
+
+// Ou você pode rodar a função uma vez ao carregar a página, para já verificar ao inicializar
+deletePastAppointments();
