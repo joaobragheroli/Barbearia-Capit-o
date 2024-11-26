@@ -303,6 +303,12 @@
         .button-container {
             position: absolute;
         }
+        @media screen and (max-width: 920px) {
+            #popular-services{
+                display: flex;
+                
+            }
+        }
     </style>
 </head>
 
@@ -493,13 +499,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+               
             </div>
-        </section>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
+             <div class="swiper-pagination"></div>
+        </div>
     </section>
 
     <div class="imgPreto">
@@ -512,8 +517,8 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3, // Número de slides visíveis
-            spaceBetween: 20, // Espaço entre os slides
+            slidesPerView: 1, // Número de slides visíveis
+            spaceBetween: 100, // Espaço entre os slides
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
