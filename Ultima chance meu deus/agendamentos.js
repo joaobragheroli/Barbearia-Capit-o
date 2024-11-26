@@ -46,69 +46,117 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Função para adicionar os agendamentos ao calendário
-    function renderizarAgendamentos() {
-        fetchAgendamentos().then(agendamentos => {
-            const cells = document.querySelectorAll(".calendar td"); // Todas as células do calendário
+function renderizarAgendamentos() {
+    fetchAgendamentos().then(agendamentos => {
+        const cells = document.querySelectorAll(".calendar td"); // Todas as células do calendário
     
-            agendamentos.forEach((agendamento) => {
-                const date = new Date(agendamento.data); // Cria o objeto Date
-                const year = date.getFullYear();
-                const month = date.getMonth();
-                const day = date.getDate();
+        agendamentos.forEach((agendamento) => {
+            const date = new Date(agendamento.data); // Cria o objeto Date
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const day = date.getDate();
     
-                // Verifica se a célula corresponde à data do agendamento
-                cells.forEach((cell) => {
-                    if (cell.dataset.date === agendamento.data) { // Usa a data formatada
-                        // Cria uma barra para o agendamento, ocupando a largura total da célula
-                        const barraAgendamento = document.createElement("div");
-                        barraAgendamento.style.width = "100%"; // Barra ocupa a largura total da célula
-                        barraAgendamento.style.backgroundColor = "#4CAF50"; // Cor de fundo verde
-                        barraAgendamento.style.color = "#fff"; // Cor do texto (branco)
-                        barraAgendamento.style.padding = "5px"; // Espaçamento para o texto dentro da barra
-                        barraAgendamento.style.textAlign = "center"; // Centraliza o texto
-                        barraAgendamento.style.fontSize = "0.9em"; // Ajuste do tamanho da fonte
-                        barraAgendamento.style.borderRadius = "4px"; // Bordas arredondadas
-                        barraAgendamento.style.marginBottom = "3px"; // Espaço entre as barras (se houver múltiplos)
-                        barraAgendamento.style.cursor = "pointer"; // Cursor para indicar que é clicável
+            // Verifica se a célula corresponde à data do agendamento
+            cells.forEach((cell) => {
+                if (cell.dataset.date === agendamento.data) { // Usa a data formatada
+                    // Cria uma barra para o agendamento, ocupando a largura total da célula
+                    const barraAgendamento = document.createElement("div");
+                    barraAgendamento.style.width = "100%"; // Barra ocupa a largura total da célula
+                    barraAgendamento.style.color = "#fff"; // Cor do texto (branco)
+                    barraAgendamento.style.padding = "5px"; // Espaçamento para o texto dentro da barra
+                    barraAgendamento.style.textAlign = "center"; // Centraliza o texto
+                    barraAgendamento.style.fontSize = "0.9em"; // Ajuste do tamanho da fonte
+                    barraAgendamento.style.borderRadius = "4px"; // Bordas arredondadas
+                    barraAgendamento.style.marginBottom = "3px"; // Espaço entre as barras (se houver múltiplos)
+                    barraAgendamento.style.cursor = "pointer"; // Cursor para indicar que é clicável
     
-                        // Adiciona o título do agendamento e a data na barra
-                        barraAgendamento.textContent = `${agendamento.titulo} - ${agendamento.data}`;
+                    // Adiciona o título do agendamento e a data na barra
+                    barraAgendamento.textContent = `${agendamento.titulo} - ${agendamento.data}`;
     
-                        // Cria um container para os agendamentos
-                        let container = cell.querySelector(".agendamentos-container");
-                        if (!container) {
-                            container = document.createElement("div");
-                            container.classList.add("agendamentos-container");
-                            container.style.height = "100px"; // Define uma altura fixa para a célula
-                            container.style.overflowY = "auto"; // Adiciona o scroll vertical
-                            container.style.padding = "5px";
-                            cell.appendChild(container);
-                        }
+                    // Adiciona logs para depuração
+                    console.log("Barbeiro:", agendamento.barbeiro); // Verifique qual barbeiro foi selecionado
     
-                        // Adiciona a barra ao container de agendamentos
-                        container.appendChild(barraAgendamento);
-    
-                        // Adiciona o evento de clique na barrinha verde
-                        barraAgendamento.addEventListener("click", () => {
-                            openModal(agendamento);
-                        });
-    
-                        // Se o barbeiro for Lucas Ferreira, muda a cor da barra para laranja
-                        if (agendamento.barbeiro === 'Lucas Ferreira') {
-                            barraAgendamento.style.backgroundColor = "orange"; // Altera a cor da barra para laranja
-                        }
+                    // Verifica o barbeiro e altera a cor da barra
+                    if (agendamento.barbeiro === 'Lucas Ferreira') {
+                        console.log("Cor escolhida: Laranja");
+                        barraAgendamento.style.backgroundColor = "orange"; // Altera a cor da barra para laranja
+                    } else if (agendamento.barbeiro === 'Kennedy Esquitin') {
+                        console.log("Cor escolhida: Azul escuro");
+                        barraAgendamento.style.backgroundColor = "#003366"; // Altera a cor da barra para azul escuro
+                    } else {
+                        console.log("Cor escolhida: Verde (padrão)");
+                        barraAgendamento.style.backgroundColor = "#4CAF50"; // Cor padrão verde
                     }
-                });
+    
+                    // Cria um container para os agendamentos
+                    let container = cell.querySelector(".agendamentos-container");
+                    if (!container) {
+                        container = document.createElement("div");
+                        container.classList.add("agendamentos-container");
+                        container.style.height = "100px"; // Define uma altura fixa para a célula
+                        container.style.overflowY = "auto"; // Adiciona o scroll vertical
+                        container.style.padding = "5px";
+                        cell.appendChild(container);
+                    }
+    
+                    // Adiciona a barra ao container de agendamentos
+                    container.appendChild(barraAgendamento);
+    
+                    // Adiciona o evento de clique na barrinha
+                    barraAgendamento.addEventListener("click", () => {
+                        openModal(agendamento);
+                    });
+                }
             });
         });
-    }
-    
+    });
+}
+
+// Função para buscar os agendamentos (Exemplo de como você poderia implementar isso)
+function fetchAgendamentos() {
+    return new Promise((resolve) => {
+        resolve([
+            {
+                titulo: "Corte de Cabelo",
+                data: "2024-11-26",
+                barbeiro: "Lucas Ferreira"
+            },
+            {
+                titulo: "Barba e Corte",
+                data: "2024-11-26",
+                barbeiro: "Kennedy Esquitin"
+            },
+            {
+                titulo: "Corte Simples",
+                data: "2024-11-27",
+                barbeiro: "Outro Barbeiro"
+            }
+        ]);
+    });
+}
+
+// Função para abrir o modal (exemplo de como seria)
+function openModal(agendamento) {
+    alert(`Detalhes do agendamento: ${agendamento.titulo} - ${agendamento.data}`);
+}
+
+// Chama a função para renderizar os agendamentos
+renderizarAgendamentos();
+
+
 
     function openModal(agendamento) {
-        // Preenche os campos do modal com os dados do agendamento
-        document.getElementById("agendamento-data").textContent = `Data: ${agendamento.data}`;
-        document.getElementById("agendamento-hora").textContent = `Hora: ${agendamento.hora || 'Não informada'}`; // Exemplo de campo hora
-    
+        const modal = document.getElementById("agendamento-modal");
+        const modalContent = document.querySelector(".modal-content");
+
+        // Limpa qualquer conteúdo anterior no modal (caso o modal tenha sido aberto e fechado anteriormente)
+        modalContent.innerHTML = `
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2>Detalhes do Agendamento</h2>
+            <p id="agendamento-data">Data: ${agendamento.data}</p>
+            <p id="agendamento-hora">Hora: ${agendamento.hora || 'Não informada'}</p>
+        `;
+
         // Criação e preenchimento dos campos adicionais
         const nomeUsuarioElement = document.createElement("p");
         nomeUsuarioElement.textContent = `Nome do Usuário: ${agendamento.nomeUsuario || 'Não informado'}`;
@@ -131,7 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     
         // Adiciona os novos campos ao modal
-        const modalContent = document.querySelector(".modal-content");
         modalContent.appendChild(nomeUsuarioElement);
         modalContent.appendChild(telefoneUsuarioElement);
         modalContent.appendChild(barbeiroElement);
@@ -139,17 +186,23 @@ document.addEventListener("DOMContentLoaded", function () {
         modalContent.appendChild(servicosElement); // Adiciona o campo de serviços
     
         // Exibe o modal
-        document.getElementById("agendamento-modal").style.display = "flex";
+        modal.style.display = "flex";
+
+        // Reanexa o evento de fechamento
+        const closeModalButton = document.getElementById("close-modal");
+        closeModalButton.removeEventListener("click", closeModal);  // Remove o evento de clique existente
+        closeModalButton.addEventListener("click", closeModal);  // Adiciona o evento de clique novamente
     }
-    
 
     // Função para fechar o modal
     function closeModal() {
-        document.getElementById("agendamento-modal").style.display = "none";
+        const modal = document.getElementById("agendamento-modal");
+        modal.style.display = "none";
     }
 
     // Evento de fechamento do modal
-    document.getElementById("close-modal").addEventListener("click", closeModal);
+    const closeModalButton = document.getElementById("close-modal");
+    closeModalButton.addEventListener("click", closeModal);
 
     // Inicializa o calendário
     renderizarAgendamentos();
