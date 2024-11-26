@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Modal (inicialmente oculto) -->
+    <div id="agendamento-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2>Detalhes do Agendamento</h2>
+            <p id="agendamento-titulo"></p>
+            <p id="agendamento-data"></p>
+            <p id="agendamento-hora"></p>
+            <p id="agendamento-descricao"></p>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button id="prev-month">←</button>
+            <h2 id="current-month"></h2>
+            <button id="next-month">→</button>
+        </div>
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>dom.</th>
+                    <th>seg.</th>
+                    <th>ter.</th>
+                    <th>qua.</th>
+                    <th>qui.</th>
+                    <th>sex.</th>
+                    <th>sáb.</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body">
+                <!-- O calendário será gerado aqui -->
+            </tbody>
+        </table>
+        <div class="footer">
+            <button id="today">Hoje</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+    <script src="calendar.js"></script> <!-- Script do calendário -->
+    <script src="agendamentos.js"></script> <!-- Script dos agendamentos -->
+</body>
+</html>

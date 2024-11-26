@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
         locale: 'pt-br',
 
         // Define o dia que começa 
-        // initialDate: '2024-01-01',
-        initialDate: '2023-01-01',
+        initialDate: '2023-01-12',
+        // initialDate: '2024-11-25',
 
         // Permite clicar nos nomes e nos dias da semana
         navLinks: true, 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // ver de limitar com os horarios definitos
         dayMaxEvents: true, 
 
-        events: 'listar_evento.php'
+        events: 'listar_evento.html'
     });
     calendar.render();
 });

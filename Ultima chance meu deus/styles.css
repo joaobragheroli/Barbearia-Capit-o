@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* O corpo ocupa toda a altura da tela */
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.calendar-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 95%; /* Aumenta a largura do calendário */
+    max-width: 1200px; /* Define um limite máximo para telas grandes */
+    height: 100%; /* Ocupa 100% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Reduz o espaçamento para caber melhor */
+}
+
+.calendar-header button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    background: #0056b3;
+}
+
+.calendar-header h2 {
+    font-size: 1em; /* Reduz o tamanho do título para ajustar o layout */
+    margin: 0;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1; /* Faz o calendário preencher o espaço disponível */
+}
+
+.calendar th,
+.calendar td {
+    border: 1px solid #ddd;
+    padding: 5px; /* Ajusta o padding para equilíbrio visual */
+    text-align: left;
+    width: 14.28%; /* Cada célula ocupa 1/7 do espaço */
+    position: relative; /* Necessário para posicionar o número */
+}
+
+.calendar th {
+    background: #f8f9fa;
+    font-weight: bold;
+    text-align: center;
+    height: calc(100% / 8); /* Altura proporcional ao total de 100vh */
+}
+
+.calendar td {
+    height: calc(100% / 8); /* Altura ajustada para caber dentro da tela */
+    vertical-align: top;
+}
+
+.calendar td span {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Ajustado para economizar espaço */
+}
+
+.footer button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.footer button:hover {
+    background: #218838;
+}
+
+.agendamentos-container {
+    height: 100px; /* Altura máxima para o container de agendamentos */
+    overflow-y: auto; /* Habilita o scroll vertical se os agendamentos excederem o limite */
+    padding: 5px;
+    border-radius: 4px; /* Bordas arredondadas para o container */
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    scrollbar-width: thin; /* Define uma barra de rolagem mais fina */
+    scrollbar-color: transparent transparent; /* Faz a barra de rolagem invisível */
+}
+
+/* Para navegadores Webkit (como Chrome, Safari) */
+.agendamentos-container::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    background-color: transparent; /* Deixa o fundo da barra de rolagem invisível */
+}
+
+.agendamentos-container::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Deixa a parte que arrasta da barra de rolagem invisível */
+}
+
+/* Modal */
+.modal {
+    display: none; /* Modal inicialmente invisível */
+    position: fixed;
+    z-index: 1; /* Fica acima de todo o conteúdo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo escurecido */
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%; /* Pode ajustar a largura do modal conforme necessário */
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Botão de fechar */
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+/* Ajusta o tamanho das células do calendário */
+.calendar td {
+    width: 14.28%; /* 7 dias da semana (100% / 7) */
+    height: 80px;  /* Defina uma altura fixa para a célula */
+    min-height: 80px; /* Evita que o tamanho da célula seja menor que 80px */
+    padding: 5px;
+    box-sizing: border-box; /* Garante que o padding não afete a largura da célula */
+    position: relative; /* Necessário para a posição das barras de agendamento */
+    text-align: center;
+    vertical-align: top; /* Garante que o conteúdo fique alinhado no topo */
+    overflow: hidden; /* Impede que o conteúdo "quebre" as células */
+}
+
+/* Ajuste para permitir rolagem se o conteúdo for maior que a célula */
+.agendamentos-container {
+    height: 60px; /* Define uma altura fixa para o container */
+    overflow-y: auto; /* Permite rolar para ver múltiplos agendamentos */
+}
+
+/* Estilo das barras de agendamento dentro da célula */
+.agendamento-barra {
+    width: 100%;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    font-size: 0.9em;
+    border-radius: 4px;
+    margin-bottom: 3px; /* Espaço entre múltiplos agendamentos */
+}
+
