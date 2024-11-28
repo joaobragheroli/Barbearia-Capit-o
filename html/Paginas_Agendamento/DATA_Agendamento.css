@@ -127,3 +127,72 @@ h2 {
     opacity: 0.5; /* Para dar um efeito visual de desabilitado */
     cursor: not-allowed; /* Para mudar o cursor quando passar sobre o dia */
 }
+/* Responsividade para telas menores que 920px */
+@media (max-width: 920px) {
+    .main-container {
+        flex-direction: column;
+        height: auto; /* Permite que o conteúdo se expanda verticalmente */
+    }
+
+    .calendar-container, .time-container {
+        width: 100%;
+        min-width: auto;
+        border: none; /* Remove a borda entre os elementos no layout vertical */
+    }
+
+    .calendar-container {
+        padding: 10px;
+    }
+
+    .time-container {
+        padding: 10px;
+        border-top: 1px solid #ccc; /* Adiciona uma borda entre as seções no layout vertical */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    #calendar {
+        grid-template-columns: repeat(3, 1fr); /* Ajusta o grid para 3 colunas */
+    }
+
+    .day {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .time-slot {
+        font-size: 14px;
+    }
+}
+
+/* Responsividade para telas menores que 480px */
+@media (max-width: 480px) {
+    button {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    h1, h2 {
+        font-size: 16px;
+    }
+
+    #calendar {
+        grid-template-columns: repeat(2, 1fr); /* Ajusta o grid para 2 colunas */
+    }
+
+    .day {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .time-slot {
+        font-size: 12px;
+    }
+}

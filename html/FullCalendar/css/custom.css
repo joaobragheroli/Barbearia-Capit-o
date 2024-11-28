@@ -8,24 +8,45 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
-@media (max-width: 768px) {
+/* Responsividade para telas menores que 920px */
+@media (max-width: 920px) {
+    body {
+        margin: 20px 5px; /* Reduz as margens para telas menores */
+        font-size: 12px; /* Ajusta o tamanho da fonte */
+    }
+
     #calendar {
-        max-width: 100%;
-        padding: 5px;
-        font-size: 12px;
+        max-width: 100%; /* Garante que o calendário ocupe toda a largura disponível */
+        padding: 0 10px; /* Adiciona um pequeno espaçamento interno */
+    }
+
+    .fc-toolbar { 
+        flex-wrap: wrap; /* Permite que os controles se quebrem em múltiplas linhas */
+        justify-content: center; /* Centraliza os botões */
+    }
+
+    .fc-toolbar-chunk {
+        margin-bottom: 10px; /* Adiciona espaçamento entre as linhas do cabeçalho */
+    }
+
+    .fc-daygrid-day {
+        padding: 5px; /* Reduz o tamanho das células do calendário */
+        font-size: 12px; /* Reduz o tamanho do texto dentro das células */
     }
 }
 
+/* Responsividade para telas menores que 480px */
 @media (max-width: 480px) {
-    #calendar {
-        margin: 0 5px;
-        padding: 5px;
-        font-size: 10px;
+    .fc-toolbar { 
+        flex-direction: column; /* Alinha os botões em uma única coluna */
     }
 
-    /* Personaliza botões do calendário */
-    .fc-button {
-        font-size: 0.9rem;
-        padding: 0.5rem;
+    .fc-toolbar-title {
+        font-size: 16px; /* Ajusta o tamanho do título */
+        margin-bottom: 10px;
+    }
+
+    .fc-daygrid-day {
+        font-size: 10px; /* Texto menor para caber em telas muito pequenas */
     }
 }
