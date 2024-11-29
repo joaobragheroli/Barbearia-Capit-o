@@ -196,4 +196,34 @@ body {
     border-radius: 4px;
     margin-bottom: 3px; /* Espaço entre múltiplos agendamentos */
 }
+@media (max-width: 920px) {
+    .calendar-container {
+        padding: 10px;
+        width: 100%; /* Ajusta a largura para caber na tela */
+        max-width: none; /* Remove o limite de largura máxima */
+    }
+
+    .calendar-header h2 {
+        font-size: 0.9em; /* Reduz o tamanho do título */
+    }
+
+    .calendar-header button {
+        padding: 5px 10px; /* Ajusta o padding dos botões */
+        font-size: 0.8em;
+    }
+
+    .calendar td {
+        height: 60px; /* Reduz a altura das células */
+        font-size: 0.8em; /* Reduz o tamanho da fonte dentro das células */
+    }
+
+    .modal-content {
+        width: 90%; /* Ajusta o modal para ocupar 90% da tela */
+        padding: 15px; /* Reduz o padding interno */
+    }
+
+    .agendamento-barra {
+        font-size: 0.8em; /* Reduz o texto dentro das barras */
+    }
+}
 

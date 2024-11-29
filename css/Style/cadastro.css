@@ -130,3 +130,50 @@ button {
     color: white;
     display: none;
 }
+@media (max-width: 920px) {
+    #section-Cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background-image: url(../../img/login2.jpg);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+
+}
+.img img {
+    width: 193px; /* Reduz a largura da imagem */
+    max-width: 260px; /* Define um limite máximo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+.form-box {
+    width: 700px;
+    display: flex;
+    width: 200px; /* Faz o formulário ocupar 90% da largura da tela */
+    max-width: 180px; /* Define um limite máximo */
+    padding: 20px; /* Adiciona espaçamento interno */
+    justify-content: center;
+    align-items: center;
+}
+#email{
+    display: flex;
+}
+.inputbox{
+    display: flex;
+    width: 100%;
+    
+}
+.h2-login{
+    color: black;
+    
+}
+
+}
