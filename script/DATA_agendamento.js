@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        timeGrid.innerHTML = '';  // Limpa os horários ao popular novamente
+        timeGrid.innerHTML = ''; // Limpa os horários ao popular novamente
 
         const selectedDayValue = selectedDay.textContent;
         const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue);
@@ -142,38 +142,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 const timeSlot = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
                 const timeId = hourIds[hourIndex];
 
-                // Cria o botão de horário
-                const timeButton = document.createElement('button');
-                timeButton.classList.add('time-slot');
-                timeButton.textContent = timeSlot;
-                timeButton.setAttribute('data-hour-id', timeId);
+                // Verificar a disponibilidade antes de criar o botão
+                const isAvailable = await checkTimeSlotAvailabilityForBarber(selectedDate, timeSlot, barberName);
 
-                // Verifica a disponibilidade do horário apenas quando o botão é clicado
-                timeButton.addEventListener('click', async function () {
-                    // Remove a seleção anterior
-                    const allButtons = document.querySelectorAll('.time-slot');
-                    allButtons.forEach(button => button.classList.remove('selected-time-slot'));
-                    this.classList.add('selected-time-slot');
-                    selectedHourId = this.getAttribute('data-hour-id');
-                    console.log(`ID selecionado: ${selectedHourId}`);
+                if (isAvailable) {
+                    // Cria o botão de horário somente se estiver disponível
+                    const timeButton = document.createElement('button');
+                    timeButton.classList.add('time-slot');
+                    timeButton.textContent = timeSlot;
+                    timeButton.setAttribute('data-hour-id', timeId);
 
-                    // Verifica a disponibilidade somente para o horário selecionado
-                    const isAvailable = await checkTimeSlotAvailabilityForBarber(selectedDate, timeSlot, barberName);
+                    timeButton.addEventListener('click', function () {
+                        // Remove a seleção anterior
+                        const allButtons = document.querySelectorAll('.time-slot');
+                        allButtons.forEach(button => button.classList.remove('selected-time-slot'));
+                        this.classList.add('selected-time-slot');
+                        selectedHourId = this.getAttribute('data-hour-id');
+                        console.log(`ID selecionado: ${selectedHourId}`);
+                    });
 
-                    // Exibe a disponibilidade do horário selecionado no console
-                    if (isAvailable) {
-                        console.log(`Horário ${timeSlot} disponível para o barbeiro ${barberName}`);
-                    } else {
-                        console.log(`Horário ${timeSlot} ocupado para o barbeiro ${barberName}`);
-                    }
-                });
-
-                // Adiciona o botão ao grid de horários
-                timeGrid.appendChild(timeButton);
+                    // Adiciona o botão ao grid de horários
+                    timeGrid.appendChild(timeButton);
+                } else {
+                    console.log(`Horário ${timeSlot} ocupado para o barbeiro ${barberName}`);
+                }
                 hourIndex++;
             }
         }
     }
+
 
     // Função para buscar o nome do barbeiro com base no selectedBarberId
     async function fetchBarberNameById(barberId) {
@@ -195,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let availableBarberName = null; // Variável para armazenar o nome do barbeiro disponível
     async function checkTimeSlotAvailabilityForBarber(date, time, barberName) {
         try {
-            
+
             if (barberName === "Sem Preferência") {
                 // IDs dos barbeiros
                 const barberIds = ["m3FXSC4t8bBIBhJUDD5s", "xFBjnum08ucGkx8rdcg6", "MSol9Vb586vYSVzNKfsz"];
@@ -394,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const appointment = {
                 data: selectedDate ? new Date(currentDate.getFullYear(), currentDate.getMonth(), selectedDayValue) : null, // Armazena com
                 hora: await fetchTimeById(selectedHourId),
-                barbeiro: selectedBarberId === "neqHWiSiMSoRS25p0D57" ? availableBarberName : barberName, 
+                barbeiro: selectedBarberId === "neqHWiSiMSoRS25p0D57" ? availableBarberName : barberName,
                 servicos: serviceNames, // Nomes dos serviços
                 Nome_Usuario: nome, // Armazena o nome do usuário
                 Telefone_Usuario: telefone, // Armazena o telefone do usuário
