@@ -145,8 +145,8 @@ button {
 
 }
 .img img {
-    width: 193px; /* Reduz a largura da imagem */
-    max-width: 260px; /* Define um limite máximo */
+    width: 190px; /* Reduz a largura da imagem */
+    max-width: 250px; /* Define um limite máximo */
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem */
     display: flex;
@@ -155,11 +155,10 @@ button {
     padding: 8px;
 }
 .form-box {
-    width: 700px;
-    display: flex;
-    width: 200px; /* Faz o formulário ocupar 90% da largura da tela */
-    max-width: 180px; /* Define um limite máximo */
-    padding: 20px; /* Adiciona espaçamento interno */
+    height: 900%; /* Ajusta a altura do campo de entrada */
+    width: 300px; /* Largura do formulário */
+    padding: 10px; /* Espaço interno do formulário */
+    margin: 0 auto; /* Centraliza o formulário na tela */
     justify-content: center;
     align-items: center;
 }
