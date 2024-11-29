@@ -27,7 +27,7 @@ body {
 .form-box {
     position: relative;
     width: 400px;
-    height: 100vh;
+    height: 90vh;
     background-color: transparent;
     border: 2px solid rgba(229, 217, 217, 0.5);
     border-radius: 40px;
@@ -161,6 +161,7 @@ button {
     margin: 0 auto; /* Centraliza o formulário na tela */
     justify-content: center;
     align-items: center;
+    
 }
 #email{
     display: flex;
