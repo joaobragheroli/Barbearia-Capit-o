@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocar Senha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333; /* Fundo escuro para dar o estilo de barbearia */
+        }
+
+        .container {
+            background-color: #222; /* Fundo escuro para o container */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            width: 380px;
+            color: #fff; /* Texto claro para contraste */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff6600; /* Cor laranja para destacar o título */
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff; /* Cor branca para as labels */
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #ff6600; /* Cor de foco laranja */
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff6600; /* Cor laranja para o botão */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #e65c00; /* Cor mais escura ao passar o mouse */
+        }
+
+        #error-message {
+            text-align: center;
+            font-size: 14px;
+            color: red;
+            margin-top: 15px;
+        }
+
+        /* Estilo para o link */
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ff6600; /* Cor laranja para o link */
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para o ícone de mostrar/ocultar senha */
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-webkit-contacts-auto-fill-button,
+        input[type="password"]::-webkit-search-cancel-button {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Trocar Senha</h2>
+        <form id="change-password-form">
+            <div class="input-group">
+                <label for="current-password">Senha Atual</label>
+                <input type="password" id="current-password" required>
+            </div>
+            <div class="input-group">
+                <label for="new-password">Nova Senha</label>
+                <input type="password" id="new-password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirmar Nova Senha</label>
+                <input type="password" id="confirm-password" required>
+            </div>
+            <button type="submit">Alterar Senha</button>
+            <p id="error-message"></p>
+        </form>
+        <!-- Link para a página inicial -->
+        <a href="../Home.html" class="link">Voltar para a página inicial</a>
+    </div>
+
+    <!-- Importa as bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCviZ-ql0st4L0Ii3BTIg1xgin5IGJeBt0",
+            authDomain: "capitaobarbeiro-5b7be.firebaseapp.com",
+            projectId: "capitaobarbeiro-5b7be",
+            storageBucket: "capitaobarbeiro-5b7be.appspot.com",
+            messagingSenderId: "1013857162216",
+            appId: "1:1013857162216:web:d3d74fa8be916691174a5d",
+            measurementId: "G-DMR6NG64B3"
+        };
+
+        // Inicializa o Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth(); // Obtém o serviço de autenticação
+        const db = firebase.firestore();
+
+        // Seleciona os elementos do formulário
+        const form = document.getElementById('change-password-form');
+        const currentPassword = document.getElementById('current-password');
+        const newPassword = document.getElementById('new-password');
+        const confirmPassword = document.getElementById('confirm-password');
+        const errorMessage = document.getElementById('error-message');
+
+        // Função para alterar a senha
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const user = auth.currentUser; // Obtém o usuário autenticado
+
+            // Verifica se as senhas coincidem
+            if (newPassword.value !== confirmPassword.value) {
+                errorMessage.textContent = 'As senhas não coincidem.';
+                return;
+            }
+
+            // Verifica se a senha atual foi informada
+            if (!currentPassword.value) {
+                errorMessage.textContent = 'Informe a senha atual.';
+                return;
+            }
+
+            // Reautentica o usuário
+            const credential = firebase.auth.EmailAuthProvider.credential(
+                user.email, currentPassword.value
+            );
+
+            user.reauthenticateWithCredential(credential)
+                .then(() => {
+                    // Se a reautenticação for bem-sucedida, muda a senha
+                    return user.updatePassword(newPassword.value);
+                })
+                .then(() => {
+                    alert('Senha alterada com sucesso!');
+                    form.reset();
+                })
+                .catch((error) => {
+                    // Exibe o erro
+                    errorMessage.textContent = error.message;
+                });
+        });
+    </script>
+</body>
+
+</html>
