@@ -161,6 +161,12 @@ document.addEventListener("DOMContentLoaded", function () {
         fetchAgendamentos().then(agendamentos => renderCalendar(currentDate, agendamentos));
     });
 
+    // Função para o botão "Hoje"
+    document.getElementById("today").addEventListener("click", () => {
+        currentDate = new Date(); // Define a data como o dia de hoje
+        fetchAgendamentos().then(agendamentos => renderCalendar(currentDate, agendamentos)); // Re-renderiza o calendário
+    });
+
     // Inicializa o calendário com os agendamentos
     fetchAgendamentos().then(agendamentos => renderCalendar(currentDate, agendamentos));
 });

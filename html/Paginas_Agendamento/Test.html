@@ -303,56 +303,100 @@
         .button-container {
             position: absolute;
         }
-        @media screen and (max-width: 920px) {
-            #popular-services{
-                display: flex;
-                
-            }
-            /* Ajusta a largura do container e seu design */
-        .button-container {
-            padding: 10px; /* Reduz o padding interno */
-            background-color: #1c1c1c;
-            border: 5px solid #bfbfbf;
-            border-radius: 15px; /* Deixa as bordas mais suaves */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Suaviza o sombreamento */
-            flex-direction: row;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            gap: 20px;
-        }
 
-        /* Ajusta os botões */
-        .button-icons {
-            height: 40px; /* Reduz o tamanho do botão */
-            width: 40px; /* Mantém proporcional */
-            background-color: #333;
-            color: floralwhite;
-            border-radius: 50%; /* Botão redondo */
-            font-size: 18px; /* Ajusta o tamanho do ícone */
-            margin-bottom: 10px; /* Reduz o espaço entre os botões */
+        .mid-button {
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: 2px solid #fff;
+            border-radius: 8px;
             cursor: pointer;
-            border: 2px solid #bfbfbf;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        /* Ajusta o comportamento no hover */
-        .button-icons:hover {
-            background-color: #555;
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .mid-button:hover {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+            transform: scale(1.05);
         }
 
-        /* Ajusta o texto de descrição */
-        .button-icons span {
-            left: 60px; /* Ajusta o posicionamento relativo ao novo tamanho */
-            font-size: 12px; /* Reduz o tamanho do texto */
-            padding: 4px 8px; /* Ajusta o espaçamento interno */
-            background-color: #444;
-            color: floralwhite;
+        .mid-button:active {
+            background-color: #333;
+            color: #fff;
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         }
+
+        .minbutton {
+            margin-top: 35px;
+        }
+
+        @media screen and (max-width: 920px) {
+            #popular-services {
+                display: flex;
+
+            }
+
+            /* Ajusta a largura do container e seu design */
+            .button-container {
+                padding: 10px;
+                /* Reduz o padding interno */
+                background-color: #1c1c1c;
+                border: 5px solid #bfbfbf;
+                border-radius: 15px;
+                /* Deixa as bordas mais suaves */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                /* Suaviza o sombreamento */
+                flex-direction: row;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                gap: 20px;
+            }
+
+            /* Ajusta os botões */
+            .button-icons {
+                height: 40px;
+                /* Reduz o tamanho do botão */
+                width: 40px;
+                /* Mantém proporcional */
+                background-color: #333;
+                color: floralwhite;
+                border-radius: 50%;
+                /* Botão redondo */
+                font-size: 18px;
+                /* Ajusta o tamanho do ícone */
+                margin-bottom: 10px;
+                /* Reduz o espaço entre os botões */
+                cursor: pointer;
+                border: 2px solid #bfbfbf;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+
+            /* Ajusta o comportamento no hover */
+            .button-icons:hover {
+                background-color: #555;
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Ajusta o texto de descrição */
+            .button-icons span {
+                left: 60px;
+                /* Ajusta o posicionamento relativo ao novo tamanho */
+                font-size: 12px;
+                /* Reduz o tamanho do texto */
+                padding: 4px 8px;
+                /* Ajusta o espaçamento interno */
+                background-color: #444;
+                color: floralwhite;
+            }
         }
     </style>
 </head>
@@ -390,7 +434,7 @@
                     <span>Serviços</span>
                 </div>
             </a>
-        </div> 
+        </div>
 
 
         <!-- Seção Principal -->
@@ -415,8 +459,10 @@
                 <button>Estilo e Design</button>
             </div>
 
+            <div class="minbutton">
+                <button class="mid-button" id="agendarButton" onclick="saveAndNavigate()">Agendar</button>
+            </div>
         </section>
-        <button class="mid-button" id="agendarButton" onclick="saveAndNavigate()">Agendar</button>
 
 
         <!-- Serviços Populares -->
@@ -426,7 +472,8 @@
                 <div class="swiper-wrapper">
                     <!-- ID do serviço 1 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, '5uCUdVI1PFZw9k70BZuO')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, '5uCUdVI1PFZw9k70BZuO')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Corte de Cabelo" class="service-image">
                                 <h3>Corte de Cabelo</h3>
@@ -438,7 +485,8 @@
 
                     <!-- ID do serviço 2 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'AHYoG8RGm93ZjwjGVYf1')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'AHYoG8RGm93ZjwjGVYf1')">
                             <div class="service-card">
                                 <img src="../../img/barba.png" alt="Barba Clássica" class="service-image">
                                 <h3>Barba Clássica</h3>
@@ -450,7 +498,8 @@
 
                     <!-- ID do serviço 3 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'Do4bj2fpcRtazHvaHwfQ')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'Do4bj2fpcRtazHvaHwfQ')">
                             <div class="service-card">
                                 <img src="../../img/barba.png" alt="Estilo de Barba" class="service-image">
                                 <h3>Estilo de Barba</h3>
@@ -462,7 +511,8 @@
 
                     <!-- ID do serviço 4 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'NncuHzrJIRYxSVlIn5DV')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'NncuHzrJIRYxSVlIn5DV')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Corte com Navalha" class="service-image">
                                 <h3>Corte com Navalha</h3>
@@ -474,7 +524,8 @@
 
                     <!-- ID do serviço 5 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'POzQEXc42anM1hs9AsKW')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'POzQEXc42anM1hs9AsKW')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Tratamento Capilar" class="service-image">
                                 <h3>Tratamento Capilar</h3>
@@ -486,7 +537,8 @@
 
                     <!-- ID do serviço 6 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'U5WchYCe7IdlG5qn6fMk')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'U5WchYCe7IdlG5qn6fMk')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
                                 <h3>Design de Sobrancelhas</h3>
@@ -498,7 +550,8 @@
 
                     <!-- ID do serviço 7 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'WvcipkwORRgQmL1zsfvX')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'WvcipkwORRgQmL1zsfvX')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
                                 <h3>Design de Sobrancelhas</h3>
@@ -510,7 +563,8 @@
 
                     <!-- ID do serviço 8 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'mocAI8VSroMOutKOOeMU')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'mocAI8VSroMOutKOOeMU')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
                                 <h3>Design de Sobrancelhas</h3>
@@ -522,7 +576,8 @@
 
                     <!-- ID do serviço 9 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'o0WObhZ3CnF7nkvSIGGp')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'o0WObhZ3CnF7nkvSIGGp')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
                                 <h3>Design de Sobrancelhas</h3>
@@ -534,7 +589,8 @@
 
                     <!-- ID do serviço 10 -->
                     <div class="swiper-slide">
-                        <div class="service-card-wrapper" onclick="toggleCard(this, 'spKbw9atfyCyJHncuViS')">
+                        <div class="service-card-wrapper"
+                            onclick="toggleCard(this, 'spKbw9atfyCyJHncuViS')">
                             <div class="service-card">
                                 <img src="../../img/corte.png" alt="Design de Sobrancelhas" class="service-image">
                                 <h3>Design de Sobrancelhas</h3>
@@ -546,13 +602,13 @@
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-               
-            </div>
-             <div class="swiper-pagination"></div>
-        </div>
-    </section>
 
-    
+            </div>
+            <div class="swiper-pagination"></div>
+        </section>
+    </div>
+
+
     </div>
 
 
@@ -674,22 +730,32 @@
         };
     </script>
     <script>
+
         let selectedServices = []; // Array para armazenar os IDs dos serviços selecionados
-        let selectedBarberId = localStorage.getItem('selectedBarberId'); // Recuperar o ID do barbei
+        let selectedBarberId = localStorage.getItem('selectedBarberId'); // Recuperar o ID do barbeiro
         console.log('Barbeiro selecionado:', selectedBarberId);
-        // Função para alternar a seleção do card
+
+        // Função para alternar a seleção do card e mudar a cor de fundo
         function toggleCard(card, serviceId) {
-            card.classList.toggle('selected');
+            const serviceCard = card.querySelector('.service-card');
+
+            // Verifica se o card já foi selecionado
             if (card.classList.contains('selected')) {
-                // Adiciona o serviço selecionado ao array
-                selectedServices.push(serviceId);
+                serviceCard.style.backgroundColor = '#fff';  // Volta ao branco quando desmarcado
+                selectedServices = selectedServices.filter(id => id !== serviceId); // Remove o serviço do array
             } else {
-                // Remove o serviço do array
-                selectedServices = selectedServices.filter(id => id !== serviceId);
+                serviceCard.style.backgroundColor = 'green';  // Muda para verde quando selecionado
+                selectedServices.push(serviceId); // Adiciona o serviço ao array
             }
+
+            // Alterna a classe 'selected' para marcar ou desmarcar o card
+            card.classList.toggle('selected');
+
+            // Exibe no console os serviços selecionados
             console.log(selectedServices);
         }
-        // Area de Transportar o ID
+
+        // Área de Transportar o ID
         function saveAndNavigate() {
             if (selectedServices.length > 0) { // Verifica se algum serviço foi selecionado
                 localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
@@ -699,10 +765,12 @@
                 alert('Por favor, selecione pelo menos um serviço.'); // Mensagem de alerta
             }
         }
+
         // Página de seleção de serviço
         function selecionarServico(serviceId) {
             sessionStorage.setItem('selectedServiceId', serviceId);
         }
+
     </script>
 </body>
 
