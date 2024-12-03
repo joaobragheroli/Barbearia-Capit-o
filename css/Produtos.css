@@ -167,8 +167,10 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   padding: 15px;
-  height: 350px;          /* Define a altura fixa para todos os contêineres */
-  box-sizing: border-box; /* Garante que padding e border não aumentem a largura e altura */
+  height: 350px;
+  /* Define a altura fixa para todos os contêineres */
+  box-sizing: border-box;
+  /* Garante que padding e border não aumentem a largura e altura */
   text-align: center;
 }
 
@@ -182,7 +184,8 @@ body {
 
 .images {
   max-width: 90%;
-  max-height: 100%;       /* Limita a altura da imagem dentro do contêiner */
+  max-height: 100%;
+  /* Limita a altura da imagem dentro do contêiner */
   object-fit: cover;
   object-position: center;
 }
@@ -193,14 +196,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;              /* Espaço entre os elementos dentro da seção */
+  gap: 10px;
+  /* Espaço entre os elementos dentro da seção */
 }
 
 .text-prod p {
   font-size: 16px;
-  line-height: 1.2;       /* Ajusta o espaçamento das linhas do texto */
-  max-height: 40px;       /* Limita a altura do texto para manter o layout */
-  overflow: hidden;       /* Esconde o excesso de texto se passar da altura */
+  line-height: 1.2;
+  /* Ajusta o espaçamento das linhas do texto */
+  max-height: 40px;
+  /* Limita a altura do texto para manter o layout */
+  overflow: hidden;
+  /* Esconde o excesso de texto se passar da altura */
   text-overflow: ellipsis;
   margin: 0;
 }
@@ -208,7 +215,8 @@ body {
 h2 {
   font-size: 20px;
   color: red;
-  margin: 5px 0;          /* Espaço entre o preço e o botão */
+  margin: 5px 0;
+  /* Espaço entre o preço e o botão */
 }
 
 button {
@@ -264,7 +272,8 @@ button:hover {
 .title {
   font-size: 12px;
   text-align: left;
-  flex: 1; /* Faz o título ocupar o espaço disponível */
+  flex: 1;
+  /* Faz o título ocupar o espaço disponível */
   margin-right: 10px;
 }
 
@@ -272,7 +281,8 @@ button:hover {
   font-size: 15px;
   color: red;
   text-align: right;
-  white-space: nowrap; /* Evita quebra de linha no preço */
+  white-space: nowrap;
+  /* Evita quebra de linha no preço */
 }
 
 .delete-icon {
@@ -293,18 +303,21 @@ button:hover {
 
 .text-content {
   display: flex;
-  flex-direction: column; /* Faz os textos ficarem empilhados */
+  flex-direction: column;
+  /* Faz os textos ficarem empilhados */
   justify-content: center;
 }
 
 .text-content p {
   font-size: 12px;
-  margin: 0; /* Remove margens para ajustar o espaço */
+  margin: 0;
+  /* Remove margens para ajustar o espaço */
 }
 
 .text-content h2 {
   font-size: 15px;
-  margin: 0; /* Remove margens para ajustar o espaço */
+  margin: 0;
+  /* Remove margens para ajustar o espaço */
 }
 
 .fa-trash {
@@ -338,7 +351,7 @@ header {
 
 .conteiner-header .item {
   padding-bottom: 35px;
-}    
+}
 
 
 .botao-login button a {
@@ -366,16 +379,16 @@ header {
 }
 
 .button-login {
-   display: inline-block;
-   background-color: black;
-   border: 2px solid white;
-   font-size: 20px;
-   color: white;
-   border-radius: 15px;
-   padding: 5px;
-   font-family: "Bebas Neue", sans-serif;
-   font-weight: 400;
-   font-style: normal;
+  display: inline-block;
+  background-color: black;
+  border: 2px solid white;
+  font-size: 20px;
+  color: white;
+  border-radius: 15px;
+  padding: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /*Efeito do link*/
@@ -563,39 +576,46 @@ hr {
 .menu-paginas {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os itens no contêiner */
+  align-items: center;
+  /* Centraliza os itens no contêiner */
   background-color: #222;
   padding: 20px;
   border-radius: 10px;
-  width: 300px; /* Define uma largura fixa */
-  margin: 0 auto; /* Centraliza o contêiner na página */
+  width: 300px;
+  /* Define uma largura fixa */
+  margin: 0 auto;
+  /* Centraliza o contêiner na página */
   margin-bottom: 30px;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  width: 100%; /* Cada item ocupa toda a largura do contêiner */
+  width: 100%;
+  /* Cada item ocupa toda a largura do contêiner */
   margin-bottom: 11px;
   text-decoration: none;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
   transition: background 0.3s ease;
-  background-color: #222; /* Cor de fundo para o item */
+  background-color: #222;
+  /* Cor de fundo para o item */
 }
 
 .menu-item ion-icon {
   font-size: 20px;
   margin-right: 10px;
   color: #ffc107;
-  display: inline-block; /* Mantém o ícone alinhado com o texto */
+  display: inline-block;
+  /* Mantém o ícone alinhado com o texto */
 }
 
 .menu-item div {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinha o texto à esquerda, junto ao ícone */
+  align-items: flex-start;
+  /* Alinha o texto à esquerda, junto ao ícone */
 }
 
 .menu-item span {
@@ -714,55 +734,100 @@ hr {
   }
 
   .modalgeral {
-    display: flex;
-    z-index: 1900;
-    flex-direction: column;
-    width: 400px;
-    height: 100%;
+    display: block;
+    /* Exibe o modal */
     position: fixed;
-    right: 0%;
-    top: 0%;
-    background-color: #000000;
-    transition: 500ms;
-    transform: translateX(100%);
-  }
-
-  .aberto {
-    transform: translateX(0%);
-  }
-
-  .fechado {
-    transform: translateX(100%);
-  }
-
-  .sabiduria a {
-    display: flex;
-    gap: 1rem;
-    font-size: 40px;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-  }
-
-  .sabiduria {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50%;
-  }
-
-  .modalfechar {
-    margin: auto;
-    width: 200px;
-    height: 50px;
-  }
-
-  .tan {
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Fundo preto opaco para ocultar o que está atrás */
+    color: #fff;
+    /* Texto branco */
+    padding: 40px;
+    z-index: 2000;
+    /* Z-index alto para garantir que o modal fique sobre outros elementos */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    /* Sombra suave */
+    overflow-y: auto;
+    /* Permite rolar se o conteúdo for maior que a tela */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Transições suaves */
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  /* Classe para abrir o modal com efeito de animação */
+  .aberto {
+    opacity: 1;
+    /* Modal visível */
+    transform: translateY(0);
+    /* Modal aparece */
+  }
+
+  /* Conteúdo do modal */
+  .sabiduria {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+  }
+
+  /* Links de navegação */
+  .sabiduria a {
+    font-size: 1.8em;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #333;
+    /* Fundo escuro para os links */
+  }
+
+  /* Efeito de hover nos links */
+  .sabiduria a:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #000;
+  }
+
+  /* Estilos para o botão de fechar */
+  .modalfechar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  /* Botão de fechar */
+  .tan {
+    width: 150px;
+    height: 50px;
+    font-size: 1.2em;
+    background-color: transparent;
+    /* Cor chamativa para o botão */
+    color: #fff;
+    /* Texto branco */
+    border: 5px solid #fff;
+    border-radius: 25px;
+    /* Bordas arredondadas para o botão */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    /* Mostrar que é um botão clicável */
+  }
+
+  /* Efeito de hover no botão de fechar */
+  .tan:hover {
+    background-color: #040202;
+    transform: scale(1.05);
   }
 
   button {

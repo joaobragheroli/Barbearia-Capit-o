@@ -8,6 +8,7 @@ body {
     background-color: #f5f5f5;
 }
 
+
 .calendar-container {
     background: #fff;
     border: 1px solid #ddd;
@@ -101,7 +102,7 @@ body {
 }
 
 .agendamentos-container {
-    height: 100px; /* Altura máxima para o container de agendamentos */
+    height: 100% !important; /* Altura máxima para o container de agendamentos */
     overflow-y: auto; /* Habilita o scroll vertical se os agendamentos excederem o limite */
     padding: 5px;
     border-radius: 4px; /* Bordas arredondadas para o container */
@@ -196,34 +197,45 @@ body {
     border-radius: 4px;
     margin-bottom: 3px; /* Espaço entre múltiplos agendamentos */
 }
+
 @media (max-width: 920px) {
-    .calendar-container {
-        padding: 10px;
-        width: 100%; /* Ajusta a largura para caber na tela */
-        max-width: none; /* Remove o limite de largura máxima */
+    .calendar th {
+        display: none; /* Remove os nomes dos dias da semana */
     }
 
-    .calendar-header h2 {
-        font-size: 0.9em; /* Reduz o tamanho do título */
+    /* Faz com que cada célula (td) seja exibida em uma coluna única */
+    .calendar tbody {
+        display: block;
+        width: 100%;
     }
 
-    .calendar-header button {
-        padding: 5px 10px; /* Ajusta o padding dos botões */
-        font-size: 0.8em;
-    }
-
+    /* Alinha os td um embaixo do outro */
     .calendar td {
-        height: 60px; /* Reduz a altura das células */
-        font-size: 0.8em; /* Reduz o tamanho da fonte dentro das células */
+        display: block; /* Faz as células se comportarem como blocos */
+        width: 90vw; /* As células ocupam 100% da largura disponível */
+        height: 35vh; /* Altura fixa em 35% da altura da tela */
+        text-align: center; /* Alinha o texto ao centro */
+        vertical-align: top;
+        padding: 5px;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        position: relative;
+        background-color: #565656;
     }
 
-    .modal-content {
-        width: 90%; /* Ajusta o modal para ocupar 90% da tela */
-        padding: 15px; /* Reduz o padding interno */
+    /* Ajusta o tamanho da fonte para os dias */
+    .calendar td span {
+        display: block;
+        margin: 0 auto;
+        font-size: 1.2em; /* Ajusta o tamanho do número do dia */
     }
 
-    .agendamento-barra {
-        font-size: 0.8em; /* Reduz o texto dentro das barras */
+    .calendar-container {
+        background-color: transparent; /* Fundo transparente */
+    }
+    
+
+    .agendamentos-container {
+        background-color: #565656;
     }
 }
-

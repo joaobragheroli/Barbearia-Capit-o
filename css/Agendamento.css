@@ -337,9 +337,9 @@ nav a:hover::after {
 .agendamento {
     width: 100%;
     max-width: 1200px;
-    display: flex; 
-    justify-content: space-between; 
-    flex-wrap: wrap; 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin: 0 auto;
 }
 
@@ -359,8 +359,10 @@ nav a:hover::after {
 
 .agendamento li:hover {
     border-color: #990011;
-    transform: translateY(-10px); /* Move o item para cima ao passar o mouse */
-    z-index: 1; /* Garante que o item em destaque fique acima dos outros */
+    transform: translateY(-10px);
+    /* Move o item para cima ao passar o mouse */
+    z-index: 1;
+    /* Garante que o item em destaque fique acima dos outros */
 }
 
 .agendamento li:hover h2 {
@@ -376,10 +378,12 @@ h2 {
     font-weight: bold;
     font-size: 25px;
 }
+
 .agendamento li img {
     width: 10em;
     height: auto;
-    margin: 10px 0; /* Espaçamento entre a imagem e os textos */
+    margin: 10px 0;
+    /* Espaçamento entre a imagem e os textos */
 }
 
 .agendamento li:hover h2 {
@@ -387,7 +391,8 @@ h2 {
 }
 
 .agendamento li .agendamento-descricao {
-    margin-top: 10px; /* Espaço entre a imagem e a descrição */
+    margin-top: 10px;
+    /* Espaço entre a imagem e a descrição */
 }
 
 .product-price {
@@ -541,52 +546,65 @@ hr {
 /* modal de não logado  */
 .modal {
     position: fixed;
-    z-index: 1000; /* Para garantir que o modal esteja sobre outros conteúdos */
+    z-index: 1000;
+    /* Para garantir que o modal esteja sobre outros conteúdos */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo escuro com opacidade */
 }
 
 /* Conteúdo do Modal */
 .modal-content {
     margin: 20px auto;
-    background-color: #fff; 
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 90%; 
-    max-width: 500px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    text-align: center; 
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
     top: 0;
 }
 
 /* Estilo da imagem */
 .modal-image {
-    width: 100%; /* A imagem ocupará 100% da largura do modal */
-    max-width: 300px; /* Largura máxima para a imagem */
-    border-radius: 5px; /* Bordas arredondadas para a imagem */
-    margin-bottom: 15px; /* Espaço abaixo da imagem */
+    width: 100%;
+    /* A imagem ocupará 100% da largura do modal */
+    max-width: 300px;
+    /* Largura máxima para a imagem */
+    border-radius: 5px;
+    /* Bordas arredondadas para a imagem */
+    margin-bottom: 15px;
+    /* Espaço abaixo da imagem */
 }
 
 /* Estilo do título */
 .modal-content h2 {
-    font-family: 'Arial', sans-serif; /* Fonte moderna */
-    color: #c0392b; /* Cor vermelha */
-    margin-bottom: 10px; /* Espaço abaixo do título */
+    font-family: 'Arial', sans-serif;
+    /* Fonte moderna */
+    color: #c0392b;
+    /* Cor vermelha */
+    margin-bottom: 10px;
+    /* Espaço abaixo do título */
 }
 
 /* Estilo da descrição */
 .modal-content p {
-    font-family: 'Arial', sans-serif; /* Fonte moderna */
-    color: #333; /* Cor do texto */
-    margin-bottom: 20px; /* Espaço abaixo do parágrafo */
+    font-family: 'Arial', sans-serif;
+    /* Fonte moderna */
+    color: #333;
+    /* Cor do texto */
+    margin-bottom: 20px;
+    /* Espaço abaixo do parágrafo */
 }
 
 /* Botão de fechar */
 .close {
-    color: #888; /* Cor do 'X' */
+    color: #888;
+    /* Cor do 'X' */
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -594,69 +612,87 @@ hr {
 
 .close:hover,
 .close:focus {
-    color: #c0392b; /* Cor ao passar o mouse */
+    color: #c0392b;
+    /* Cor ao passar o mouse */
     text-decoration: none;
     cursor: pointer;
 }
 
 /* Estilo do botão no modal */
 .modal-button {
-    background-color: #c0392b; /* Cor vermelha */
-    color: white; /* Cor do texto */
+    background-color: #c0392b;
+    /* Cor vermelha */
+    color: white;
+    /* Cor do texto */
     border: none;
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Mão ao passar o mouse */
-    display: block; /* Para centralizar */
-    margin: 20px auto; /* Margem automática para centralização */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    padding: 10px 20px;
+    /* Espaçamento interno */
+    font-size: 16px;
+    /* Tamanho da fonte */
+    cursor: pointer;
+    /* Mão ao passar o mouse */
+    display: block;
+    /* Para centralizar */
+    margin: 20px auto;
+    /* Margem automática para centralização */
 }
 
 .modal-button:hover {
-    background-color: #e74c3c; /* Cor ao passar o mouse */
+    background-color: #e74c3c;
+    /* Cor ao passar o mouse */
 }
 
 /* Classe para desativar a rolagem */
 .no-scroll {
-    overflow: hidden; /* Impede a rolagem da página */
+    overflow: hidden;
+    /* Impede a rolagem da página */
 }
 
 .menu-paginas {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os itens no contêiner */
+    align-items: center;
+    /* Centraliza os itens no contêiner */
     background-color: #222;
     padding: 20px;
     border-radius: 10px;
-    width: 300px; /* Define uma largura fixa */
-    margin: 0 auto; /* Centraliza o contêiner na página */
+    width: 300px;
+    /* Define uma largura fixa */
+    margin: 0 auto;
+    /* Centraliza o contêiner na página */
     margin-bottom: 30px;
 }
 
 .menu-item {
     display: flex;
     align-items: center;
-    width: 100%; /* Cada item ocupa toda a largura do contêiner */
+    width: 100%;
+    /* Cada item ocupa toda a largura do contêiner */
     margin-bottom: 11px;
     text-decoration: none;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
     transition: background 0.3s ease;
-    background-color: #222; /* Cor de fundo para o item */
+    background-color: #222;
+    /* Cor de fundo para o item */
 }
 
 .menu-item ion-icon {
     font-size: 20px;
     margin-right: 10px;
     color: #ffc107;
-    display: inline-block; /* Mantém o ícone alinhado com o texto */
+    display: inline-block;
+    /* Mantém o ícone alinhado com o texto */
 }
 
 .menu-item div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha o texto à esquerda, junto ao ícone */
+    align-items: flex-start;
+    /* Alinha o texto à esquerda, junto ao ícone */
 }
 
 .menu-item span {
@@ -764,55 +800,100 @@ hr {
     }
 
     .modalgeral {
-        z-index: 1900;
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        height: 100%;
+        display: block;
+        /* Exibe o modal */
         position: fixed;
-        right: 0%;
-        top: 0%;
-        background-color: #000000;
-        transition: 500ms;
-        transform: translateX(100%);
-    }
-
-    .aberto {
-        transform: translateX(0%);
-    }
-
-    .fechado {
-        transform: translateX(100%);
-    }
-
-    .sabiduria a {
-        display: flex;
-        gap: 1rem;
-        font-size: 40px;
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-    }
-
-    .sabiduria {
-        margin: auto;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 50%;
-    }
-
-    .modalfechar {
-        margin: auto;
-        width: 200px;
-        height: 50px;
-    }
-
-    .tan {
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        color: rgb(0, 0, 0);
-        background-color: rgb(255, 255, 255);
-        font-size: 1em;
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Fundo preto opaco para ocultar o que está atrás */
+        color: #fff;
+        /* Texto branco */
+        padding: 40px;
+        z-index: 2000;
+        /* Z-index alto para garantir que o modal fique sobre outros elementos */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        /* Sombra suave */
+        overflow-y: auto;
+        /* Permite rolar se o conteúdo for maior que a tela */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        /* Transições suaves */
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    /* Classe para abrir o modal com efeito de animação */
+    .aberto {
+        opacity: 1;
+        /* Modal visível */
+        transform: translateY(0);
+        /* Modal aparece */
+    }
+
+    /* Conteúdo do modal */
+    .sabiduria {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 20px;
+    }
+
+    /* Links de navegação */
+    .sabiduria a {
+        font-size: 1.8em;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background-color: #333;
+        /* Fundo escuro para os links */
+    }
+
+    /* Efeito de hover nos links */
+    .sabiduria a:hover {
+        color: #000;
+        background-color: #fff;
+        border-color: #000;
+    }
+
+    /* Estilos para o botão de fechar */
+    .modalfechar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    /* Botão de fechar */
+    .tan {
+        width: 150px;
+        height: 50px;
+        font-size: 1.2em;
+        background-color: transparent;
+        /* Cor chamativa para o botão */
+        color: #fff;
+        /* Texto branco */
+        border: 5px solid #fff;
+        border-radius: 25px;
+        /* Bordas arredondadas para o botão */
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+        /* Mostrar que é um botão clicável */
+    }
+
+    /* Efeito de hover no botão de fechar */
+    .tan:hover {
+        background-color: #040202;
+        transform: scale(1.05);
     }
 
     button {
@@ -831,6 +912,7 @@ hr {
     .conteiner-header {
         display: none;
     }
+
     .rating {
         display: flex;
         flex-direction: column;
