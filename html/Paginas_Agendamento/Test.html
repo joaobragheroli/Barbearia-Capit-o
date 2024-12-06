@@ -335,69 +335,66 @@
             margin-top: 35px;
         }
 
-        @media screen and (max-width: 920px) {
-            #popular-services {
-                display: flex;
+       /* Responsividade para telas com largura máxima de 920px */
+@media (max-width: 920px) {
+    .hero {
+        padding: 20px;
+        height: auto;
+    }
 
-            }
+    .search-bar {
+        width: 100%;
+        padding: 10px;
+        
+    }
+    .search-bar button{
+        width: 17%;
+        height: 90%;
+        padding: 10px;
+        background-color: #adadad;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        color: #fff;
+        transition: background-color 0.3s;
+    }
 
-            /* Ajusta a largura do container e seu design */
-            .button-container {
-                padding: 10px;
-                /* Reduz o padding interno */
-                background-color: #1c1c1c;
-                border: 5px solid #bfbfbf;
-                border-radius: 15px;
-                /* Deixa as bordas mais suaves */
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                /* Suaviza o sombreamento */
-                flex-direction: row;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                gap: 20px;
-            }
+    .categories {
+        flex-direction: column;
+        gap: 5px;
+    }
 
-            /* Ajusta os botões */
-            .button-icons {
-                height: 40px;
-                /* Reduz o tamanho do botão */
-                width: 40px;
-                /* Mantém proporcional */
-                background-color: #333;
-                color: floralwhite;
-                border-radius: 50%;
-                /* Botão redondo */
-                font-size: 18px;
-                /* Ajusta o tamanho do ícone */
-                margin-bottom: 10px;
-                /* Reduz o espaço entre os botões */
-                cursor: pointer;
-                border: 2px solid #bfbfbf;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-            }
+    .categories button {
+        width: 100%;
+    }
 
-            /* Ajusta o comportamento no hover */
-            .button-icons:hover {
-                background-color: #555;
-                transform: scale(1.1);
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            }
+    .swiper-container {
+        margin-top: 10px;
+    }
 
-            /* Ajusta o texto de descrição */
-            .button-icons span {
-                left: 60px;
-                /* Ajusta o posicionamento relativo ao novo tamanho */
-                font-size: 12px;
-                /* Reduz o tamanho do texto */
-                padding: 4px 8px;
-                /* Ajusta o espaçamento interno */
-                background-color: #444;
-                color: floralwhite;
-            }
-        }
+    .service-card {
+        width: 150px;
+    }
+
+    .button-container {
+        flex-direction: row;
+        gap: 20px;
+        position: static;
+        margin: 10px 0;
+        display: flex;
+    }
+
+    .button-icons {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .popular-services {
+        padding: 20px;
+    }
+}
+
     </style>
 </head>
 
