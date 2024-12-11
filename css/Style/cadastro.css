@@ -5,9 +5,12 @@
 }
 
 body {
-    overflow-x: hidden; /* Remove o scroll horizontal */
-    max-width: 100vw; /* Impede que o corpo ultrapasse a largura da viewport */
-    margin: 0; /* Remove margens externas */
+    overflow-x: hidden;
+    /* Remove o scroll horizontal */
+    max-width: 100vw;
+    /* Impede que o corpo ultrapasse a largura da viewport */
+    margin: 0;
+    /* Remove margens externas */
 }
 
 #section-cadastro {
@@ -47,7 +50,8 @@ h2 {
 .inputbox {
     position: relative;
     margin: 30px 0;
-    width: 310px; /* Largura em pixels */
+    width: 310px;
+    /* Largura em pixels */
     border-bottom: 2px solid white;
 }
 
@@ -63,11 +67,13 @@ h2 {
     background-color: transparent;
 }
 
-.inputbox input:focus ~ label,
-.inputbox input:not(:placeholder-shown) ~ label,
-.inputbox input:valid ~ label {
-    top: -5px; /* Move o label para cima */
-    font-size: 0.8rem; /* Ajusta o tamanho do texto */
+.inputbox input:focus~label,
+.inputbox input:not(:placeholder-shown)~label,
+.inputbox input:valid~label {
+    top: -5px;
+    /* Move o label para cima */
+    font-size: 0.8rem;
+    /* Ajusta o tamanho do texto */
 }
 
 .inputbox input {
@@ -127,7 +133,7 @@ button {
     text-decoration: underline;
 }
 
-.erros{
+.erros {
     color: white;
     display: none;
 }
@@ -136,14 +142,19 @@ button {
 @media (max-width: 920px) {
     body {
         overflow-x: hidden;
-        overflow-x: hidden !important; /* Evita o scroll horizontal */
-        overflow-y: auto !important; /* Permite o scroll vertical */
-        margin: 0; /* Remove margens externas */
-        max-width: 100vw; /* Garante que o corpo não ultrapasse a largura */
+        overflow-x: hidden !important;
+        /* Evita o scroll horizontal */
+        overflow-y: auto !important;
+        /* Permite o scroll vertical */
+        margin: 0;
+        /* Remove margens externas */
+        max-width: 100vw;
+        /* Garante que o corpo não ultrapasse a largura */
     }
 
     #section-Cadastro {
         display: flex;
+        gap: 20%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -155,34 +166,65 @@ button {
         padding: 20px;
     }
 
+
     .img img {
-         width: 100%; /* Adapta ao tamanho do contêiner */
-            max-width: 300px; /* Define um limite máximo */
-            height: auto; /* Mantém a proporção */
-            margin: 20px auto; /* Centraliza a imagem */
+        width: 190px;
+        /* Reduz a largura da imagem */
+        max-width: 250px;
+        /* Define um limite máximo */
+        height: auto;
+        /* Mantém a proporção da imagem */
+        margin: 0 auto;
+        /* Centraliza a imagem */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
     }
 
     .form-box {
-        display: flex;
-        flex-direction: column;
-        width: 80%; /* O formulário ocupa 100% da largura disponível */
-        max-width: 400px; /* Define um limite para não ficar muito grande */
-        padding: 20px;
+        height: 900%;
+        /* Ajusta a altura do campo de entrada */
+        width: 300px;
+        /* Largura do formulário */
+        padding: 10px;
+        /* Espaço interno do formulário */
+        margin: 0 auto;
+        /* Centraliza o formulário na tela */
         justify-content: center;
         align-items: center;
-        background-color: transparent;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    }
+
+    #email {
+        display: flex;
+    }
+
+    .inputbox {
+        display: flex;
+        width: 100%;
+
+    }
+
+    .h2-login {
+        color: black;
+
+    }
+
+    .h2-cadastro {
+        color: black;
     }
 
     .inputbox {
         display: flex;
         flex-direction: column;
-        width: 100%; /* Garante que os inputs se ajustem ao contêiner */
+        width: 100%;
+        /* Garante que os inputs se ajustem ao contêiner */
         margin-bottom: 15px;
     }
 
-    .h2-login, .h2-cadastro {
+    .h2-login,
+    .h2-cadastro {
         color: black;
         font-size: 1.5rem;
         margin-bottom: 20px;
@@ -199,10 +241,6 @@ button {
         cursor: pointer;
         font-size: 1em;
         font-weight: 600;
-    }
-
-    button:hover {
-        background: #45a049; /* Tom mais escuro */
     }
 
     .register {
