@@ -249,7 +249,7 @@ header {
     height: 20vh;
 }
 
-.conteiner-header .item {
+.conteiner-header .item2 {
     padding-bottom: 35px;
 }
 
@@ -779,7 +779,8 @@ hr {
     }
 
     #mostrarModal {
-        background-color: #000000;
+        background-color: white;
+        color: white;
     }
 
     .ph-list-plus {
@@ -795,7 +796,6 @@ hr {
 
     .modalResp {
         margin-left: auto;
-        padding-right: 30px;
         font-size: 2em;
     }
 
@@ -844,7 +844,6 @@ hr {
 
     /* Links de navegação */
     .sabiduria a {
-        font-size: 1.8em;
         color: #fff;
         text-decoration: none;
         padding: 15px;
@@ -910,6 +909,13 @@ hr {
     }
 
     .conteiner-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+    }
+
+    .item2{
         display: none;
     }
 

@@ -15,10 +15,10 @@ body {
     min-height: 100vh;
     width: 100%;
     gap: 20%;
-    background-image: url(../../img/login.jpeg); 
+    background-image: url(../../img/login.jpeg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .form-box {
@@ -28,7 +28,6 @@ body {
     background-color: transparent;
     border: 2px solid rgba(229, 217, 217, 0.5);
     border-radius: 40px;
-    backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +44,8 @@ h2 {
 .inputbox {
     position: relative;
     margin: 30px 0;
-    width: 310px; /* Adicionei 'px' para a largura */
+    width: 310px;
+    /* Adicionei 'px' para a largura */
     border-bottom: 2px solid white;
 }
 
@@ -60,11 +60,13 @@ h2 {
     transition: .5s;
 }
 
-.inputbox input:focus ~ label,
-.inputbox input:not(:placeholder-shown) ~ label,
-.inputbox input:valid ~ label {
-    top: -5px; /* Move o label para cima */
-    font-size: 0.8rem; /* Ajusta o tamanho do texto, se necessário */
+.inputbox input:focus~label,
+.inputbox input:not(:placeholder-shown)~label,
+.inputbox input:valid~label {
+    top: -5px;
+    /* Move o label para cima */
+    font-size: 0.8rem;
+    /* Ajusta o tamanho do texto, se necessário */
 }
 
 .inputbox input {
@@ -107,14 +109,19 @@ h2 {
 }
 
 .recuperar-senha {
-    background: none; /* Remove o fundo */
-    border: none; /* Remove a borda, se necessário */
-    color: #ffffff; /* Altera a cor do texto */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    font-weight: bold; /* Deixa o texto em negrito */
+    background: none;
+    /* Remove o fundo */
+    border: none;
+    /* Remove a borda, se necessário */
+    color: #ffffff;
+    /* Altera a cor do texto */
+    cursor: pointer;
+    /* Muda o cursor para indicar que é clicável */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
 }
 
-.recuperar{
+.recuperar {
     display: flex;
     justify-content: center;
 }
@@ -136,53 +143,66 @@ h2 {
     text-decoration: underline;
 }
 
-.erros{
+.erros {
     color: white;
     display: none;
 }
-@media (max-width: 920px) {
-    #section-login{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    background-image: url(../../img/login2.jpg);
-    background-color: black;
-    background-repeat: no-repeat;
-    background-position: center;
-   
 
-}
-.img img {
-    width: 193px; /* Reduz a largura da imagem */
-    max-width: 260px; /* Define um limite máximo */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 auto; /* Centraliza a imagem */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-}
-.form-box {
-    display: flex;
-    width: 80%; /* Faz o formulário ocupar 90% da largura da tela */
-    max-width: 400px; /* Define um limite máximo */
-    padding: 20px; /* Adiciona espaçamento interno */
-    justify-content: center;
-    align-items: center;
-}
-#email{
-    display: flex;
-}
-.inputbox{
-    display: flex;
-    width: 100%;
-    
-}
-.h2-login{
-    color: black;
-    
-}
+@media (max-width: 920px) {
+    #section-login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        background-image: url(../../img/login2.jpg);
+        background-color: black;
+        background-repeat: no-repeat;
+        background-position: center;
+
+
+    }
+
+    .img img {
+        width: 193px;
+        /* Reduz a largura da imagem */
+        max-width: 260px;
+        /* Define um limite máximo */
+        height: auto;
+        /* Mantém a proporção da imagem */
+        margin: 0 auto;
+        /* Centraliza a imagem */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+    }
+
+    .form-box {
+        display: flex;
+        width: 80%;
+        /* Faz o formulário ocupar 90% da largura da tela */
+        max-width: 400px;
+        /* Define um limite máximo */
+        padding: 20px;
+        /* Adiciona espaçamento interno */
+        justify-content: center;
+        align-items: center;
+    }
+
+    #email {
+        display: flex;
+    }
+
+    .inputbox {
+        display: flex;
+        width: 100%;
+
+    }
+
+    .h2-login {
+        color: black;
+
+    }
 
 }
