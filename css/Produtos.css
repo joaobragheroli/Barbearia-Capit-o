@@ -349,7 +349,7 @@ header {
   width: 100%;
 }
 
-.conteiner-header .item {
+.conteiner-header .itemIMG {
   padding-bottom: 35px;
 }
 
@@ -642,6 +642,10 @@ hr {
   display: none;
 }
 
+.modalResp{
+  display: none;
+}
+
 @media screen and (max-width: 920px) {
   #root {
     width: 100%;
@@ -731,6 +735,7 @@ hr {
     margin-left: auto;
     padding-right: 30px;
     font-size: 2em;
+    display: block;
   }
 
   .modalgeral {
@@ -829,6 +834,10 @@ hr {
     transform: scale(1.05);
   }
 
+  .conteiner-header i {
+    color: rgb(255, 255, 255);
+}
+
   button {
     width: 50;
     height: 50px;
@@ -843,9 +852,12 @@ hr {
 
   }
 
-  .conteiner-header {
+  .item{
     display: none;
-  }
+}
 
+.menu{
+    display: none;
+}
 
 }

@@ -249,7 +249,7 @@ header {
     height: 20vh;
 }
 
-.conteiner-header .item2 {
+.conteiner-header .itemIMG {
     padding-bottom: 35px;
 }
 
@@ -267,8 +267,7 @@ header {
 }
 
 .conteiner-header i {
-    color: black;
-    font-size: 20px;
+    color: rgb(255, 255, 255);
 }
 
 .button-login {
@@ -720,6 +719,10 @@ hr {
 
 }
 
+.modalResp{
+    display: none;
+}
+
 @media screen and (max-width: 920px) {
 
     .corpo-agendamento {
@@ -778,13 +781,9 @@ hr {
         height: 100%;
     }
 
-    #mostrarModal {
-        background-color: white;
-        color: white;
-    }
 
-    .ph-list-plus {
-        color: aliceblue;
+    .conteiner-header i {
+        color: rgb(255, 255, 255);
     }
 
     .nomePrincipal {
@@ -795,7 +794,7 @@ hr {
     }
 
     .modalResp {
-        margin-left: auto;
+        display: block;
         font-size: 2em;
     }
 
@@ -899,7 +898,7 @@ hr {
         width: 50px;
         height: 50px;
         font-size: 1em;
-        background-color: rgb(255, 255, 255);
+        background-color: transparent;
         border: 0;
     }
 
@@ -910,7 +909,7 @@ hr {
 
     .conteiner-header {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: 0px;
     }
@@ -923,6 +922,14 @@ hr {
         display: flex;
         flex-direction: column;
         width: 100vw;
+    }
+
+    .item{
+        display: none;
+    }
+
+    .menu{
+        display: none;
     }
 
 }

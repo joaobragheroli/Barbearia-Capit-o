@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/img.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/Produtos.css">
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="../script/menu.js" defer></script>
     <script defer src="../script/Troca_Login.js"></script>
     <title>Loja Barbeiro</title>
@@ -17,13 +17,44 @@
 
 <body>
 
-    <header>
+    <header class="menu-desktop">
         <div class="conteiner-header">
-            <div class="item">
+            <div class="modalResp">
+                <button id="mostrarModal">
+                    <i class="ph ph-list"></i>
+                </button>
+
+
+
+                <div class="modalgeral">
+                    <div class="sabiduria">
+                        <a href="Home.html">
+                            <p class="paginasResponsi">Home</p>
+                        </a>
+                        <a href="Produtos.html">
+                            <p class="paginasResponsi">Produtos</p>
+                        </a>
+                        <a href="Servicos.html">
+                            <p class="paginasResponsi">Serviços</p>
+                        </a>
+                        <a href="Agendamento.html">
+                            <p class="paginasResponsi">Agendamento</p>
+                        </a>
+                    </div>
+                    <div class="modalfechar">
+                        <a href="">
+                            <button class="tan" id="fecharModal">Fechar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemIMG">
                 <img src="../img/img.jpg" alt="Barbearia" height="100px">
             </div>
             <div class="item">
                 <nav class="menu">
+
                     <a href="../html/Home.html">Home</a>
                     <a href="../html/Produtos.html">Produtos</a>
                     <a href="../html/Servicos.html">Serviços</a>
@@ -32,7 +63,9 @@
                 </nav>
             </div>
 
+
             <div class="containeravatar">
+
                 <div class="user-avatar" id="user-avatar" onclick="toggleDropdown()">
                     <span id="user-initials"></span>
                     <div class="dropdown-content" id="dropdown-content" style="display: none;">
@@ -81,44 +114,12 @@
                         <button id="logout-button" onclick="logout()">Sair</button>
                     </div>
                 </div>
+                <a href="./Contas/login.html">
+                    <butto class="button-login">Entrar</button>
+                </a>
             </div>
 
-            <a id="agendamentos-link" href="./Contas/login.html">
-                <button class="button-login">Entrar</button>
-            </a>
-        </div>
 
-        <!-- Header Responsivo -->
-        <div class="headerResp">
-            <div class="modalResp">
-                <button id="mostrarModal">
-                    <i class="ph ph-list-plus"></i>
-                </button>
-
-
-
-                <div class="modalgeral">
-                    <div class="sabiduria">
-                        <a href="Home.html">
-                            <p class="paginasResponsi">Home</p>
-                        </a>
-                        <a href="Produtos.html">
-                            <p class="paginasResponsi">Produtos</p>
-                        </a>
-                        <a href="Servicos.html">
-                            <p class="paginasResponsi">Serviços</p>
-                        </a>
-                        <a href="Agendamento.html">
-                            <p class="paginasResponsi">Agendamento</p>
-                        </a>
-                    </div>
-                    <div class="modalfechar">
-                        <a href="">
-                            <button class="tan" id="fecharModal">Fechar</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 

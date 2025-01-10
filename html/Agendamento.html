@@ -16,14 +16,44 @@
 </head>
 
 <body>
-
-    <header>
+    <header class="menu-desktop">
         <div class="conteiner-header">
-            <div class="item">
+            <div class="modalResp">
+                <button id="mostrarModal">
+                    <i class="ph ph-list"></i>
+                </button>
+        
+        
+        
+                <div class="modalgeral">
+                    <div class="sabiduria">
+                        <a href="Home.html">
+                            <p class="paginasResponsi">Home</p>
+                        </a>
+                        <a href="Produtos.html">
+                            <p class="paginasResponsi">Produtos</p>
+                        </a>
+                        <a href="Servicos.html">
+                            <p class="paginasResponsi">Serviços</p>
+                        </a>
+                        <a href="Agendamento.html">
+                            <p class="paginasResponsi">Agendamento</p>
+                        </a>
+                    </div>
+                    <div class="modalfechar">
+                        <a href="">
+                            <button class="tan" id="fecharModal">Fechar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemIMG">
                 <img src="../img/img.jpg" alt="Barbearia" height="100px">
             </div>
-            <div class="item2">
+            <div class="item">
                 <nav class="menu">
+
                     <a href="../html/Home.html">Home</a>
                     <a href="../html/Produtos.html">Produtos</a>
                     <a href="../html/Servicos.html">Serviços</a>
@@ -32,7 +62,9 @@
                 </nav>
             </div>
 
+
             <div class="containeravatar">
+
                 <div class="user-avatar" id="user-avatar" onclick="toggleDropdown()">
                     <span id="user-initials"></span>
                     <div class="dropdown-content" id="dropdown-content" style="display: none;">
@@ -42,7 +74,7 @@
 
                         <div class="menu-paginas">
                             <!-- Faz a mudança de pagina o agendamentos-link -->
-                            <a href="#" class="menu-item" id="agendamentos-link" >
+                            <a href="#" class="menu-item" id="agendamentos-link">
                                 <ion-icon name="calendar-outline"></ion-icon>
                                 <div>
                                     <span>Agendamentos</span>
@@ -80,41 +112,15 @@
                         <button id="logout-button" onclick="logout()">Sair</button>
                     </div>
                 </div>
+                <a href="./Contas/login.html">
+                    <butto class="button-login">Entrar</button>
+                </a>
             </div>
 
-
-            <div class="modalResp">
-                <button id="mostrarModal">
-                    <i class="ph ph-list-plus"></i>
-                </button>
-                <div class="modalgeral">
-                    <div class="sabiduria">
-                        <a href="Home.html">
-                            <p class="paginasResponsi">Home</p>
-                        </a>
-                        <a href="Produtos.html">
-                            <p class="paginasResponsi">Produtos</p>
-                        </a>
-                        <a href="Servicos.html">
-                            <p class="paginasResponsi">Serviços</p>
-                        </a>
-                        <a href="Agendamento.html">
-                            <p class="paginasResponsi">Agendamento</p>
-                        </a>
-                        <a id="agendamentos-link" href="./Contas/login.html">
-                            <button class="button-login">Entrar</button>
-                        </a>
-                    </div>
-                    <div class="modalfechar">
-                        <a href="">
-                            <button class="tan" id="fecharModal">Fechar</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </header>
+
 
     <main class="corpo-agendamento">
         <div class="AgendamentoResponsi">

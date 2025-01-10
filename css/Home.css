@@ -257,7 +257,7 @@ header {
     height: 20vh;
 }
 
-.conteiner-header .item {
+.conteiner-header .itemIMG {
     padding-bottom: 35px;
 }
 
@@ -277,10 +277,7 @@ header {
     display: none;
 }
 
-.conteiner-header i {
-    color: black;
-    font-size: 20px;
-}
+
 
 .button-login {
     display: none;
@@ -686,6 +683,13 @@ section {
     display: none;
 }
 
+.item{
+    padding-bottom: 10vh;
+}
+
+.modalResp{
+    display: none;
+}
 
 @media screen and (max-width: 920px) {
 
@@ -733,9 +737,7 @@ section {
         background-color: black;
     }
 
-    .containeravatar{
-        margin-left: 50px;
-    }
+
 
     .conteiner-footer {
         display: flex;
@@ -753,9 +755,15 @@ section {
         height: 80px;
     }
 
+    .conteiner-header i {
+        color: rgb(255, 255, 255);
+    }
+
     .conteiner-header{
         padding-top: 0;
-        padding-left: 0;
+        padding-left: 3;
+        padding-right: 4;
+        justify-content: space-between; 
     }
 
     header {
@@ -817,9 +825,10 @@ section {
         background-color: #000000;
     }
 
-    .ph-list-plus {
-        color: aliceblue;
-    }
+
+    .icon-color i {
+        color: red; /* Altere 'red' para qualquer cor desejada */
+      }
 
     .nomePrincipal {
         display: flex;
@@ -828,11 +837,16 @@ section {
         font-size: 4em;
     }
 
+
     .modalResp {
-        margin-left: auto;
-        padding-right: 30px;
         font-size: 2em;
+        display: block;
     }
+
+    .conteiner-header .itemIMG {
+        padding-top: 35px;
+    }
+    
 
     .modalgeral {
         display: block;
@@ -879,7 +893,6 @@ section {
 
     /* Links de navegação */
     .sabiduria a {
-        font-size: 1.8em;
         color: #fff;
         text-decoration: none;
         padding: 15px;
@@ -943,7 +956,6 @@ section {
     .paginasResponsi {
         color: #ccc;
         padding-bottom: 15%;
-
     }
 
     .rating {
@@ -1086,6 +1098,10 @@ section {
     }
 
     .item{
+        display: none;
+    }
+
+    .menu{
         display: none;
     }
 }
