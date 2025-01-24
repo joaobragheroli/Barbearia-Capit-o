@@ -870,11 +870,19 @@ hr {
         margin-top: 40px;
     }
 
+    .conteiner-header{
+        padding-top: 0;
+        padding-left: 3px !important;
+        padding-right: 4px !important;
+        justify-content: space-between; 
+    }
+
+
     /* Botão de fechar */
     .tan {
         width: 150px;
         height: 50px;
-        font-size: 1.2em;
+        font-size: 1em;
         background-color: transparent;
         /* Cor chamativa para o botão */
         color: #fff;
@@ -930,6 +938,10 @@ hr {
 
     .menu{
         display: none;
+    }
+
+    .estrelasAbc{
+        padding-top: 25%;
     }
 
 }

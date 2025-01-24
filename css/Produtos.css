@@ -642,7 +642,7 @@ hr {
   display: none;
 }
 
-.modalResp{
+.modalResp {
   display: none;
 }
 
@@ -732,7 +732,6 @@ hr {
   }
 
   .modalResp {
-    margin-left: auto;
     padding-right: 30px;
     font-size: 2em;
     display: block;
@@ -802,6 +801,13 @@ hr {
     border-color: #000;
   }
 
+  .conteiner-header {
+    padding-top: 0;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    justify-content: space-between;
+  }
+
   /* Estilos para o botão de fechar */
   .modalfechar {
     width: 100%;
@@ -811,10 +817,10 @@ hr {
   }
 
   /* Botão de fechar */
-  .tan {
+  #tan {
     width: 150px;
     height: 50px;
-    font-size: 1.2em;
+    font-size: 1em;
     background-color: transparent;
     /* Cor chamativa para o botão */
     color: #fff;
@@ -825,6 +831,7 @@ hr {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    padding-bottom: 5%;
     /* Mostrar que é um botão clicável */
   }
 
@@ -836,7 +843,7 @@ hr {
 
   .conteiner-header i {
     color: rgb(255, 255, 255);
-}
+  }
 
   button {
     width: 50;
@@ -844,6 +851,7 @@ hr {
     font-size: 1em;
     background-color: black;
     border: 0;
+    padding: 0px;
   }
 
   .paginasResponsi {
@@ -852,12 +860,16 @@ hr {
 
   }
 
-  .item{
+  .item {
     display: none;
-}
+  }
 
-.menu{
+  .menu {
     display: none;
-}
+  }
+
+  .estrelasAbc {
+    padding-top: 25%;
+  }
 
 }
